@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/img/favicon-A1-c.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How I built my website</title>
+    <meta
+      name="description"
+      content="How jasontorresedd.com was designed and built with human work and Claude AI."
+    />
+    <link rel="stylesheet" href="/styling/awdev-style.css" />
+    <script src="/styling/awdev-script.js" defer></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <nav class="crumb" aria-label="Breadcrumb">
+        <a href="/index.html">jasontorresedd.com</a>
+        <span class="crumb__sep" aria-hidden="true">/</span>
+        <span class="crumb__here" aria-current="page"
+          >how-i-built-my-website</span
+        >
+      </nav>
+
+      <header class="hero">
+        <p class="hero__kicker">the backstory</p>
+        <h1>How I built my website</h1>
+        <p class="hero__lede">
+          The development of this website can be summed up with one phrase, <q><b>necessity is the mother of invention</b></q>. In my case, I needed a new portfolio website and I needed a solution that incurred minimal cost to develop and maintain. It would be best too if I could control it 💯&percnt;.
+        </p>
+
+        <p class="hero__lede">
+          In the past, I have partially developed websites, but always opted to pay for a service such as
+          <a href="https://www.squarespace.com/" target="_blank" rel="noopener noreferrer">Squarespace</a> or
+          <a href="https://obsidian.md/publish" target="_blank" rel="noopener noreferrer">Obsidian Publish</a>. The problem was a lack of control, template constraints, and diminishing features. In early June 2026 I was looking at a service renewal for Obsidian Publish and really did not want to continue. So I decided to cancel my service and finally use my front-end web development skills to build my own website from scratch partnering with Anthropic Claude. This page is the story of building this website.
+        </p>
+        <button type="button" class="tldr-btn" id="tldr-open">TL;DR</button>
+      </header>
+
+      <dialog class="tldr-viewer" id="tldr-viewer">
+        <header class="tldr-viewer__titlebar">
+          <span class="tldr-viewer__caption">TL;DR</span>
+          <button
+            class="tldr-viewer__close"
+            type="button"
+            id="tldr-close"
+            aria-label="Close"
+          >
+            [ &#88; ]
+          </button>
+        </header>
+        <div class="tldr-viewer__body" id="tldr-body">
+          <p>
+            This website is human-AI built with pure HTML, CSS, JavaScript, and no frameworks. I began this development project in June 2026 out of a need for a new portfolio website and a desire to stop paying for a web service. So I decided to build a site from scratch with Claude AI. I discovered examples but found the most admiration in Jocelyn Shen's portfolio. I refreshed my knowledge of web development with tutorials from Coder Coder, worked with Claude Design to create a color palette, wireframed with Figma, and wrote a full specification before development. I leaned on Claude to check my structure, solve for features I imagined, and draft CSS and JS faster than I could do alone. While I wrote all of the website content, Claude helped ensure that I built the site design I wanted.
+          </p>
+        </div>
+      </dialog>
+
+      <hr class="spectrum-rule" aria-hidden="true" />
+
+      <main>
+        <section class="build" aria-label="How the site was built">
+          <ol class="phases">
+            <li class="phases__item phases__item--teal">
+              <p class="phases__kicker">phase 01</p>
+              <h2>Inspiration and fundamentals</h2>
+              <p>
+                In late-May to early-June 2026 I began to think hard about the goals for a website and what kind of content I wanted to include in a build. I knew that I wanted to achieve the following:
+                <ol class="list__indent-num">
+                  <li><span class="marker-green">Fully build a full website using pure HTML, CSS, JS, and no
+                  frameworks;</span></li>
+                  <li><span class="marker-green">Create a portfolio with a story and places to expand out;</span></li>
+                  <li><span class="marker-green">Use the opportunity to work with and learn collaborating with AI for design and coding;</span></li>
+                  <li><span class="marker-green">Keep the immediate build and future maintenance cost minimal; and</span></li>
+                  <li><span class="marker-green">At the end, feel that I could be proud of it.</span></li>
+                </ol>
+              </p>
+              <h3>Discovery and study of a model</h3>
+              <p>
+                I was browsing the web one day in June looking for some research on AI and human-centeredness. Somehow I came across the portfolio website for <a href="https://jocelynshen.com/ "target="_blank" rel="noopener noreferrer">Jocelyn Shen</a>. She's clearly a very impressive person. But I loved the simplicity of her layout and the clear story it told of her as
+                professional and person. In the process of reviewing and thinking about her design, I discovered that she borrowed the layout from <a href="https://catherinesyeh.github.io/" target="_blank" rel="noopener noreferrer">Catherine Yeh</a>, another impressive person. I thought about how these sites felt against my goals. It was very close with the second goal.
+                But when I realized these were hosted for free on GitHub Pages, they not only aligned with my fourth goal, but also made me decide that <b><em>I can and should fully build this myself</em></b>. So as any front-end web developer does, I began to inspect the code and understand how it was structured.
+              </p>
+              <h3>Reorienting my CSS skills</h3>
+              <p>
+                With the decision that I was going to
+                <b>build this website myself</b>, I then began to search for YouTubers to both refresh and learn something new from. The best YouTuber I found was <a href="https://coder-coder.com/ "target="_blank" rel="noopener noreferrer">Coder Coder</a> &mdash; <a href="https://www.youtube.com/@TheCoderCoder" target="_blank" rel="noopener noreferrer">YouTube channel</a>. She's a front-end web developer who produces videos for web development newbies. But equally good for people like me who haven't used the skills in a while. From her I learned how I should setup my GitHub, my VS Coder environment, and how to construct the responsive top horizontal navigation I wanted. Probably the most helpful video I watched of hers was <a href="https://www.youtube.com/watch?v=wGVOtu0DoKk&t" target="_blank" rel="noopener noreferrer"><em>Build a responsive website with HTML, CSS, JS</em></a>. Working along with her and just building and playing with CSS really helped me to see how much CSS has changed over the years and how to frame my thinking for it.
+              </p>
+            </li>
+
+            <li class="phases__item phases__item--blue">
+              <p class="phases__kicker">phase 02</p>
+              <h2>Creating the design</h2>
+              <p>
+                With some inspiration at hand and exploration of other portfolio
+                sites &mdash; many of which were not that impressive &mdash; I
+                took a little time away from the project to think about my next
+                steps and continue to apply for jobs. As I decided to build
+                this, I have been without steady employment for a year after
+                being laid off from my previous employer. 🙁 But building makes
+                me feel happy and I know I'll be back to working hard again in
+                the future. 😃 So just like when doing research and writing a
+                paper, walking away for a bit was key to letting my mind settle
+                and allow ideas to percolate.
+              </p>
+              <h3>Selecting colors</h3>
+              <p>
+                When I returned, I decided to start by selecting my colors. I
+                needed to know this in order to set the tone and mood. From
+                previous design work, I this is important to settle early. The
+                trouble for me was deciding between a palette driven by blues or
+                purples. I love the creativity of purple, but I equally love the
+                comfort of blue. To create palettes I worked with Claude Design
+                and created 3 palettes: 1 blue, 1 purple, and 1 green. I felt
+                the colors were settled, and that I would help me decide the
+                direction to go when creating the layout.
+              </p>
+              <h3>Wireframing in Figma</h3>
+              <p>
+                With 3 color palettes in my mind, I knew I needed to create a
+                wireframe that could help me literally frame the direction. But
+                this would also help me communicate with Claude my direction. I
+                decided it would be best to use Figma to do this. I had never
+                used Figma before but found it easy to wireframe a site. Still,
+                there were some bugs due to my unfamiliarity with laying in the
+                tool, so I installed Claude Code and used the
+                <a
+                  href="https://help.figma.com/hc/en-us/articles/39888612464151-Claude-Code-and-Figma-Set-up-the-MCP-server#h_01KPPEJMXTZGNJS32R62SCME0S"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Figma MCP server</a
+                >
+                to connect my account. With this done, I worked with Claude in
+                Terminal to fix the layout proportions and measurements. Working
+                like this, I was able to get my wireframe to about 90&percnt;
+                complete before I hit the MCP server limit and Figma wanted me
+                to subscribe. All that was left were a few measurements that I
+                could fix myself (now that I understood the layering) and the
+                draft timeline at the end of the page. This was good enough and
+                knew I could complete the rest without a subscription.
+              </p>
+              <h3>Creating the design system</h3>
+              <p>
+                Once the wireframe was done, I returned back to my color
+                palettes and decided blue was going to be it. Additionally, I
+                wanted to soften the blues and create additional related blue
+                background colors, and supporting colors for hover-overs and
+                highlighting. I returned to Claude Design, picked up where the
+                chat left off, and nailed down the
+                <a
+                  href="/colors/Azure_Color-Palette_v2.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >the blue palette</a
+                >.
+              </p>
+              <p>
+                Next I went back to my working HTML and CSS files I built with
+                the Coder Coder videos to decide on the fonts I wanted. Using
+                <a
+                  href="https://fonts.google.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Google Fonts</a
+                >
+                I explored and decided on 3 fonts. One for headers, one for
+                body, and one for monospace. Knowing that I wanted to make font
+                use GDPR compliant (i.e., no remote linking of fonts in pages),
+                I then went to
+                <a
+                  href="https://gwfh.mranftl.com/fonts"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >google-webfonts-helper</a
+                >
+                to download the specific fonts I wanted aligned with my
+                wireframe and related CSS to include in my stylesheet. (Note: I
+                knew the fonts I wanted from working with Figma.)
+              </p>
+              <p>At this point, I had the basic building blocks for style.</p>
+              <h3>Developing draft Claude instructions</h3>
+              <p>
+                <span class="marker-blue"
+                  >When working with AI,
+                  <b>context and human know-how are everything</b></span
+                >. This cannot be understated. Over the past couple of years,
+                I've learned to develop meaningful instructions for how to guide
+                AI. I knew this project would be different from what I've done
+                in the past, but created the first draft instructions, a new
+                project in my Claude App, and input the instructions there.
+              </p>
+              <h3>Exploration with Claude</h3>
+              <p>
+                Now it was time to go back to the beginning and study the
+                models. I had previously dug into them with the Chrome Inspector
+                tools. I could mostly read them, but felt impeded by the machine
+                junk throughout. It was in this conversation where Claude helped
+                me to understand that &gt;50&percnt; of the code was built with
+                <a
+                  href="https://mantine.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Mantine components</a
+                >. Just junk and it was a headache. But by viewing the models in
+                Google Inspector in one window, and my Claude App in another, I
+                was able to make sense of the structure and orient my mind in
+                the direction I wanted to go. It would be somewhat similar, but
+                <b>very different</b>. And most importantly, in alignment with
+                my first goal, I would not have any machine junk.
+              </p>
+            </li>
+
+            <li class="phases__item phases__item--purple">
+              <p class="phases__kicker">phase 03</p>
+              <h2>Laying the groundwork</h2>
+              <p>
+                Prior to this I took a few days off from this project. As stated
+                before, walking away is a good thing so that ideas settle down
+                and new ideas can rise up. In the middle of this, I discovered a
+                small Mac application called
+                <a
+                  href="https://github.com/pingfan-hu/MiniNotes"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >MiniNotes</a
+                >
+                that was exactly something I have been seeking for a while. I
+                never meet the developer,
+                <a
+                  href="https://pingfanhu.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Pingfan Hu</a
+                >, but knew of him through a common person. We ended up
+                connecting and in the midst of talking about his app MiniNotes
+                we discussed the development of his website and his
+                <b>CLAUDE.md</b> file structure. I've seen other instruction
+                files people have created for Claude and they all read like
+                notes slapped together. His instructions however had structure
+                that read good for a machine and easy for a human. So I thanked
+                him for openly sharing those and told him I was going to emulate
+                his work when making my own Claude instructions.
+              </p>
+              <h3>GitHub, VS Code, and Claude</h3>
+              <p>
+                At this point it was time to prepare for development. First, I
+                went back and refreshed my <b>README.md</b> file on GitHub and
+                created the website repository. I then installed GitHub desktop
+                and setup the repository in my local system. For VS Code, I
+                largely had this setup already with my preferred extensions
+                &mdash;
+                <a
+                  href="https://prettier.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Prettier</a
+                >,
+                <a
+                  href="https://github.com/ritwickdey/vscode-live-server"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Live Server</a
+                >, and SVG. I just needed to link my Claude and GitHub accounts.
+                All easy.
+              </p>
+              <h3>Developing final Claude instructions</h3>
+              <p>
+                With the development environment setup, I went back to revise my
+                Claude instructions for both the App and Code using Pingfan's
+                work as a reference point. <span class="marker-purple">I wrote new markdown files that aimed
+                to provide Claude specifications.</span> I included the following: 1)
+                Project overview; 2) Project development objective; 3) Notes on
+                my inspiration models; 4) Description of goal for human readable
+                HTML, CSS, and JS; 5) Webpage architecture, detailed content
+                sections with notes on style; 6) Configuration of my repository;
+                7) Thematic elements with measurements, colors, fonts; and 8)
+                How this would be deployed. I then overwrote the existing
+                instructions in the Claude App project with the new
+                instructions, and created a new <b>CLAUDE.md</b> that I added to
+                my project repository.
+              </p>
+            </li>
+
+            <li class="phases__item phases__item--magenta">
+              <p class="phases__kicker">phase 04</p>
+              <h2>Building the pages</h2>
+              <p>
+                This was the most challenging part of the project and by far the
+                <em>most fun</em>.
+                <span class="marker-pink"
+                  >To be clear, the development of this site was
+                  <b>not vibe coded</b></span
+                >. Before getting to this part I had created a full plan, a
+                design, documented specifications with measurements, and had a
+                lot of existing content written. Plus I had a strong sense of
+                how I would structure the HTML and had examples of structure
+                from my inspirational model. And as per my third goal, I wanted
+                to
+                <em
+                  >use the opportunity to work with and learn collaborating with
+                  AI for design and coding</em
+                >.
+                <span class="marker-pink"
+                  >I didn't want it to fully build the website for me. If I
+                  tried that, it would be difficult to maintain because I didn't
+                  grapple with the structure, nor would I understand the IDs and
+                  classes in the HTML and CSS.</span
+                >
+              </p>
+              <h3>The homepage</h3>
+              <p>
+                Anyone who's built a website knows that styling is worthless
+                without content. As I got started building the homepage, I
+                focused about 90&percnt; on structuring the HTML and filling in content
+                along the way. The other 10&percnt; was in the CSS, but only as far as
+                defining layers, adding in empty tags for classes I was
+                defining, and inserting blocks I learned from Coder Coder on
+                <a href="https://www.accessibility-developer-guide.com" target="_blank" rel="noopener noreferrer">accessibility</a>.
+              </p>
+              <p>
+                I wrote this page from top to bottom &mdash; navigation, hero
+                section, content sections, and section content in that order.
+                Working with Claude as I developed the navigation and hero
+                section, I used its help to ensure the webpage would be
+                responsive at the break points I identified during my
+                exploration work. The buttons were another piece that took some
+                time early on. I first thought the old-way of using images of
+                the LinkedIn and GitHub logos, plus a document icon, but
+                ultimately realized that would be silly and could easily
+                leverage SVGs. I even played with the idea of using old style
+                <a href="https://btxx.org/posts/aui/" target="_blank" rel="noopener noreferrer">Aqua buttons</a>. Nonetheless, I found an example style I liked,
+                took a screenshot, shared the PNG with Claude and iterated on
+                building it. Like the way all parts of working with Claude went,
+                I would describe, give examples, iterate, then ultimately work
+                with the code myself.
+              </p>
+              <p>
+                The Card Box was fun. What you see in the <em>Experience &plus;
+                Portfolio</em> and <em>Collections</em> sections are far from the original.
+                Claude suggested colorized images, B&amp;W content areas, and a
+                lifting effect as opposed to scaling. Images for these were
+                pulled from my own stock and web resources. Over the course of
+                1-2 days, I structured and wrote the HTML out for all sections
+                except the timeline. Then over another 1-2 days, I worked with
+                Claude the generate the CSS to style this according to my
+                specifications and wireframe.
+              </p>
+              <h3>Standard subpages</h3>
+              <p>
+                Sometime in the middle of writing and styling the homepage, I
+                decided that I needed a template for subpages for the
+                <em>Experience &plus; Portfolio</em> and
+                <em>Collections</em> sections. Up until that point, I thought
+                that I would just use each box to show 1 resource. So late one
+                evening, I opened my Claude App and started a conversation with
+                using <a href="https://www.anthropic.com/claude/fable" target="_blank" rel="noopener noreferrer">Fable</a>. I described 2 different ideas &mdash; one was a
+                serious idea and another was for fun. Using my description and
+                general site specifications, it came back with 90% of the
+                subpage layout you see on this site. I was excited! The other
+                example it came back with was a terminal computer theme in green
+                and black that I love! (Maybe I'll find a way to use it.)
+              </p>
+              <p>
+                With a subpage template generated, I put it aside and worked on
+                completing the full content and styling of the homepage except
+                the timeline. When that was done, I went back to the subpage CSS
+                and began comparing it to my primary CSS. They were very
+                different, but had bits of similarity. So I spent a full
+                afternoon aligning these. It was a bit unnecessary, but I wanted
+                to be able to read the documents interchangeably and use common
+                classes so that updating down the road would be easier.
+              </p>
+              <p>
+                Once the subpage templates (HTML and CSS) were done, I
+                established the subpages and wrote the page content in order
+                from most recent experience to earliest. I completed this over 2
+                days. I used Claude to help me build embedded slide deck
+                elements using
+                <a
+                  href="https://github.com/mozilla/pdf.js"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >PDF.js</a
+                >
+                and create the pop-up PDF viewer. Overall, Claude was
+                instrumental in helping me write and correct CSS, write JS, and
+                create greater consistency across CSS files.
+              </p>
+              <p>
+                Finally, some pages contain small embedded videos. For each of these I used <a href="https://www.ffmpeg.org/" target="_blank" rel="noopener noreferrer">FFmpeg</a> in Terminal as my production tool. In one case, I sped up a video by 4&times; after removing the audio in <a href="https://handbrake.fr/" target="_blank" rel="noopener noreferrer">Handbrake</a> and in another case I used it to create small videos from still images showing each image for 2 seconds. (<a href="https://support.apple.com/guide/quicktime-player/create-a-movie-with-an-image-sequence-qtp315cce984/mac" target="_blank" rel="noopener noreferrer">Quicktime</a> is very poor at this.)
+              </p>
+              <h3>The homepage timeline</h3>
+              <p>
+                Over some break time while building the subpages, I began to do research into potential timeline styles. I first explored YouTube and while I found a few useful videos, the styles were boring. So I did a bit more searching and found this site <a href="https://freefrontend.com/css-timelines/" target="_blank" rel="noopener noreferrer">FreeFrontend</a> that gave multiple visual examples of timelines, including example HTML, CSS, and JS. So I found a good idea and saved it.
+              </p>
+              <p>
+                When the subpages were completed, I came back to the <em>Professional Journey</em> section of my homepage. This was the home for the timeline. Working with Claude Fable in the App, files, and my current primary CSS stylizing for the homepage. I then described to it what I wanted to do. It created an example, I opened it separately and reviewed it, and then we did some iteration. I then took those files into my VS environment and worked with Claude in VS to incorporate the HTML, CSS, and JS into my project files. You might wonder why I did it this way
+                rather than work directly in VS with Claude. The answer is old habits of maximum protection of on-going work and because I like the conversational environment in the App.
+              </p>
+              <p>
+                Once the timeline was incorporated on the homepage, I began to fill-in content. For the images in each card, I used PowerPoint to create simple slides for GA, MCPS, GIFT, and UT. The images
+                for GWU, BAH, and IMF were started with a still photo then with colorization generated by Claude Opus in the App. The image for China is one from my office more than 20 years ago.
+              </p>
+              <p>
+                Completing this element took quite a while due to iteration and the image work I had to do without access to Photoshop.
+              </p>
+              <h3>Nearly complete&hellip;</h3>
+              <p>
+                At this point the only major section left was <em>Collections</em> on the homepage. But this I could build after launch. So I used Claude to help me insert, size, and overlay a construction themed image with the word <q>Developing</q> in the center.
+              </p>
+              <h3><q>How I built my website</q></h3>
+              <p>
+                As I began to get ready for launch, I thought it would be great if I could describe how I built this website to anyone who's viewing it and/or wondering how I did it with an AI partner. So two days before launch I worked again with Claude Fable one evening to draft the page layout you see. Well not exactly this page. Based on my description, it created 2 different templates. In reviewing these I decided to integrate elements of each. <span class="marker-pink">This page design is the result of me directing that integration, and then working further with the CSS on my own to make a new page different from the rest of this
+                website.</span>
+              </p>
+            </li>
+
+            <li class="phases__item phases__item--orange">
+              <p class="phases__kicker">phase 05</p>
+              <h2>Deployment to GitHub Pages</h2>
+              <p>
+                Prior to deployment on GitHub, I removed multiple unneeded folders in this project. These folders contained example code, templates, and wireframe images. I have already insured that my
+                domain is correctly linked to GitHub Pages, so it is more or less a matter of hoping that all goes well.
+              </p>
+              <p>
+                Maintenance of this website will be done locally with changes uploaded via GitHub desktop or within VS Code. The most exciting part of this though is that hosting will be free and I have full control. I'm also going to leave the pages publicly accessible so that anyone can learn and borrow from them.
+              </p>
+            </li>
+
+            <li class="phases__item phases__item--yellow">
+              <p class="phases__kicker">phase 06</p>
+              <h2>Some things that I learned</h2>
+              <p>
+                Overall, this project was full of lessons learned. Below is a list of few of those important ones. Many relate to working with Claude as a co-developer.
+              </p>
+              <br />
+              <ul class="list__indent">
+                <li>
+                  <b>Context is everything</b> &mdash;<br />There's a reason why I constantly read how often poor results come from vibe coding. It's because there isn't enough context. It's just a
+                  meandering conversation. <span class="marker-yellow">Take the time before you start the project the document specifications. Structure these for AI to read, but truly do this for yourself so that you know the direction you want to go.</span> AI is not a magical tool and it cannot read your mind. Fundamental to good AI use is human know how and critical thinking.
+                </li>
+                <li>
+                  <b>On naming and organizing classes</b> &mdash;<br />Sometimes Claude will use logical naming for CSS classes, and sometimes it will simply tie the naming to the name of the file you are generating together. Rather than going through all the classes and correcting them yourself, you can ask Claude to take a step back into rename classes within the HTML and CSS in a logical way to the structure of the site. It works best if it has previous work to reference.
+                </li>
+                <li>
+                  <b>On aligning CSS layers and tags</b> &mdash;<br />At one point, I tried to get Claude to align two different sets of CSS for me. It came back and told me how big of a project this was and how instead it would just do some simple things. I found this a bit surprising, but in the end I didn't really care because it forced me to look at the files side-by-side myself. By doing this not only could I re-organize it well for myself, but I also learned it better.
+                </li>
+                <li>
+                  <b>Use code examples to communicate with AI</b> &mdash;<br />Simply describing what you see with Claude can work, but <span class="marker-yellow">it is far more effective to use code examples</span>. So do your research, make your own design desicions, and share what you see as the best examples. Use Markdown files to share and either put them in a folder within the project, or attach them to your conversation.
+                </li>
+                <li>
+                  <b>Use "&commat;" when communicating in the chat</b> &mdash;<br />When working with Claude code in VS, it will by default look at whatever page you are also looking at. But if you use the &commat;, you can ask it to look at multiple files across your project with you. <span class="marker-yellow">Just be thoughtful in the linear steps you want to take when doing this. Such as describe the order of the files it looks at reflecting the order you want it to go.</span
+                  >
+                </li>
+                <li>
+                  <b>Communicate by specific lines in VS</b> &mdash;<br /> Another useful tip with the item above, is to <span class="marker-yellow">direct Claude to look at specific lines in your code</span> rather than saying, look at something in this file. You can direct it to look at certain classes, but I found line requests most effective.
+                </li>
+                <li>
+                  <b>Don't let AI write the content for you</b> &mdash;<br /> <span class="marker-yellow">Every bit of content written on this website was written by me.</span> A website should represent you and tell the story of you that you want to tell. AI is not going to do that for you. The best use of AI in web development will be in building structure, creating style, and building components that you use within the site or again elsewhere. But definitely not the content itself.
+                </li>
+                <li>
+                  <b>Routinely test different screen sizes</b> &mdash;<br />I primarily work with a side monitor in vertical position. This is specifically for a web browser. <span class="marker-yellow">As you develop be sure to regualarly check between different views.</span> In my case, I discovered some problems with how I managed cards at 16:9 and 4:3 ratios. Fortunately, it was easy to fix and did not impact my overall design decisions.
+                </li>
+                <li>
+                  <b>An Claude AI subscription is worth it</b> &mdash;<br />It took me a few weeks to design this site as I studied, made decisions on design elements, explored possibilities, and walked away and came back to the work. However, <span class="marker-yellow">actual development took about two weeks</span>. It's been many years since I wrote all of my own website. The beauty of AI is that it helped me to do this in two weeks whereas in the past, if I did this myself, it would've taken a few months. That itself is just amazing! The only reoccurring cost I will have going forward is my domain.
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </section>
+
+        <hr class="spectrum-rule" aria-hidden="true" />
+
+        <section class="particulars">
+          <h2>Details summary</h2>
+          <dl class="particulars__list">
+            <div class="particulars__row">
+              <dt>inspired by</dt>
+              <dd>
+                <a href="https://jocelynshen.com">Jocelyn Shen</a>
+              </dd>
+            </div>
+            <div class="particulars__row">
+              <dt>developed</dt>
+              <dd>July 18-31, 2026</dd>
+            </div>
+            <div class="particulars__row">
+              <dt>languages</dt>
+              <dd>HTML &middot; CSS &middot; JavaScript</dd>
+            </div>
+            <div class="particulars__row">
+              <dt>wireframing</dt>
+              <dd>
+                <a
+                  href="https://www.figma.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Figma</a
+                >
+              </dd>
+            </div>
+            <div class="particulars__row">
+              <dt>typefaces</dt>
+              <dd>
+                <a
+                  href="https://fonts.google.com/specimen/Google+Sans+Flex?preview.script=Latn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Google Sans Flex</a
+                >
+                &middot;
+                <a
+                  href="https://fonts.google.com/specimen/Roboto+Mono"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Roboto Mono</a
+                >
+                &middot;
+                <a
+                  href="https://fonts.google.com/specimen/Rubik"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Rubik</a
+                >
+              </dd>
+            </div>
+            <div class="particulars__row">
+              <dt>software used</dt>
+              <dd>
+                <a
+                  href="https://code.visualstudio.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >VS Code</a
+                >
+                &middot;
+                <a
+                  href="https://imageoptim.com/mac"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >ImageOptim</a
+                >
+                &middot;
+                <a
+                  href="https://pdfexpert.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >PDF Expert</a
+                >
+                &middot;
+                <a
+                  href="https://www.ffmpeg.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >FFmpeg</a
+                >
+              </dd>
+            </div>
+            <div class="particulars__row">
+              <dt>AI tools used</dt>
+              <dd>
+                <a
+                  href="https://claude.com/product/overview"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Claude AI</a
+                >
+                in App &amp;
+                <a
+                  href="https://claude.com/product/claude-code"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  >Code</a
+                >
+                (Fable 5, Opus 5/4.8, Sonnet 5/4.8)
+              </dd>
+            </div>
+            <div class="particulars__row">
+              <dt>development cost</dt>
+              <dd>
+                &dollar;31 USD (&dollar;20/mo USD subscription &plus; &dollar;11
+                USD usage credits)
+              </dd>
+            </div>
+            <div class="particulars__row">
+              <dt>hosted on</dt>
+              <dd>GitHub Pages</dd>
+            </div>
+            <div class="particulars__row">
+              <dt>launched</dt>
+              <dd>August 3, 2026</dd>
+            </div>
+          </dl>
+        </section>
+
+        <a class="return" href="/index.html">&larr; Return to the homepage</a>
+      </main>
+    </div>
+  </body>
+</html>
