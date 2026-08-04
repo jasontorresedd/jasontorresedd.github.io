@@ -66,15 +66,15 @@
     --fw-bold: 700;
 
     /* Font sizes */
-    --fs-nav: 13px;
-    --fs-contact: 18px;
-    --fs-tag: 24px;
-    --fs-h1: 48px;
-    --fs-h2: 32px;
-    --fs-h3: 24px;
-    --fs-h4: 20px;
-    --fs-h5: 16px;
-    --fs-p: 16px;
+    --fs-nav: 0.8125rem;
+    --fs-contact: 1.125rem;
+    --fs-tag: 1.5rem;
+    --fs-h1: 3rem;
+    --fs-h2: 2rem;
+    --fs-h3: 1.5rem;
+    --fs-h4: 1.25rem;
+    --fs-h5: 1rem;
+    --fs-p: 1rem;
   }
   /* End — Type Scale */
 
@@ -154,7 +154,7 @@
 
   body {
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: var(--fs-p);
     line-height: 1.6;
     color: var(--color-body-text);
     background: var(--color-bg-section);
@@ -222,7 +222,7 @@
     color: #ffffff;
     font-weight: 700;
     font-style: normal;
-    font-size: 14px;
+    font-size: 0.875rem;
     text-align: center;
   }
 
@@ -231,7 +231,7 @@
     padding: 1.25rem 1.5rem;
     background-color: var(--color-bg-light);
     color: var(--color-body-text);
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.7;
   }
 
@@ -422,7 +422,7 @@
 
   .img-cap-right-v figcaption {
     font-style: italic;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #7f8590;
     text-align: left;
     margin-top: 8px;
@@ -457,16 +457,16 @@
 
   @media (max-width: 992px) {
     h1 {
-      font-size: 40px;
+      font-size: 2.5rem;
     }
   }
 
   @media (max-width: 767px) {
     h1 {
-      font-size: 32px;
+      font-size: 2rem;
     }
     h2 {
-      font-size: 26px;
+      font-size: 1.625rem;
     }
   }
 }
@@ -550,7 +550,7 @@
     margin: 0;
     font-family: var(--font-body);
     font-weight: var(--fw-regular);
-    font-size: 14px;
+    font-size: 0.825rem;
     line-height: 1.6;
   }
 
@@ -585,7 +585,7 @@
   /* Start — Breadcrumb */
   .breadcrumb {
     font-family: var(--font-mono);
-    font-size: 13px;
+    font-size: 0.8125rem;
     margin-bottom: 40px;
     display: flex;
     flex-wrap: wrap;
@@ -608,7 +608,7 @@
   /* Start — Hero Meta (tag + lede) */
   .hero-tag {
     font-family: var(--font-mono);
-    font-size: 18px;
+    font-size: 1.125rem;
     color: var(--color-accent);
     margin-top: 8px;
   }
@@ -616,7 +616,7 @@
   .hero__lede {
     margin-top: 20px;
     padding-right: 30%;
-    font-size: 18px;
+    font-size: 1.125rem;
   }
   /* End — Hero Meta */
 
@@ -676,14 +676,14 @@
   .card-title {
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 15px;
+    font-size: 0.9375rem;
     color: #ffffff;
   }
 
   .card-sub {
     font-family: var(--font-heading);
     font-weight: var(--fw-regular);
-    font-size: 13px;
+    font-size: 0.8125rem;
     color: var(--color-nav-text);
     margin-top: 4px;
     transition: color 0.25s ease;
@@ -755,12 +755,12 @@
   .viewer-caption {
     font-family: var(--font-heading);
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.125rem;
   }
 
   .viewer-close {
     font-family: var(--font-mono);
-    font-size: 16px;
+    font-size: 1rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -797,7 +797,7 @@
 
   .viewer-status {
     font-family: var(--font-mono);
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--color-bg-dark);
     align-self: center;
     padding: 24px 0;
@@ -808,7 +808,7 @@
     flex: none;
     text-align: center;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 0.6875rem;
     color: var(--color-nav-text);
     background: var(--color-bg-dark);
     padding: 8px 16px;
@@ -854,7 +854,7 @@
     border-radius: 50%;
     background: rgba(14, 27, 61, 0.55);
     color: var(--color-nav-text);
-    font-size: 18px;
+    font-size: 1.125rem;
     line-height: 1;
     cursor: pointer;
     transition:
@@ -881,7 +881,7 @@
     right: 12px;
     bottom: 10px;
     font-family: var(--font-mono);
-    font-size: 11px;
+    font-size: 0.6875rem;
     color: var(--color-nav-text);
     background: rgba(14, 27, 61, 0.55);
     padding: 2px 8px;
