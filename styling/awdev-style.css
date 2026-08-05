@@ -352,6 +352,90 @@
 }
 
 @layer component {
+  /* ---------- Progress bar ---------- */
+  /* Fixed, centered pill that fades in once the user starts scrolling. Uses the spectrum gradient, has a dark bezel and glossy fill. Bar shows percent value of progress down the page. */
+  .progress-perch {
+    --gauge-w: 380px;
+    --gauge-h: 14px;
+    --gauge-r: calc(var(--gauge-h) / 2);
+    --gauge-b: 2px;
+
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    z-index: 100;
+    transform: translateX(-50%) translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .progress-perch.is-visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .progress-gauge {
+    position: relative;
+    box-sizing: border-box;
+    width: var(--gauge-w);
+    height: var(--gauge-h);
+    border: solid var(--gauge-b) var(--ink-heading);
+    border-radius: var(--gauge-r);
+    background: linear-gradient(#0a1228, #1b2745);
+    overflow: hidden;
+  }
+
+  .progress-gauge__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0%;
+    border-radius: calc(var(--gauge-r) - var(--gauge-b));
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 85%),
+      var(--spec-gradient);
+    background-size:
+      var(--gauge-w) 100%,
+      var(--gauge-w) 100%;
+    background-position:
+      left top,
+      left top;
+    transition: width 0.1s linear;
+  }
+
+  .progress-gauge__pct {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+  }
+
+  @media (max-width: 767px) {
+    .progress-perch {
+      --gauge-w: min(70vw, 280px);
+      top: 10px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .progress-perch,
+    .progress-gauge__fill {
+      transition: none;
+    }
+  }
+
   /* ---------- Breadcrumb ---------- */
   .crumb {
     padding-block: 28px 0;

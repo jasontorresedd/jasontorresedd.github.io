@@ -13,6 +13,21 @@
   </head>
 
   <body>
+    <div class="progress-perch" id="progress-perch">
+      <div
+        class="progress-gauge"
+        id="reading-progress"
+        role="progressbar"
+        aria-label="Reading progress"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
+        <div class="progress-gauge__fill" id="reading-progress-fill"></div>
+      </div>
+      <span class="progress-gauge__pct" id="reading-progress-pct" aria-hidden="true">0%</span>
+    </div>
+
     <div class="wrapper">
       <nav class="crumb" aria-label="Breadcrumb">
         <a href="/index.html">jasontorresedd.com</a>
