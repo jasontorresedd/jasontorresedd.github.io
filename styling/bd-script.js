@@ -9,9 +9,13 @@ toTop.addEventListener("click", (e) => {
 // End — Footer, smooth "Return to Top" //
 
 // Start — PDF.js shared setup //
-/* Both the pop-out viewer and the inline slide deck render through pdf.js, so the worker is configured once here regardless of which (if either) is present on a given template page. */
-pdfjsLib.GlobalWorkerOptions.workerSrc =
-  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+/* Both the pop-out viewer and the inline slide deck render through pdf.js, so the worker is configured once here regardless of which (if either) is present on a given template page.
+
+   Guarded: pages with no PDF content (e.g., sec-col subpages) do not load the pdf.js <script>, so pdfjsLib is undefined there. Without this guard the line throws a ReferenceError and halts the rest of this file — including "Return to Top". */
+if (window.pdfjsLib) {
+  pdfjsLib.GlobalWorkerOptions.workerSrc =
+    "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+}
 // End — PDF.js shared setup //
 
 // Start — Pop-out PDF viewer (native <dialog> + pdf.js) //
