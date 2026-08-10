@@ -171,6 +171,7 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* clips the pd-timeline reveal animation's off-screen translateX so it can't widen the document */
   }
 
   body {
@@ -179,6 +180,7 @@
     font-weight: var(--fw-regular);
     font-size: var(--fs-p);
     color: var(--color-body-text);
+    overflow-x: hidden;
   }
 
   h1,
