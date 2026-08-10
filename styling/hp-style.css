@@ -567,7 +567,7 @@
     background-color: var(--color-bg-section);
     padding-block-start: 50px;
     padding-block-end: 100px; /* Increased space between the final section and footer. */
-    overflow-x: clip;
+    overflow-x: clip; /* Correct for swipe left. */
   }
   /* End — Section Padding */
 
