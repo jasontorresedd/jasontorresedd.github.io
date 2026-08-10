@@ -171,7 +171,7 @@
 
   html {
     scroll-behavior: smooth;
-    overflow-x: hidden; /* clips the pd-timeline reveal animation's off-screen translateX so it can't widen the document */
+    overflow-x: clip;
   }
 
   body {
@@ -180,7 +180,7 @@
     font-weight: var(--fw-regular);
     font-size: var(--fs-p);
     color: var(--color-body-text);
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1,
@@ -567,6 +567,7 @@
     background-color: var(--color-bg-section);
     padding-block-start: 50px;
     padding-block-end: 100px; /* Increased space between the final section and footer. */
+    overflow-x: clip;
   }
   /* End — Section Padding */
 
