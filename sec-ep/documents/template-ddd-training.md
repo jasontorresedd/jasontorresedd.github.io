@@ -1,12 +1,3 @@
----
-Created:
-Last edited:
-Document:
-tags:
-  - instructional-design
-  - template
----
-
 # Slide 1 | `Program Title`, `Company`
 
 ---

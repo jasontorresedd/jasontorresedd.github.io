@@ -1,12 +1,3 @@
----
-Created:
-Last edited:
-Document:
-tags:
-  - instructional-design
-  - template
----
-
 # High-Level Program Design Slide Deck
 
 ---
