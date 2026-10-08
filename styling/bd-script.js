@@ -18,17 +18,25 @@ if (window.pdfjsLib) {
 }
 // End — PDF.js shared setup //
 
-// Start — Pop-out PDF viewer (native <dialog> + pdf.js) //
+// Start — Pop-out PDF / Markdown viewer (native <dialog> + pdf.js) //
 /* Guarded: only runs on template pages that include a #viewer dialog, since base-dot.js is shared across every sec-ep subpage. */
 const viewer = document.getElementById("viewer");
 
 if (viewer) {
   const pagesEl = document.getElementById("viewer-pages");
   const vCap = document.getElementById("viewer-caption");
+  const copyBtn = document.getElementById("viewer-copy");
   let openToken = 0; // invalidates page rendering if viewer closes mid-load
+  let mdRaw = ""; // raw Markdown for the copy button
+
+  const resetCopy = () => {
+    mdRaw = "";
+    if (copyBtn) copyBtn.hidden = true;
+  };
 
   const openPdf = async (url, caption) => {
     const token = ++openToken;
+    resetCopy();
     vCap.textContent = caption || "Document";
     pagesEl.innerHTML = "<p class='viewer-status'>Loading&hellip;</p>";
     viewer.showModal();
@@ -69,13 +77,98 @@ if (viewer) {
     }
   };
 
-  /* Intercept card clicks. Without JavaScript, the href still works as a plain link to the PDF (graceful fallback). */
-  document.querySelectorAll(".card").forEach((card) => {
+  /* Markdown highlighting. Styles are inline so bd-style.css stays untouched; colors are from the Azure palette and each passes WCAG AA (4.5:1) on #F2F7FF. */
+  const MD_PRE_STYLE =
+    "width: 100%; max-width: 900px; margin: 0; padding: 24px 28px; box-sizing: border-box; background: #F2F7FF; color: #1A1A1A; font-family: var(--font-mono); font-size: 0.875rem; line-height: 1.7; tab-size: 4; white-space: pre-wrap; overflow-wrap: anywhere; border-radius: 12px; box-shadow: 0 4px 16px rgba(14, 27, 61, 0.15); user-select: text;";
+  const span = (style, text) => `<span style="${style}">${text}</span>`;
+  const escapeHtml = (str) =>
+    str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+  const highlightInline = (text) =>
+    text
+      .replace(/`([^`]+)`/g, (m) =>
+        span("color: #0D285E; background: #DBE5FA; border-radius: 4px; padding: 0 3px;", m))
+      .replace(/\*\*([^*]+)\*\*/g, (m) => span("color: #0D285E; font-weight: 700;", m))
+      .replace(/(^|[^*\w])(\*[^*\s][^*]*\*|_[^_\s][^_]*_)(?!\w)/g, (m, pre, em) =>
+        pre + span("color: #59616F; font-style: italic;", em));
+
+  const highlightMarkdown = (md) =>
+    md
+      .split("\n")
+      .map((line) => {
+        const esc = escapeHtml(line);
+        const heading = esc.match(/^(#{1,6})(\s+)(.*)$/);
+        if (heading) {
+          return (
+            span("color: #1E5FE0;", heading[1]) +
+            heading[2] +
+            span("color: #1646A6; font-weight: 700;", heading[3])
+          );
+        }
+        const list = esc.match(/^(\s*)([-*+]|\d+\.)(\s+)(.*)$/);
+        if (list) {
+          return (
+            list[1] + span("color: #1E5FE0;", list[2]) + list[3] + highlightInline(list[4])
+          );
+        }
+        return highlightInline(esc);
+      })
+      .join("\n");
+
+  const openMarkdown = async (url, caption) => {
+    const token = ++openToken;
+    resetCopy();
+    vCap.textContent = caption || "Document";
+    pagesEl.innerHTML = "<p class='viewer-status'>Loading&hellip;</p>";
+    viewer.showModal();
+
+    try {
+      const res = await fetch(url);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const text = await res.text();
+      if (token !== openToken) return; // viewer was closed/reopened
+
+      /* A plain <pre> (no contenteditable): selectable and copyable, not editable */
+      const pre = document.createElement("pre");
+      pre.style.cssText = MD_PRE_STYLE;
+      const code = document.createElement("code");
+      code.innerHTML = highlightMarkdown(text.replace(/\s+$/, ""));
+      pre.appendChild(code);
+
+      pagesEl.innerHTML = "";
+      pagesEl.appendChild(pre);
+      mdRaw = text;
+      if (copyBtn) copyBtn.hidden = false;
+    } catch (err) {
+      if (token !== openToken) return;
+      pagesEl.innerHTML =
+        "<p class='viewer-status'>This document could not be opened.<br>Check that the Markdown file exists at the linked path.</p>";
+      console.error("Markdown viewer:", err);
+    }
+  };
+
+  /* Intercept card clicks. Without JavaScript, the href still works as a plain link to the PDF/Markdown file (graceful fallback). */
+  document.querySelectorAll('.card:not([target="_blank"])').forEach((card) => {
     card.addEventListener("click", (e) => {
       e.preventDefault();
-      openPdf(card.getAttribute("href"), card.dataset.caption);
+      const href = card.getAttribute("href");
+      if (/\.md$/i.test(href)) openMarkdown(href, card.dataset.caption);
+      else openPdf(href, card.dataset.caption);
     });
   });
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(mdRaw);
+        copyBtn.textContent = "[ copied ]";
+      } catch (err) {
+        copyBtn.textContent = "[ select text to copy ]";
+        console.error("Copy failed:", err);
+      }
+      setTimeout(() => (copyBtn.textContent = "[ copy ]"), 1800);
+    });
+  }
 
   document
     .getElementById("viewer-close")
@@ -90,9 +183,10 @@ if (viewer) {
   viewer.addEventListener("close", () => {
     openToken++;
     pagesEl.innerHTML = "";
+    resetCopy();
   });
 }
-// End — Pop-out PDF viewer //
+// End — Pop-out PDF / Markdown viewer //
 
 // Start — Inline slide deck (canvas render, no native toolbar) //
 // Guarded: only runs on template pages that include a #deck-embed, since base-dot.js is shared across every sec-ep subpage. //

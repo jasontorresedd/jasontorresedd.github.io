@@ -2,13 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/img/favicon-A1-c.svg" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon-A1-c.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GWU SEI</title>
-    <meta
-      name="description"
-      content="TEMPLATE: dot-grid subpage with in-window PDF viewer."
-    />
+    <meta name="description" content="About the GW-Adobe Science Education Initiative I created at GWU." />
     <link rel="stylesheet" href="/styling/bd-style.css" />
     <script src="/styling/bd-script.js" defer></script>
   </head>
@@ -27,9 +24,7 @@
 
         <h1>GW-Adobe Science Education Initiative</h1>
         <p class="hero-tag">GWU &middot; 2020&ndash;2025</p>
-        <p class="hero__lede">
-          A program created in collaboration with a physics faculty member to introduce and guide faculty in STEM how to use Adobe Creative Cloud tools <em>to do science</em> and <em>communicate findings</em>.
-        </p>
+        <p class="hero__lede">A program created in collaboration with a physics faculty member to introduce and guide faculty in STEM how to use Adobe Creative Cloud tools <em>to do science</em> and <em>communicate findings</em>.</p>
       </div>
     </header>
 
@@ -59,36 +54,16 @@
             <li>build faculty capacity in image and video processing mastery for teaching, research and scientific dissemination.</li>
           </ul>
 
-          <div
-            class="pdf-embed"
-            id="deck-embed"
-            data-src="/sec-ep/presentations/2021_Adobe-GW-presentation.pdf"
-            >
+          <div class="pdf-embed" id="deck-embed" data-src="/sec-ep/presentations/2021_Adobe-GW-presentation.pdf">
             <div class="pdf-embed__frame">
               <canvas id="deck-canvas"></canvas>
             </div>
-            <button
-              type="button"
-              class="pdf-embed__nav pdf-embed__nav--prev"
-              id="deck-prev"
-              aria-label="Previous slide"
-              disabled
-              >
-              &#8249;
-            </button>
-            <button
-              type="button"
-              class="pdf-embed__nav pdf-embed__nav--next"
-              id="deck-next"
-              aria-label="Next slide"
-              disabled
-              >
-              &#8250;
-            </button>
+            <button type="button" class="pdf-embed__nav pdf-embed__nav--prev" id="deck-prev" aria-label="Previous slide" disabled>&#8249;</button>
+            <button type="button" class="pdf-embed__nav pdf-embed__nav--next" id="deck-next" aria-label="Next slide" disabled>&#8250;</button>
             <span class="pdf-embed__page" id="deck-page-indicator"></span>
           </div>
-          <br>
-          <div class="experience-group" id="something">
+          <br />
+          <div class="experience-group" id="taking-action">
             <h3>Taking action</h3>
             <p class="artifacts__lede">The GW-Adobe SEI ran on two fronts. One was out of the Physics department and the other was with my team in the central library. We would both inform the community about the opportunity and recruit faculty to join; meet with faculty one-on-one to discuss their course, content, and idea; invite them to meet with us as the program managers; identify staff who could help; and kick-off the project work. Then over 2-3 months, participating faculty working with support staff would learn how to use Adobe tools to create a new science lesson and have artifacts to support its implementation.</p>
           </div>
@@ -100,9 +75,8 @@
         <div class="wrapper">
           <span class="heading-accent" aria-hidden="true"></span>
           <h2>Impact</h2>
-          <p class="impact__lede">The program garnered strong faculty attention and during 2022 it produced 4 new STEM lessons and learning activities infused with Adobe Creative Cloud. The participating faculty grew significantly in their ability to implement Adobe tools to do science and they became solid partners as well as advocates. We faced headwinds however with a general digital burnout among faculty from their online teaching experience during the pandemic. And ultimately the program dissolved due to the university opting to not renew the Adobe Creative Campus partnershp and the rise of generative Artificial Intelligence at the end of 2022.</p>
+          <p class="impact__lede">The program garnered strong faculty attention and during 2022 it produced 4 new STEM lessons and learning activities infused with Adobe Creative Cloud. The participating faculty grew significantly in their ability to implement Adobe tools to do science and they became solid partners as well as advocates. We faced headwinds however with a general digital burnout among faculty from their online teaching experience during the pandemic. And ultimately the program dissolved due to the university opting to not renew the Adobe Creative Campus partnership and the rise of generative Artificial Intelligence at the end of 2022.</p>
         </div>
-        </section>
       </section>
     </main>
 
@@ -114,14 +88,9 @@
           <p>Designed and written by Jason Torres</p>
           <p>
             Co-developed with
-            <a
-              href="https://claude.com/product/claude-code"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Claude Code</a
-            >
+            <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer">Claude Code</a>
           </p>
-          <p>Updated July 2026</p>
+          <p>Updated October 2026</p>
         </div>
         <p class="footer__gototop"><a href="#top">Return to Top</a></p>
       </div>
@@ -136,19 +105,10 @@
     <dialog class="viewer" id="viewer">
       <header class="viewer-titlebar">
         <span class="viewer-caption" id="viewer-caption">Document</span>
-        <button
-          class="viewer-close"
-          type="button"
-          id="viewer-close"
-          aria-label="Close viewer"
-        >
-          [ &#88; ]
-        </button>
+        <button class="viewer-close" type="button" id="viewer-close" aria-label="Close viewer">[ &#88; ]</button>
       </header>
       <div class="viewer-pages" id="viewer-pages"></div>
-      <p class="viewer-hint">
-        Scroll to read &middot; click outside or press Esc to close
-      </p>
+      <p class="viewer-hint">Scroll to read &middot; click outside or press Esc to close</p>
     </dialog>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>

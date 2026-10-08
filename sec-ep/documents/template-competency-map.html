@@ -1,0 +1,1195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Competency Map Template</title>
+    <style>
+      :root {
+        --bg: #f6f7f9;
+        --surface: #ffffff;
+        --surface-2: #eef1f5;
+        --ink: #14181f;
+        --ink-2: #4a5462;
+        --ink-3: #7b8695;
+        --line: #d8dee7;
+        --line-strong: #a9b4c2;
+        --accent: #1f4e79;
+        --accent-soft: #e6eef6;
+        --warn: #8a5a00;
+        --warn-soft: #fdf2dc;
+        --gap: #8c2f2f;
+        --gap-soft: #fbe9e9;
+        --ok: #1f6b45;
+        --ok-soft: #e4f2ea;
+        --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        --sans:
+          -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+          Arial, sans-serif;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #12151a;
+          --surface: #191d24;
+          --surface-2: #212731;
+          --ink: #e8ecf1;
+          --ink-2: #b0bac6;
+          --ink-3: #7d8794;
+          --line: #2c333d;
+          --line-strong: #454e5a;
+          --accent: #7db3e0;
+          --accent-soft: #1b2a38;
+          --warn: #e0b667;
+          --warn-soft: #2e2617;
+          --gap: #e08c8c;
+          --gap-soft: #331d1d;
+          --ok: #7fc7a3;
+          --ok-soft: #16281f;
+        }
+      }
+      :root[data-theme="dark"] {
+        --bg: #12151a;
+        --surface: #191d24;
+        --surface-2: #212731;
+        --ink: #e8ecf1;
+        --ink-2: #b0bac6;
+        --ink-3: #7d8794;
+        --line: #2c333d;
+        --line-strong: #454e5a;
+        --accent: #7db3e0;
+        --accent-soft: #1b2a38;
+        --warn: #e0b667;
+        --warn-soft: #2e2617;
+        --gap: #e08c8c;
+        --gap-soft: #331d1d;
+        --ok: #7fc7a3;
+        --ok-soft: #16281f;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 15px;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      .wrap {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 32px 24px 64px;
+      }
+
+      header.page {
+        border-bottom: 2px solid var(--line-strong);
+        padding-bottom: 20px;
+        margin-bottom: 24px;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        font-weight: 600;
+      }
+      h1 {
+        font-size: 28px;
+        line-height: 1.2;
+        margin: 6px 0 8px;
+        letter-spacing: -0.01em;
+      }
+      .sub {
+        color: var(--ink-2);
+        max-width: 70ch;
+        margin: 0;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 14px 16px;
+        margin-bottom: 20px;
+      }
+      .seg {
+        display: inline-flex;
+        border: 1px solid var(--line-strong);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .seg button {
+        appearance: none;
+        border: 0;
+        background: var(--surface);
+        color: var(--ink-2);
+        font: inherit;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 8px 14px;
+        cursor: pointer;
+      }
+      .seg button + button {
+        border-left: 1px solid var(--line-strong);
+      }
+      .seg button[aria-pressed="true"] {
+        background: var(--accent);
+        color: #fff;
+      }
+      .btn {
+        appearance: none;
+        border: 1px solid var(--line-strong);
+        background: var(--surface);
+        color: var(--ink);
+        font: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 8px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background: var(--surface-2);
+      }
+      .ctl-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--ink-3);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .spacer {
+        flex: 1 1 auto;
+      }
+      .status {
+        font-size: 13px;
+        color: var(--ink-2);
+      }
+
+      .panels {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 16px 18px;
+      }
+      .panel h2 {
+        font-size: 13px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin: 0 0 12px;
+      }
+      .panel p.note {
+        font-size: 13px;
+        color: var(--ink-2);
+        margin: 0 0 12px;
+      }
+      .cov {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      .cov td {
+        padding: 6px 0;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+      }
+      .cov tr:last-child td {
+        border-bottom: 0;
+      }
+      .cov td:first-child {
+        padding-right: 12px;
+      }
+      .cov td:last-child {
+        text-align: right;
+        white-space: nowrap;
+        padding-left: 10px;
+      }
+      .pill {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 2px 8px;
+        border-radius: 99px;
+        letter-spacing: 0.03em;
+      }
+      .pill.ok {
+        background: var(--ok-soft);
+        color: var(--ok);
+      }
+      .pill.partial {
+        background: var(--warn-soft);
+        color: var(--warn);
+      }
+      .pill.gap {
+        background: var(--gap-soft);
+        color: var(--gap);
+      }
+      .dep {
+        font-size: 13px;
+        margin: 0 0 10px;
+        padding-left: 22px;
+        position: relative;
+        color: var(--ink-2);
+      }
+      .dep:last-child {
+        margin-bottom: 0;
+      }
+      .dep strong {
+        color: var(--ink);
+        display: block;
+        font-size: 13px;
+      }
+      .dep::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 7px;
+        width: 7px;
+        height: 7px;
+        border-radius: 2px;
+        background: var(--warn);
+      }
+
+      .budget {
+        background: var(--accent-soft);
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--accent);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 13px;
+        color: var(--ink-2);
+        margin-bottom: 24px;
+      }
+      .budget strong {
+        color: var(--ink);
+      }
+
+      .tablewrap {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow-x: auto;
+        overflow-y: visible;
+      }
+      table.cm {
+        border-collapse: separate;
+        border-spacing: 0;
+        min-width: 1900px;
+        width: 100%;
+        font-size: 13px;
+      }
+      table.cm th {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background: var(--surface-2);
+        color: var(--ink-2);
+        text-align: left;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 10px 12px;
+        border-bottom: 2px solid var(--line-strong);
+        white-space: nowrap;
+      }
+      table.cm td {
+        padding: 10px 12px;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+        color: var(--ink);
+      }
+      table.cm tr.day-start td {
+        border-top: 2px solid var(--line-strong);
+      }
+      table.cm tr.day-start td:first-child {
+        background: var(--accent-soft);
+        font-weight: 700;
+      }
+      td.dup {
+        color: var(--ink-3);
+        opacity: 0.45;
+      }
+      td.num {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      td.day {
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+      }
+      td.type {
+        white-space: nowrap;
+      }
+
+      /* Column G — learning type pills. Fixed palette, not theme-driven:
+     these three colors are the same in light and dark mode. */
+      .type-pill {
+        display: inline-block;
+        min-width: 56px;
+        text-align: center;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .type-pill.ido {
+        background: #e5bab4;
+        color: #8a1f0e;
+      }
+      .type-pill.wedo {
+        background: #bee1f6;
+        color: #0b4c74;
+      }
+      .type-pill.youdo {
+        background: #d4edbc;
+        color: #2e5c14;
+      }
+
+      /* Column H — possible content pills. One pill per content type, colored
+     from a fixed 10-color set (also theme-independent) so each content
+     type reads the same color everywhere it appears in the grid. */
+      .content-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+      .content-pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #161616;
+        white-space: nowrap;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .chip {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        background: var(--warn-soft);
+        color: var(--warn);
+        padding: 2px 7px;
+        border-radius: 4px;
+        letter-spacing: 0.02em;
+      }
+      .cond {
+        display: inline-block;
+        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        background: var(--surface-2);
+        color: var(--ink-3);
+        padding: 2px 7px;
+        border-radius: 4px;
+      }
+      col.c-day {
+        width: 52px;
+      }
+      col.c-comp {
+        width: 150px;
+      }
+      col.c-mod {
+        width: 165px;
+      }
+      col.c-ovw {
+        width: 230px;
+      }
+      col.c-lo {
+        width: 270px;
+      }
+      col.c-act {
+        width: 290px;
+      }
+      col.c-type {
+        width: 78px;
+      }
+      col.c-content {
+        width: 150px;
+      }
+      col.c-ta {
+        width: 74px;
+      }
+      col.c-tm {
+        width: 74px;
+      }
+      col.c-tools {
+        width: 190px;
+      }
+
+      .totals {
+        margin-top: 20px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 16px 18px;
+      }
+      .totals h2 {
+        font-size: 13px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-3);
+        margin: 0 0 12px;
+      }
+      .tgrid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .tcell {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 8px 12px;
+        min-width: 96px;
+        background: var(--surface-2);
+      }
+      .tcell .d {
+        font-size: 11px;
+        color: var(--ink-3);
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .tcell .m {
+        font-family: var(--mono);
+        font-size: 15px;
+        font-weight: 600;
+        font-variant-numeric: tabular-nums;
+      }
+      .tcell.bad {
+        border-color: var(--gap);
+        background: var(--gap-soft);
+      }
+      .tcell.bad .m {
+        color: var(--gap);
+      }
+
+      footer.page {
+        margin-top: 32px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+        font-size: 12px;
+        color: var(--ink-3);
+      }
+      footer.page strong {
+        color: var(--gap);
+      }
+
+      @media print {
+        body {
+          background: #fff;
+        }
+        .controls,
+        .panels {
+          break-inside: avoid;
+        }
+        .tablewrap {
+          overflow: visible;
+          border: 0;
+        }
+        table.cm {
+          min-width: 0;
+          font-size: 9px;
+        }
+        table.cm th {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="page">
+        <div class="eyebrow">[Client Name] &middot; [Program Name]</div>
+        <h1>Competency Map</h1>
+        <p class="sub">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad
+          minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip
+          ex ea commodo consequat.
+        </p>
+      </header>
+
+      <div class="controls">
+        <span class="ctl-label">Program variant</span>
+        <div class="seg" role="group" aria-label="Program variant">
+          <button type="button" id="btnA" aria-pressed="false">
+            Variant A &middot; Core
+          </button>
+          <button type="button" id="btnB" aria-pressed="true">
+            Variant B &middot; Extended
+          </button>
+        </div>
+        <div class="spacer"></div>
+        <span class="status" id="status"></span>
+        <button class="btn" type="button" id="copyTsv">Copy as TSV</button>
+        <button class="btn" type="button" id="dlCsv">Download CSV</button>
+      </div>
+
+      <div class="budget">
+        <strong>Time budget.</strong> Each full day carries
+        <strong>330 instructional minutes</strong> (5.5 hours of activities and
+        instruction). Non-instructional time sits on top &mdash;
+        2&nbsp;&times;&nbsp;30-min breaks, 60&nbsp;min lunch, 30&nbsp;min buffer
+        = 150&nbsp;min &mdash; for an 8-hour elapsed day. The wrap-up day is
+        <strong>240 minutes</strong> (4.0 hours, lunch during discussion). The
+        30-minute buffer is held as day-level slack and is deliberately
+        <em>not</em> distributed into activity durations.
+      </div>
+
+      <div class="panels">
+        <div class="panel">
+          <h2>Client requirements coverage</h2>
+          <p class="note">
+            Where each client requirement is addressed, under the selected
+            variant.
+          </p>
+          <table class="cov">
+            <tbody id="covBody"></tbody>
+          </table>
+        </div>
+        <div class="panel">
+          <h2>Needs from the client</h2>
+          <p class="note">
+            Inputs required from the client before module content can be
+            finalized. Affected activities are flagged in the grid.
+          </p>
+          <div id="depBody"></div>
+        </div>
+      </div>
+
+      <div class="tablewrap">
+        <table class="cm">
+          <colgroup>
+            <col class="c-day" />
+            <col class="c-comp" />
+            <col class="c-mod" />
+            <col class="c-ovw" />
+            <col class="c-lo" />
+            <col class="c-act" />
+            <col class="c-type" />
+            <col class="c-content" />
+            <col class="c-ta" />
+            <col class="c-tm" />
+            <col class="c-tools" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th>A &mdash; Day</th>
+              <th>B &mdash; Competency</th>
+              <th>C &mdash; Module name</th>
+              <th>D &mdash; Module overview</th>
+              <th>E &mdash; Learning objective</th>
+              <th>F &mdash; Activity</th>
+              <th>G &mdash; Type</th>
+              <th>H &mdash; Possible content</th>
+              <th>I &mdash; Act. min</th>
+              <th>J &mdash; Mod. min</th>
+              <th>K &mdash; Tools required</th>
+            </tr>
+          </thead>
+          <tbody id="cmBody"></tbody>
+        </table>
+      </div>
+
+      <div class="totals">
+        <h2>Per-day instructional minutes</h2>
+        <div class="tgrid" id="totalsGrid"></div>
+      </div>
+
+      <footer class="page">
+        <strong>TEMPLATE FILE</strong> &mdash; replace the header text, the ten
+        example rows below, and both panel blocks above with engagement-specific
+        content before use. Column structure follows the schema in
+        <code>Competency-Map.md</code>; learning objectives use Bloom&rsquo;s
+        Revised Taxonomy (2001).
+      </footer>
+    </div>
+
+    <script>
+      /* ------------------------------------------------------------------
+   DATA MODEL
+   One object per activity row = one spreadsheet row.
+   Control fields:
+     track  "core" | "extended"   which variant(s) the row appears in
+     dA/dB  Column A value under Variant A (core only) / Variant B (core + extended)
+     dep    need flag rendered as a chip (also exported as text)
+     actA   optional Column F override when Variant A is active
+   Module grouping is implied by consecutive rows sharing `mod`.
+
+   This file is a TEMPLATE: 10 example rows across 4 example days,
+   enough to exercise every feature (variant toggle, pill colors,
+   module grouping, both chip types, per-day totals) with placeholder
+   content. Replace ROWS, REQUIREMENTS, and CLIENT_NEEDS for a real
+   engagement; the render/export code below should not need to change.
+-------------------------------------------------------------------*/
+
+      const NEEDS_TEXT = {
+        pending: "TBD — pending client input",
+        conditional: "Conditional — pending client confirmation",
+      };
+
+      /* Column H fixed palette — one color per possible-content type from the
+   schema's vocabulary (10 total). Grouped by feel: warm = didactic,
+   green/teal = structured practice, blue/purple = exercise formats. */
+      const CONTENT_COLORS = {
+        lecture: "#F21268",
+        discussion: "#F24A4B",
+        demonstration: "#f07e2b",
+        "case study": "#fdad2a",
+        labs: "#87c124",
+        "guided practice": "#31cda3",
+        "code-along": "#29c0c5",
+        "solo exercise": "#3fc7fa",
+        "partner exercise": "#5b7cfa",
+        "team exercise": "#A344FB",
+      };
+      /* Text color per content type. Default is black, which clears WCAG AA
+   (4.5:1) on every background above. Five backgrounds — lecture,
+   discussion, team exercise, demonstration, partner exercise — use white
+   text per explicit design direction; note white does NOT clear AA on
+   partner exercise (3.68:1 vs black's 5.71:1 on the same background). */
+      const CONTENT_TEXT = {
+        lecture: "#ffffff",
+        discussion: "#ffffff",
+        "team exercise": "#ffffff",
+        demonstration: "#ffffff",
+        "partner exercise": "#ffffff",
+      };
+      const TYPE_CLASS = { "I-Do": "ido", "We-Do": "wedo", "You-Do": "youdo" };
+
+      const ROWS = [
+        /* ============================ DAY 1 (core) ============================ */
+        {
+          track: "core",
+          dA: 1,
+          dB: 1,
+          comp: "Example Competency A",
+          mod: "Module One: Orientation & Fundamentals",
+          ovw: "Introduces the foundational concepts and terminology learners will build on throughout the program.",
+          lo: "(Understand) Explain the core terminology and concepts introduced in this module.",
+          act: "Instructor presents an overview lecture covering key definitions and framing examples.",
+          type: "I-Do",
+          content: "Lecture, discussion",
+          min: 90,
+          tools: "Example Tool A",
+        },
+
+        {
+          track: "core",
+          dA: 1,
+          dB: 1,
+          comp: "Example Competency A",
+          mod: "Module One: Orientation & Fundamentals",
+          ovw: "Introduces the foundational concepts and terminology learners will build on throughout the program.",
+          lo: "(Apply) Practice applying the core concepts to a guided example scenario.",
+          act: "Learners and the instructor work through a sample scenario together, checking understanding at each step.",
+          type: "We-Do",
+          content: "Guided practice, demonstration",
+          min: 120,
+          tools: "Example Tool A, Example Tool B",
+        },
+
+        {
+          track: "core",
+          dA: 1,
+          dB: 1,
+          comp: "Example Competency A",
+          mod: "Module One: Orientation & Fundamentals",
+          ovw: "Introduces the foundational concepts and terminology learners will build on throughout the program.",
+          lo: "(Analyze) Differentiate between correct and incorrect applications of the concept in a short exercise.",
+          act: "Learners complete an independent exercise identifying errors in a sample scenario.",
+          type: "You-Do",
+          content: "Solo exercise, code-along",
+          min: 120,
+          tools: "Example Tool B",
+        },
+
+        /* ============================ DAY 2 (core) ============================ */
+        {
+          track: "core",
+          dA: 2,
+          dB: 2,
+          comp: "Example Competency B",
+          mod: "Module Two: Applied Practice",
+          ovw: "Builds on Module One by applying the fundamentals to a realistic, moderately complex scenario.",
+          lo: "(Understand) Describe how the fundamentals extend to a more complex, real-world scenario.",
+          act: "Instructor demonstrates a worked example that extends the prior module's concepts.",
+          type: "I-Do",
+          content: "Demonstration",
+          min: 60,
+          tools: "Example Tool A",
+        },
+
+        {
+          track: "core",
+          dA: 2,
+          dB: 2,
+          comp: "Example Competency B",
+          mod: "Module Two: Applied Practice",
+          ovw: "Builds on Module One by applying the fundamentals to a realistic, moderately complex scenario.",
+          lo: "(Apply) Execute a shared scenario as a group, applying the extended concepts.",
+          act: "The group works through a case study together, pausing at decision points to discuss options.",
+          type: "We-Do",
+          content: "Case study, discussion",
+          min: 120,
+          tools: "Example Tool A, Example Tool C",
+        },
+
+        {
+          track: "core",
+          dA: 2,
+          dB: 2,
+          comp: "Example Competency B",
+          mod: "Module Two: Applied Practice",
+          ovw: "Builds on Module One by applying the fundamentals to a realistic, moderately complex scenario.",
+          lo: "(Create) Produce an original solution to a novel version of the scenario.",
+          act: "Learners independently design and document a solution to a new but related scenario.",
+          type: "You-Do",
+          content: "Solo exercise, labs",
+          min: 150,
+          tools: "Example Tool C",
+          dep: "pending",
+        },
+
+        /* ==================== DAY 3 (extended variant only) ==================== */
+        {
+          track: "extended",
+          dA: null,
+          dB: 3,
+          comp: "Example Competency C",
+          mod: "Module Three: Extension Topic",
+          ovw: "An optional extension module for the longer program variant, going deeper into a related topic.",
+          lo: "(Apply) Integrate an additional tool into the existing workflow.",
+          act: "Instructor introduces an additional tool and partners with learners to integrate it into their existing work.",
+          type: "We-Do",
+          content: "Guided practice, partner exercise",
+          min: 180,
+          tools: "Example Tool D",
+          dep: "conditional",
+        },
+
+        {
+          track: "extended",
+          dA: null,
+          dB: 3,
+          comp: "Example Competency C",
+          mod: "Module Three: Extension Topic",
+          ovw: "An optional extension module for the longer program variant, going deeper into a related topic.",
+          lo: "(Evaluate) Assess the extended workflow against the original and justify any changes.",
+          act: "Learners compare their extended workflow to the original version and justify the differences in a short write-up.",
+          type: "You-Do",
+          content: "Solo exercise, discussion",
+          min: 150,
+          tools: "Example Tool D",
+          dep: "pending",
+        },
+
+        /* =============== WRAP-UP (Day 3 in Variant A / Day 4 in Variant B) =============== */
+        {
+          track: "core",
+          dA: 3,
+          dB: 4,
+          comp: "Example Competency D",
+          mod: "Wrap-up: Presentations & Reflection",
+          ovw: "Closes the program with team presentations and a structured reflection.",
+          lo: "(Create) Present the completed work to the group as a concise summary.",
+          act: "Each team presents a brief summary of their completed deliverable, the extended workflow, and what they learned building it.",
+          actA: "Each team presents a brief summary of their completed deliverable and what they learned building it.",
+          type: "You-Do",
+          content: "Team exercise",
+          min: 150,
+          tools: "Presentation tool",
+        },
+
+        {
+          track: "core",
+          dA: 3,
+          dB: 4,
+          comp: "Example Competency D",
+          mod: "Wrap-up: Presentations & Reflection",
+          ovw: "Closes the program with team presentations and a structured reflection.",
+          lo: "(Evaluate) Reflect on personal growth across the program and identify next steps.",
+          act: "Facilitated group discussion reflecting on progress, challenges, and next steps.",
+          type: "We-Do",
+          content: "Discussion",
+          min: 90,
+          tools: "None",
+        },
+      ];
+
+      /* ---- Client requirements coverage ---- */
+      const REQUIREMENTS = [
+        {
+          label: "Automates a defined business process end-to-end",
+          both: "Days 1–4",
+          onlyB: null,
+        },
+        {
+          label: "Produces a client-ready deliverable without manual rework",
+          both: "Not explicit in current design",
+          partial: true,
+        },
+        {
+          label: "Includes a live or interactive reporting view",
+          both: null,
+          onlyB: "Days 3–4",
+        },
+        {
+          label: "Documents human decision points within each workflow",
+          both: "Days 2–4",
+          onlyB: null,
+        },
+        {
+          label: "Uses only client-approved tools and platforms",
+          both: "Days 1–4",
+          onlyB: null,
+        },
+      ];
+
+      /* ---- Needs from the client ---- */
+      const CLIENT_NEEDS = [
+        {
+          t: "Signed data-sharing / confidentiality agreement",
+          d: "Gates any activity that uses real client data or systems.",
+        },
+        {
+          t: "5–7 real workflow examples from the client's team",
+          d: "Gates every hands-on, case-based activity across the program.",
+        },
+        {
+          t: "Confirmed access to required platforms and licenses",
+          d: "Gates any activity that depends on client-specific tooling.",
+        },
+        {
+          t: "A designated subject-matter-expert point of contact",
+          d: "Gates review and validation of work in progress.",
+        },
+      ];
+
+      /* ------------------------------------------------------------------
+   RENDER
+-------------------------------------------------------------------*/
+      let mode = "B";
+      const LAST_DAY = { A: 3, B: 4 };
+
+      function visibleRows() {
+        return ROWS.filter((r) => mode === "B" || r.track === "core");
+      }
+
+      /* Resolve one row to its eleven column values. Render and export both
+   use this, so what you see is exactly what you export. */
+      function resolve(r, modMinutes) {
+        const day = mode === "B" ? r.dB : r.dA;
+        let act = mode === "A" && r.actA ? r.actA : r.act;
+        if (r.dep) act += "  [" + NEEDS_TEXT[r.dep] + "]";
+        return [
+          String(day),
+          r.comp,
+          r.mod,
+          r.ovw,
+          r.lo,
+          act,
+          r.type,
+          r.content,
+          String(r.min),
+          String(modMinutes),
+          r.tools,
+        ];
+      }
+
+      /* Module totals keyed by "<day>|<module>" over the visible set. */
+      function moduleTotals(rows) {
+        const t = {};
+        rows.forEach((r) => {
+          const k = (mode === "B" ? r.dB : r.dA) + "|" + r.mod;
+          t[k] = (t[k] || 0) + r.min;
+        });
+        return t;
+      }
+
+      function renderTable() {
+        const rows = visibleRows();
+        const totals = moduleTotals(rows);
+        const body = document.getElementById("cmBody");
+        body.innerHTML = "";
+
+        let prevDay = null,
+          prevKey = null;
+
+        rows.forEach((r) => {
+          const day = mode === "B" ? r.dB : r.dA;
+          const key = day + "|" + r.mod;
+          const vals = resolve(r, totals[key]);
+          const tr = document.createElement("tr");
+
+          const newDay = day !== prevDay;
+          const newMod = key !== prevKey;
+          if (newDay) tr.className = "day-start";
+
+          vals.forEach((v, i) => {
+            const td = document.createElement("td");
+            /* Columns A-D and J repeat within a module. Keep the full value in
+         the DOM (export fidelity) but mute the repeats visually.
+         Column A is muted per day rather than per module, since a day can
+         span several modules. */
+            const repeats = i === 0 ? !newDay : (i <= 3 || i === 9) && !newMod;
+            if (repeats) td.className = "dup";
+            if (i === 0) td.className = (td.className + " day").trim();
+            if (i === 6) td.className = (td.className + " type").trim();
+            if (i === 8 || i === 9)
+              td.className = (td.className + " num").trim();
+
+            if (i === 5 && r.dep) {
+              /* Activity cell: base text plus a styled flag whose text is part of
+           textContent, so the export carries the flag too. */
+              const base = mode === "A" && r.actA ? r.actA : r.act;
+              td.appendChild(document.createTextNode(base));
+              const span = document.createElement("span");
+              span.className = r.dep === "conditional" ? "cond" : "chip";
+              span.textContent = "  [" + NEEDS_TEXT[r.dep] + "]";
+              td.appendChild(document.createElement("br"));
+              td.appendChild(span);
+            } else if (i === 6) {
+              /* Learning type: one colored pill. textContent still equals v, so
+           export is unaffected. */
+              const pill = document.createElement("span");
+              pill.className = "type-pill " + (TYPE_CLASS[v] || "");
+              pill.textContent = v;
+              td.appendChild(pill);
+            } else if (i === 7) {
+              /* Possible content: one pill per comma-separated value. */
+              const wrap = document.createElement("span");
+              wrap.className = "content-pills";
+              v.split(",").forEach((part) => {
+                const label = part.trim();
+                const key = label.toLowerCase();
+                const pill = document.createElement("span");
+                pill.className = "content-pill";
+                pill.style.background = CONTENT_COLORS[key] || "#c9ccd1";
+                pill.style.color = CONTENT_TEXT[key] || "#161616";
+                /* Display-only capitalization fix; export still uses raw v. */
+                pill.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+                wrap.appendChild(pill);
+              });
+              td.appendChild(wrap);
+            } else {
+              td.textContent = v;
+            }
+            tr.appendChild(td);
+          });
+
+          body.appendChild(tr);
+          prevDay = day;
+          prevKey = key;
+        });
+
+        renderTotals(rows);
+        renderCoverage();
+        document.getElementById("status").textContent =
+          rows.length + " activity rows · " + LAST_DAY[mode] + " days";
+      }
+
+      function renderTotals(rows) {
+        const byDay = {};
+        rows.forEach((r) => {
+          const d = mode === "B" ? r.dB : r.dA;
+          byDay[d] = (byDay[d] || 0) + r.min;
+        });
+        const lastDay = LAST_DAY[mode];
+        const grid = document.getElementById("totalsGrid");
+        grid.innerHTML = "";
+        Object.keys(byDay)
+          .map(Number)
+          .sort((a, b) => a - b)
+          .forEach((d) => {
+            const expected = d === lastDay ? 240 : 330;
+            const el = document.createElement("div");
+            el.className = "tcell" + (byDay[d] === expected ? "" : " bad");
+            el.innerHTML =
+              '<div class="d">Day ' +
+              d +
+              '</div><div class="m">' +
+              byDay[d] +
+              "</div>";
+            el.title = "Expected " + expected + " min";
+            grid.appendChild(el);
+          });
+      }
+
+      function renderCoverage() {
+        const tb = document.getElementById("covBody");
+        tb.innerHTML = "";
+        REQUIREMENTS.forEach((c) => {
+          let where, cls, txt;
+          if (c.partial) {
+            where = c.both;
+            cls = "partial";
+            txt = "Partial";
+          } else if (mode === "B") {
+            where = [c.both, c.onlyB].filter(Boolean).join(" ");
+            cls = "ok";
+            txt = "Covered";
+          } else if (c.both) {
+            where = c.both;
+            cls = "ok";
+            txt = "Covered";
+          } else {
+            where = "No module in Variant A";
+            cls = "gap";
+            txt = "Gap";
+          }
+          const tr = document.createElement("tr");
+          tr.innerHTML =
+            "<td>" +
+            c.label +
+            '<br><span style="color:var(--ink-3);font-size:12px">' +
+            where +
+            "</span></td>" +
+            '<td><span class="pill ' +
+            cls +
+            '">' +
+            txt +
+            "</span></td>";
+          tb.appendChild(tr);
+        });
+      }
+
+      function renderDeps() {
+        const el = document.getElementById("depBody");
+        el.innerHTML = CLIENT_NEEDS.map(
+          (d) => '<p class="dep"><strong>' + d.t + "</strong>" + d.d + "</p>",
+        ).join("");
+      }
+
+      /* ------------------------------------------------------------------
+   EXPORT  — built from the same resolve() the table renders from.
+-------------------------------------------------------------------*/
+      const HEADERS = [
+        "Day",
+        "Competency",
+        "Module name",
+        "Module overview",
+        "Learning objectives",
+        "Activity",
+        "Learning type",
+        "Possible content",
+        "Approximate time of activity",
+        "Approximate time of module",
+        "Tools required for module",
+      ];
+
+      function exportMatrix() {
+        const rows = visibleRows();
+        const totals = moduleTotals(rows);
+        const out = [HEADERS.slice()];
+        rows.forEach((r) => {
+          const key = (mode === "B" ? r.dB : r.dA) + "|" + r.mod;
+          out.push(resolve(r, totals[key]));
+        });
+        return out;
+      }
+
+      function toTsv() {
+        /* Strip tabs/newlines so a cell can never split across columns. */
+        return exportMatrix()
+          .map((row) =>
+            row.map((c) => String(c).replace(/[\t\r\n]+/g, " ")).join("\t"),
+          )
+          .join("\n");
+      }
+
+      function toCsv() {
+        const esc = (c) =>
+          '"' + String(c).replace(/\r?\n/g, " ").replace(/"/g, '""') + '"';
+        return exportMatrix()
+          .map((row) => row.map(esc).join(","))
+          .join("\r\n");
+      }
+
+      document
+        .getElementById("copyTsv")
+        .addEventListener("click", async (e) => {
+          const btn = e.currentTarget,
+            was = btn.textContent;
+          try {
+            await navigator.clipboard.writeText(toTsv());
+            btn.textContent = "Copied ✓";
+          } catch (err) {
+            /* Clipboard API needs a secure context; fall back to a selectable field. */
+            const ta = document.createElement("textarea");
+            ta.value = toTsv();
+            ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+            document.body.appendChild(ta);
+            ta.select();
+            try {
+              document.execCommand("copy");
+              btn.textContent = "Copied ✓";
+            } catch (e2) {
+              btn.textContent = "Copy failed";
+            }
+            document.body.removeChild(ta);
+          }
+          setTimeout(() => {
+            btn.textContent = was;
+          }, 1600);
+        });
+
+      document.getElementById("dlCsv").addEventListener("click", () => {
+        /* BOM so Excel reads the em dashes and curly quotes as UTF-8. */
+        const blob = new Blob(["﻿" + toCsv()], {
+          type: "text/csv;charset=utf-8",
+        });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "Competency-Map-Template-Variant-" + mode + ".csv";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+      });
+
+      function setMode(m) {
+        mode = m;
+        document
+          .getElementById("btnA")
+          .setAttribute("aria-pressed", String(m === "A"));
+        document
+          .getElementById("btnB")
+          .setAttribute("aria-pressed", String(m === "B"));
+        renderTable();
+      }
+      document
+        .getElementById("btnA")
+        .addEventListener("click", () => setMode("A"));
+      document
+        .getElementById("btnB")
+        .addEventListener("click", () => setMode("B"));
+
+      renderDeps();
+      renderTable();
+    </script>
+  </body>
+</html>
