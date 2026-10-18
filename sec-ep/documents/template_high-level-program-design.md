@@ -2,7 +2,7 @@
 
 ## About
 
-This plan is for a new training entitled **”`title`"** for `company`. `tell about the training`
+This plan is for a new training entitled **”`title`"** for `client`. `tell about the training`
 
 ### Audience / Participants
 
@@ -82,7 +82,7 @@ Provide the full list of instructional materials that need to be created to supp
 
 ---
 
-# `Client` | Instructional Plan
+# `Client` | Training Program Design
 
 ## Course-level learning objectives
 
@@ -95,7 +95,7 @@ Provide the full list of instructional materials that need to be created to supp
 ## Opening
 **`Total: 00-min`**
 
-About: Introduction of the session, the facilitator, General Assembly, and the high-level of what will be tackled.
+About: Introduction of the session, the facilitator, and the high-level of what will be tackled.
 
 #### "I Do" — title
 **`[Lecture/Discussion/Activity, 00-min]`**
@@ -155,7 +155,7 @@ About: Introduction of the session, the facilitator, General Assembly, and the h
 ## Module 1: Leading AI Enabled Teams
 **`Total: 00-min`**
 
-About: Introduction of the session, the facilitator, General Assembly, and the high-level of what will be tackled.
+About: Introduction of the session, the facilitator, and the high-level of what will be tackled.
 
 ### Module-level learning objectives
 
@@ -224,7 +224,7 @@ About: Introduction of the session, the facilitator, General Assembly, and the h
 ## Module 2: The AI Adoption Model
 **`Total: 00-min`**
 
-About: Introduction of the session, the facilitator, General Assembly, and the high-level of what will be tackled.
+About: Introduction of the session, the facilitator, and the high-level of what will be tackled.
 
 ### Module-level learning objectives
 
@@ -293,7 +293,7 @@ About: Introduction of the session, the facilitator, General Assembly, and the h
 ## Module 3: Overcoming AI Barriers
 **`Total: 00-min`**
 
-About: Introduction of the session, the facilitator, General Assembly, and the high-level of what will be tackled.
+About: Introduction of the session, the facilitator, and the high-level of what will be tackled.
 
 ### Module-level learning objectives
 
@@ -362,7 +362,7 @@ About: Introduction of the session, the facilitator, General Assembly, and the h
 ## Module 4: Resistance and Coaching Through Adoption
 **`Total: 00-min`**
 
-About: Introduction of the session, the facilitator, General Assembly, and the high-level of what will be tackled.
+About: Introduction of the session, the facilitator, and the high-level of what will be tackled.
 
 ### Module-level learning objectives
 
@@ -431,7 +431,7 @@ About: Introduction of the session, the facilitator, General Assembly, and the h
 ## Closing
 **`Total: 00-min`**
 
-About: Introduction of the session, the facilitator, General Assembly, and the high-level of what will be tackled.
+About: Introduction of the session, the facilitator, and the high-level of what will be tackled.
 
 #### "I Do" — title
 **`[Lecture/Discussion/Activity, 00-min]`**
