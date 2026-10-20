@@ -22,8 +22,7 @@
     font-family: "Google Sans Flex";
     font-style: normal;
     font-weight: 400;
-    src: url("../fonts/google-sans-flex-v21-latin-regular.woff2")
-      format("woff2");
+    src: url("../fonts/google-sans-flex-v21-latin-regular.woff2") format("woff2");
   }
   /* google-sans-flex-600 - latin */
   @font-face {
@@ -228,6 +227,61 @@
   }
   /* End — Paragraph Text */
 
+  /* Start — Tables in main */
+  /* Wrapper lets the table scroll left-to-right on narrow screens without widening the page. */
+  .table-scroll {
+    overflow-x: auto;
+    margin-block: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-scroll:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .table-main {
+    --table-line: #1a1a1a;
+    --table-head-bg: #0e1b3d;
+    --table-head-text: #ffffff;
+    --table-row-odd: #ffffff;
+    --table-row-even: #ececec;
+
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--table-line);
+    color: var(--table-line);
+  }
+
+  .table-main th,
+  .table-main td {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--table-line);
+    text-align: left;
+  }
+
+  .table-main thead th {
+    background-color: var(--table-head-bg);
+    color: var(--table-head-text);
+    font-family: var(--font-heading);
+    font-weight: var(--fw-semibold);
+  }
+
+  .table-main tbody tr:nth-child(odd) {
+    background-color: var(--table-row-odd);
+  }
+
+  .table-main tbody tr:nth-child(even) {
+    background-color: var(--table-row-even);
+  }
+
+  @media (max-width: 767px) {
+    .table-main {
+      min-width: 640px; /* keeps columns readable; the wrapper scrolls instead */
+    }
+  }
+  /* End — Tables in main */
+
   /* Start — Side note */
   .side-note {
     display: flex;
@@ -307,6 +361,10 @@
   .highlight-purple {
     background-color: hsl(263, 100%, 83%);
   }
+
+  .highlight-blue {
+    background-color: hsl(205, 100%, 78%);
+  }
   /* End — Standard highlight */
 
   /* Start — Marker highlight */
@@ -315,12 +373,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(46, 100%, 65%, 0.1),
-      hsla(46, 100%, 65%, 0.7) 4%,
-      hsla(46, 100%, 65%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(46, 100%, 65%, 0.1), hsla(46, 100%, 65%, 0.7) 4%, hsla(46, 100%, 65%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -329,12 +382,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(28, 100%, 72%, 0.1),
-      hsla(28, 100%, 72%, 0.7) 4%,
-      hsla(28, 100%, 72%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(28, 100%, 72%, 0.1), hsla(28, 100%, 72%, 0.7) 4%, hsla(28, 100%, 72%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -343,12 +391,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(162, 100%, 68%, 0.1),
-      hsla(162, 100%, 68%, 0.7) 4%,
-      hsla(162, 100%, 68%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(162, 100%, 68%, 0.1), hsla(162, 100%, 68%, 0.7) 4%, hsla(162, 100%, 68%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -357,12 +400,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(307, 91%, 82%, 0.1),
-      hsla(307, 91%, 82%, 0.7) 4%,
-      hsla(307, 91%, 82%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(307, 91%, 82%, 0.1), hsla(307, 91%, 82%, 0.7) 4%, hsla(307, 91%, 82%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -371,12 +409,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(263, 100%, 83%, 0.1),
-      hsla(263, 100%, 83%, 0.7) 4%,
-      hsla(263, 100%, 83%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(263, 100%, 83%, 0.1), hsla(263, 100%, 83%, 0.7) 4%, hsla(263, 100%, 83%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -385,12 +418,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(203, 100%, 83%, 0.1),
-      hsla(203, 93%, 71%, 0.7) 4%,
-      hsla(203, 100%, 83%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(203, 100%, 83%, 0.1), hsla(203, 93%, 71%, 0.7) 4%, hsla(203, 100%, 83%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -790,15 +818,7 @@
     --devlink-fill: var(--color-bg-section);
     --devlink-text: var(--color-body-text);
     --devlink-stroke-w: 2px;
-    --devlink-stroke: linear-gradient(
-      90deg,
-      #5fd3c4 0%,
-      #4c6fe8 18%,
-      #7b3fe4 36%,
-      #e03fb8 54%,
-      #f5834a 74%,
-      #f5d06b 100%
-    );
+    --devlink-stroke: linear-gradient(90deg, #5fd3c4 0%, #4c6fe8 18%, #7b3fe4 36%, #e03fb8 54%, #f5834a 74%, #f5d06b 100%);
 
     /* --- Box --- */
     display: flex;
@@ -816,9 +836,7 @@
        border box, so it shows only where the transparent border is.
        background-origin: border-box makes both layers start from the
        same outer edge, which keeps the gradient aligned around the curve. */
-    background-image:
-      linear-gradient(var(--devlink-fill), var(--devlink-fill)),
-      var(--devlink-stroke);
+    background-image: linear-gradient(var(--devlink-fill), var(--devlink-fill)), var(--devlink-stroke);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     background-repeat: no-repeat;
@@ -1190,11 +1208,7 @@
     transform: translateX(-50%);
     width: var(--pdt-cont-dot);
     height: var(--pdt-cont-h);
-    background-image: radial-gradient(
-      circle,
-      var(--pdt-line) calc(var(--pdt-cont-dot) / 2),
-      transparent calc(var(--pdt-cont-dot) / 2 + 0.5px)
-    );
+    background-image: radial-gradient(circle, var(--pdt-line) calc(var(--pdt-cont-dot) / 2), transparent calc(var(--pdt-cont-dot) / 2 + 0.5px));
     background-size: var(--pdt-cont-dot) var(--pdt-cont-rhythm);
     background-repeat: repeat-y;
     background-position: top center;

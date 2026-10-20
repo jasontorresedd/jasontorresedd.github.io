@@ -64,25 +64,9 @@
     --spec-yellow: #f5d06b;
 
     /* The button stroke, verbatim (horizontal) */
-    --spec-gradient: linear-gradient(
-      90deg,
-      var(--spec-teal) 0%,
-      var(--spec-blue) 18%,
-      var(--spec-purple) 36%,
-      var(--spec-magenta) 54%,
-      var(--spec-orange) 74%,
-      var(--spec-yellow) 100%
-    );
+    --spec-gradient: linear-gradient(90deg, var(--spec-teal) 0%, var(--spec-blue) 18%, var(--spec-purple) 36%, var(--spec-magenta) 54%, var(--spec-orange) 74%, var(--spec-yellow) 100%);
     /* Same stroke, unrolled vertically for the timeline */
-    --spec-gradient-v: linear-gradient(
-      180deg,
-      var(--spec-teal) 0%,
-      var(--spec-blue) 18%,
-      var(--spec-purple) 36%,
-      var(--spec-magenta) 54%,
-      var(--spec-orange) 74%,
-      var(--spec-yellow) 100%
-    );
+    --spec-gradient-v: linear-gradient(180deg, var(--spec-teal) 0%, var(--spec-blue) 18%, var(--spec-purple) 36%, var(--spec-magenta) 54%, var(--spec-orange) 74%, var(--spec-yellow) 100%);
 
     /* --- Font sizes in rem for accessibility. 1px=16rem --- */
     --12px: 0.75rem;
@@ -237,6 +221,10 @@
   .highlight-purple {
     background-color: hsl(263, 100%, 83%);
   }
+
+  .highlight-blue {
+    background-color: hsl(205, 100%, 78%);
+  }
   /* End — Standard highlight */
 
   /* Start — Marker highlight */
@@ -245,12 +233,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(46, 100%, 65%, 0.1),
-      hsla(46, 100%, 65%, 0.7) 4%,
-      hsla(46, 100%, 65%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(46, 100%, 65%, 0.1), hsla(46, 100%, 65%, 0.7) 4%, hsla(46, 100%, 65%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -259,12 +242,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(28, 100%, 72%, 0.1),
-      hsla(28, 100%, 72%, 0.7) 4%,
-      hsla(28, 100%, 72%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(28, 100%, 72%, 0.1), hsla(28, 100%, 72%, 0.7) 4%, hsla(28, 100%, 72%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -273,12 +251,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(162, 100%, 68%, 0.1),
-      hsla(162, 100%, 68%, 0.7) 4%,
-      hsla(162, 100%, 68%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(162, 100%, 68%, 0.1), hsla(162, 100%, 68%, 0.7) 4%, hsla(162, 100%, 68%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -287,12 +260,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(307, 91%, 82%, 0.1),
-      hsla(307, 91%, 82%, 0.7) 4%,
-      hsla(307, 91%, 82%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(307, 91%, 82%, 0.1), hsla(307, 91%, 82%, 0.7) 4%, hsla(307, 91%, 82%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -301,12 +269,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(263, 100%, 83%, 0.1),
-      hsla(263, 100%, 83%, 0.7) 4%,
-      hsla(263, 100%, 83%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(263, 100%, 83%, 0.1), hsla(263, 100%, 83%, 0.7) 4%, hsla(263, 100%, 83%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -315,12 +278,7 @@
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(
-      to right,
-      hsla(203, 100%, 83%, 0.1),
-      hsla(203, 93%, 71%, 0.7) 4%,
-      hsla(203, 100%, 83%, 0.3)
-    );
+    background-image: linear-gradient(to right, hsla(203, 100%, 83%, 0.1), hsla(203, 93%, 71%, 0.7) 4%, hsla(203, 100%, 83%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -396,9 +354,7 @@
     width: 0%;
     border-radius: calc(var(--gauge-r) - var(--gauge-b));
     box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.35);
-    background:
-      linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 85%),
-      var(--spec-gradient);
+    background: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0) 85%), var(--spec-gradient);
     background-size:
       var(--gauge-w) 100%,
       var(--gauge-w) 100%;
@@ -495,11 +451,7 @@
   .tldr-btn {
     appearance: button;
     background-color: #4d4ae8;
-    background-image: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.15),
-      rgba(255, 255, 255, 0)
-    );
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
     border: 1px solid #4d4ae8;
     border-radius: 1rem;
     box-shadow:
@@ -593,12 +545,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.8),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
   }
 
   .tldr-viewer::after {
@@ -608,12 +555,7 @@
     left: 0;
     width: 1px;
     height: 100%;
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.8),
-      transparent,
-      rgba(255, 255, 255, 0.3)
-    );
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), transparent, rgba(255, 255, 255, 0.3));
   }
 
   .tldr-viewer[open] {
@@ -844,9 +786,7 @@
        border box, so it shows only where the transparent border is.
        background-origin: border-box makes both layers start from the
        same outer edge, which keeps the gradient aligned around the curve. */
-    background-image:
-      linear-gradient(var(--devlink-fill), var(--devlink-fill)),
-      var(--spec-gradient);
+    background-image: linear-gradient(var(--devlink-fill), var(--devlink-fill)), var(--spec-gradient);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     background-repeat: no-repeat;
