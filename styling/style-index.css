@@ -656,6 +656,7 @@
     font-family: var(--font-body);
     font-weight: var(--fw-semibold);
     font-size: var(--fs-tag);
+    max-width: 40ch;
   }
 
   .hero__location,
