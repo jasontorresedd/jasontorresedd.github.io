@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon-A1-c.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Data</title>
+    <meta name="description" content="About the design and development of an interactive dashboard using mobile data logs." />
+    <link rel="stylesheet" href="/styling/style-db1.css" />
+    <script src="/styling/script-db1.js" defer></script>
+  </head>
+
+  <body>
+    <!-- ===== HERO ===== -->
+    <header class="hero" id="top">
+      <div class="wrapper">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">jasontorresedd.com</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html#collections">collections</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">mobile data</span>
+        </nav>
+
+        <h1>Mobile Data</h1>
+        <p class="hero-tag">Dashboard</p>
+        <p class="hero__lede">This is an introduction to a dashboard developed as a side project and just for fun. Inspired by a training I designed for a client, I began wanting to experiment with designing and developing my own dashboard with Claude. Recalling a dataset I have created over 10 years of tracking my own mobile data use across carriers and devices, I decided to turn this data into an interactive dashboard. This was my first attempt planning, designing, and developing a dashboard with Claude.</p>
+      </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="page-body">
+      <!-- ===== SELECTION BOXES ===== -->
+      <nav class="selector" aria-label="Explore this dashboard">
+        <div class="wrapper">
+          <ul class="selector__grid">
+            <li>
+              <a class="selector__box selector__box--dashboard" href="dashboard-mobile/db-mobdat.html" target="_blank" rel="noopener noreferrer">Dashboard<span class="visually-hidden"> (opens in a new window)</span></a>
+            </li>
+            <li><a class="selector__box selector__box--story" href="#story">Story</a></li>
+            <li><a class="selector__box selector__box--development" href="#development">Development</a></li>
+            <li><a class="selector__box selector__box--style" href="#style">Style</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- ===== STORY ===== -->
+      <section class="db-section db-section--story" id="story">
+        <div class="wrapper">
+          <!-- <span class="heading-accent" aria-hidden="true"></span> -->
+          <h2>Story</h2>
+          <p class="db-section__lede">Since 2016 I have kept a monthly record of my mobile data usage across 2 carriers, multiple iPhones, multiple iPads, and their hotspots. It started when I was on a 4G &lpar;LTE&rpar; unlimited service, then transitioned to a 5G unlimited service, as well as through COVID-19 and iOS bugs. This dataset has just become a habit and I haven't thought much about it. But while designing an AI training for Oliver Wyman in September 2026, I got to thinking about how I could convert this dataset into a dashboard. I found myself writing the steps to do this as part of creating a learning activity, so I thought, why not give it a go with my own data? For me at least, the result is a pretty cool story of life and the mobile devices that were literally closest to me.</p>
+
+          <div class="panel-grid">
+            <article class="panel">
+              <h3 class="panel__title">Why it was built</h3>
+              <p><b>Reason 1:</b> To practice the skill of storytelling with data. I wanted to think through and imagine what I could visually communicate through a series of charts, graphs, and simple color, using data that I know quite well.</p>
+              <p><b>Reason 2:</b> To provide a demonstration of what I could create with Claude Code when taking a real dataset and turning it into a visual story. The results were guided by ideating a story, preparing data, thinking as a machine, and preparing materials to guide Claude.</p>
+            </article>
+            <article class="panel">
+              <h3 class="panel__title">The data source</h3>
+              <p>This data has been collected by me from the start of 2016 to the present day. I have a routine for resetting the data counters on my devices and at each point that I do this, I jot down in a spreadsheet how much data I've used. It is purely the whole amount and is not broken down by categories of use.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== DEVELOPMENT ===== -->
+      <section class="db-section db-section--development" id="development">
+        <div class="wrapper">
+          <!-- <span class="heading-accent" aria-hidden="true"></span> -->
+          <h2>Development</h2>
+          <p class="db-section__lede">There were four phases to developing the dashboard. See below to learn about each phase. While some of these relied solely on my effort, others were done for or in partnership with Claude.</p>
+
+          <div class="panel-grid">
+            <article class="panel">
+              <span class="panel__step" aria-hidden="true">01</span>
+              <h3 class="panel__title">Data preparation</h3>
+              <p>The existing spreadsheet was minimally formatted with colors, separated rows, formulas, and comments that would be problematic for Claude to read. Additionally, the data was kept in an uncommon file format. Over a few hours, I reformatted the data into an XLSX file and removed all of the formatting and ensured a complete set of rows and columns. When organized, rows represented devices and hotspots, and columns represented months and years.</p>
+              <p>While creating the spreadsheet I realized that I needed to help Claude recognize that active or inactive mobile data consumption needed to be understood in relation to the ownership status of a device. So to do this, I created a secondary spreadsheet with the same row and column format, and set the following in cells: 0 &equals; Unowned device and inactive hotspot; 1 &equals; Owned device and active hotspot; and 2 &equals; Owned device and inactive hotspot.</p>
+            </article>
+            <article class="panel">
+              <span class="panel__step" aria-hidden="true">02</span>
+              <h3 class="panel__title">Designing the style board</h3>
+              <p>For styling, I first thought about different colors for data, but soon realized this would not be good. Because data carriers &lpar;Sprint and Verizon&rpar; were so central to the story, I needed to use their colors and neutrals for everything else.</p>
+              <p>With colors settled, I browsed Google Fonts to select some fonts I had not tried before. This didn't take too long as I already had a sense of what I was looking for even though I didn't know exactly what.</p>
+              <p>Finally, I used the Design feature in Claude to create a style board to guide how these and other design elements would work together to tell a data story. When done, I exported the style guide as Markdown to share with the instructions I would write for Claude.</p>
+            </article>
+            <article class="panel panel--wide">
+              <span class="panel__step" aria-hidden="true">03</span>
+              <h3 class="panel__title">Instructions development</h3>
+              <p>At this point I sat down and wrote out a full set of background, context, and instructions for Claude guiding how I wanted it to understand what I was providing and what I wanted to build. My instructions included six sections: 1&rpar; overview, 2&rpar; audience, 3&rpar; data sources, 4&rpar; presentation, 5&rpar; target output, and 6&rpar; technical specifications. Within this I provided details on how to understand the data, how to recognize the devices listed, how to distinguish the two spreadsheets provided and use them together, and what kinds of functions and cards I was looking for a user to see in the dashboard. These instructions were saved as Markdown.</p>
+            </article>
+            <article class="panel panel--wide">
+              <span class="panel__step" aria-hidden="true">04</span>
+              <h3 class="panel__title">Development procedure</h3>
+              <p>This phase was only begun once data preparation, the style board, and the instructions were settled. Of those, I iterated with Claude on the style board a bit more after it was drafted, and I walked away and returned to the instructions a few times as I did other work. But once those were done, I did the following:</p>
+              <ul class="panel__list">
+                <li><b>Step 1:</b> Prior to development, I used Google Gemini 3.1 Pro on 'High' effort to generate SVG images of each iPhone and iPad device that is represented in my data. I looked for other options first, but this was the easiest thing to do with surprisingly good output.</li>
+                <li><b>Step 2:</b> Created a project folder on my desktop and included the instructions and style guide in Markdown, a folder with fonts, a folder with device images, and the full dataset and ownership guidance spreadsheets in CSV files. I also included blank HTML and JS files following the file names I outlined in the instructions, and a CSS file following the same file naming in the instructions, but including the basic layers I wanted the CSS built within.</li>
+                <li><b>Step 3:</b> Opened the folder in VS Code and launched the Claude Code plug-in.</li>
+                <li><b>Step 4:</b> Instructed Claude to read my instructions and the style guide in the project folder, then execute on those. I used Opus 5.5 and set effort to 'High'.</li>
+                <li><b>Step 5:</b> After about 15 minutes, Claude had drafted the HTML, CSS, and JS files I had asked for. I reviewed these before going forward to gain orientation and see how it drafted the dashboard against my instructions and style guide.</li>
+                <li><b>Step 6:</b> From here I went through a couple of hours iterating with Claude on all aspects of the dashboard. This included redesigning cards, adding cards, and dropping cards. While doing this, I would manually revise language in the HTML and JS files. Before finalizing I asked it to make a pass to identify any typos or coding errors that needed fixing.</li>
+                <li><b>Step 7:</b> I conversed with Claude on how this would be released on GitHub Pages. Initially, the dashboard relied on the presence of the CSV files to properly load the site. I worked with Claude to build the necessary data into the JS file. This is fine for me because the dashboard is for demonstration only.</li>
+                <li><b>Step 8:</b> In the last step of development Claude produced a revised version of the style guide incorporating all design changes we made. I then archived the work and moved relevant project files into my GitHub repository.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STYLE ===== -->
+      <section class="db-section db-section--style" id="style">
+        <div class="wrapper">
+          <!-- <span class="heading-accent" aria-hidden="true"></span> -->
+          <h2>Style</h2>
+          <p class="db-section__lede">The following are the basic elements of style that the dashboard incorporates. This style was first ideated by me, and was then formalized into a style guide with Claude Design.</p>
+
+          <div class="style-group">
+            <h3>Fonts</h3>
+            <p class="style-group__lede">The following font families guide the dashboard design: <b>Nunito Sans</b> for display, <b>Inter Tight</b> for reading and labels, and <b>Geist Mono</b> for figures. Like the rest of the website, all fonts are loaded from the website and not loaded from a remote Google server.</p>
+            <ul class="specimen-grid">
+              <li class="specimen" style="--specimen-font: &quot;Nunito Sans&quot;; --specimen-weight: 800">
+                <span class="specimen__sample" aria-hidden="true">Aa</span>
+                <span class="specimen__name">Nunito Sans</span>
+                <span class="specimen__role">Story, chapter, and panel titles</span>
+                <span class="specimen__weights">
+                  <span style="font-weight: 400">400 Regular</span>
+                  <span style="font-weight: 600">600 SemiBold</span>
+                  <span style="font-weight: 800">800 ExtraBold</span>
+                </span>
+                <ul class="specimen__uses">
+                  <li><span>Story title</span><span class="specimen__value">56px &middot; 800</span></li>
+                  <li><span>Chapter titles</span><span class="specimen__value">32px &middot; 800</span></li>
+                  <li><span>Panel titles</span><span class="specimen__value">20px &middot; 600</span></li>
+                  <li><span>Brand</span><span class="specimen__value">18px &middot; 800</span></li>
+                </ul>
+              </li>
+              <li class="specimen" style="--specimen-font: &quot;Inter Tight&quot;; --specimen-weight: 400">
+                <span class="specimen__sample" aria-hidden="true">Aa</span>
+                <span class="specimen__name">Inter Tight</span>
+                <span class="specimen__role">Body text, labels, and controls</span>
+                <span class="specimen__weights">
+                  <span style="font-weight: 400">400 Regular</span>
+                  <span style="font-weight: 600">600 SemiBold</span>
+                </span>
+                <ul class="specimen__uses">
+                  <li><span>Body</span><span class="specimen__value">15px &middot; 400</span></li>
+                  <li><span>Small text, tooltips</span><span class="specimen__value">13px &middot; 400</span></li>
+                  <li><span>Labels</span><span class="specimen__value">11px &middot; 600 caps</span></li>
+                </ul>
+              </li>
+              <li class="specimen" style="--specimen-font: &quot;Geist Mono&quot;; --specimen-weight: 500">
+                <span class="specimen__sample" aria-hidden="true">01</span>
+                <span class="specimen__name">Geist Mono</span>
+                <span class="specimen__role">Figures, ticks, and data values</span>
+                <span class="specimen__weights">
+                  <span style="font-weight: 400">400 Regular</span>
+                  <span style="font-weight: 500">500 Medium</span>
+                </span>
+                <ul class="specimen__uses">
+                  <li><span>Figures</span><span class="specimen__value">40px &middot; 500</span></li>
+                  <li><span>Small figures</span><span class="specimen__value">20px &middot; 500</span></li>
+                  <li><span>Codes</span><span class="specimen__value">12px &middot; 500</span></li>
+                  <li><span>Axis ticks</span><span class="specimen__value">11px &middot; 400</span></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="style-group">
+            <h3>Colors</h3>
+            <p class="style-group__lede">This dashboard is designed for both <b>light and dark modes</b>. In either mode, the colors are generally neutral to allow for the carrier colors to pop out. You will see a purple color only in line charts as a tooltip for moving across time spans.</p>
+            <h4 class="swatch-set__title">Carriers</h4>
+            <ul class="swatch-grid">
+              <li class="swatch" style="--swatch: #ffdd00">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#ffdd00</span><span class="swatch__name">Sprint fill, ink, and edge</span><span class="swatch__token">--sprint</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #14181d">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#14181d</span><span class="swatch__name">Text on Sprint</span><span class="swatch__token">--on-sprint</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #ee001e">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#ee001e</span><span class="swatch__name">Verizon fill</span><span class="swatch__token">--verizon</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #ffffff">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#ffffff</span><span class="swatch__name">Text on Verizon</span><span class="swatch__token">--on-verizon</span></span>
+              </li>
+            </ul>
+            <h4 class="swatch-set__title">Light theme</h4>
+            <ul class="swatch-grid">
+              <li class="swatch" style="--swatch: #f1f3f5">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#f1f3f5</span><span class="swatch__name">Ground, page background</span><span class="swatch__token">--ground</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #14181d">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#14181d</span><span class="swatch__name">Ink, body text</span><span class="swatch__token">--ink</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #56606c">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#56606c</span><span class="swatch__name">Muted ink</span><span class="swatch__token">--ink-muted</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #7a6500">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#7a6500</span><span class="swatch__name">Sprint lines and text</span><span class="swatch__token">--sprint-ink</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #c80019">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#c80019</span><span class="swatch__name">Verizon lines and text</span><span class="swatch__token">--verizon-ink</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #6a3fd0">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#6a3fd0</span><span class="swatch__name">Tooltip</span><span class="swatch__token">--focus</span></span>
+              </li>
+            </ul>
+            <h4 class="swatch-set__title">Dark theme</h4>
+            <ul class="swatch-grid">
+              <li class="swatch" style="--swatch: #101317">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#101317</span><span class="swatch__name">Ground, page background</span><span class="swatch__token">--ground</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #e8ebef">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#e8ebef</span><span class="swatch__name">Ink, body text</span><span class="swatch__token">--ink</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #98a2af">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#98a2af</span><span class="swatch__name">Muted ink</span><span class="swatch__token">--ink-muted</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #b49bff">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#b49bff</span><span class="swatch__name">Tooltip</span><span class="swatch__token">--focus</span></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="style-group">
+            <h3>Functions</h3>
+            <p class="style-group__lede">The following are a few functions that you can operate within the dashboard.</p>
+            <dl class="function-list">
+              <div class="function-list__item">
+                <dt>Light and dark themes</dt>
+                <dd>Toggle between light and dark viewing in your browser.</dd>
+              </div>
+              <div class="function-list__item">
+                <dt>Devices and carrier</dt>
+                <dd>Select between viewing devices as glyphs or images, and switch the carrier in view.</dd>
+              </div>
+              <div class="function-list__item">
+                <dt>Comprehensive chart controls</dt>
+                <dd>Change the view, series, and time span, compare years, and flag anomalies and markers.</dd>
+              </div>
+              <div class="function-list__item">
+                <dt>Small screen notice</dt>
+                <dd>Built for tablets and larger. Phones see a notice in place of the dashboard.</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="section section--band footer">
+      <h2 class="visually-hidden">Footer</h2>
+      <div class="wrapper footer__wrapper">
+        <div class="footer__credits">
+          <p>Designed and written by Jason Torres</p>
+          <p>
+            Co-developed with
+            <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer">Claude Code</a>
+          </p>
+          <p>Updated October 2026</p>
+        </div>
+        <p class="footer__gototop"><a href="#top">Return to Top</a></p>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+       POP-OUT PDF VIEWER (native <dialog> + PDF.js)
+       Pages render as canvases in a scrollable stack — multi-page
+       scrolling works, and there is no download/print UI.
+       Closes on the ×, Esc, or clicking the dark backdrop.
+       ============================================================ -->
+    <dialog class="viewer" id="viewer">
+      <header class="viewer-titlebar">
+        <span class="viewer-caption" id="viewer-caption">Document</span>
+        <button class="viewer-close" type="button" id="viewer-close" aria-label="Close viewer">[ x ]</button>
+      </header>
+      <div class="viewer-pages" id="viewer-pages"></div>
+      <p class="viewer-hint">Scroll to read &middot; click outside or press Esc to close</p>
+    </dialog>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  </body>
+</html>

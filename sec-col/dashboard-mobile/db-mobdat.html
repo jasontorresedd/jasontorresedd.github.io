@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon-A1-c.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="An interactive dashboard of personal mobile data use." />
+    <title>Mobile Data Dashboard</title>
+    <link rel="stylesheet" href="/styling/style-db-mobdat.css" />
+    <script src="/styling/script-db-mobdat.js" defer></script>
+    <script>
+      try {
+        var t = localStorage.getItem("mobile-data-log:theme");
+        if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+  </head>
+  <body id="top">
+    <!-- SmallScreenNotice: phones get this instead of the dashboard -->
+    <div class="small-notice" role="note">
+      <h1>Mobile Data Dashboard needs a bigger screen</h1>
+      <p>The charts encode carrier, device and hotspot in ways that do not survive phone width. Open this page on a tablet or computer.</p>
+      <p class="tick">Needs a window at least 744 &times; 600 px</p>
+    </div>
+
+    <div class="app">
+      <header class="app-header">
+        <div class="app-header-inner">
+          <div class="brand">Mobile Data Dashboard <span class="tick" id="brand-span"></span></div>
+          <div class="toggles">
+            <div class="toggle-group">
+              <span class="label" id="lbl-devices">Devices</span>
+              <div class="seg" role="group" aria-labelledby="lbl-devices">
+                <button type="button" data-devices="glyphs" aria-pressed="true">Glyphs</button>
+                <button type="button" data-devices="images" aria-pressed="false">Images</button>
+              </div>
+            </div>
+            <div class="toggle-group">
+              <span class="label" id="lbl-carrier">Carrier</span>
+              <div class="seg carrier-toggle" role="radiogroup" aria-labelledby="lbl-carrier">
+                <button type="button" role="radio" data-carrier="sprint" aria-checked="false" tabindex="-1">Sprint</button>
+                <button type="button" role="radio" data-carrier="both" aria-checked="true" tabindex="0">Both</button>
+                <button type="button" role="radio" data-carrier="verizon" aria-checked="false" tabindex="-1">Verizon</button>
+              </div>
+            </div>
+            <div class="toggle-group">
+              <span class="label" id="lbl-theme">Theme</span>
+              <div class="seg" role="group" aria-labelledby="lbl-theme">
+                <button type="button" data-theme-set="dark" aria-pressed="true">Dark</button>
+                <button type="button" data-theme-set="light" aria-pressed="false">Light</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="page" id="main">
+        <section class="intro">
+          <p class="label" id="eyebrow">Mobile data dashboard</p>
+          <h1 class="story-title">Tracking my mobile data use</h1>
+          <p class="body" id="lede"></p>
+        </section>
+
+        <p class="status-line tick" id="status-line" aria-live="polite"></p>
+
+        <!-- Data boxes above the primary window -->
+        <section class="tiles grid" id="tiles" aria-label="Summary"></section>
+
+        <!-- Primary window -->
+        <section class="panel" aria-labelledby="primary-title">
+          <div class="panel-head">
+            <div>
+              <h2 class="panel-title" id="primary-title">Monthly use</h2>
+              <p class="body-small" id="primary-sub"></p>
+            </div>
+            <div class="panel-head-side">
+              <div id="carrier-key"></div>
+              <div class="display-ctl">
+                <div class="seg" role="group" aria-label="Chart or table">
+                  <button type="button" data-display="chart" aria-pressed="true">Chart</button>
+                  <button type="button" data-display="table" aria-pressed="false">Table</button>
+                </div>
+                <div class="seg">
+                  <button type="button" id="proj-toggle" aria-pressed="false">Projection</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="primary">
+            <form class="controls" id="controls" onsubmit="return false;">
+              <fieldset class="ctl">
+                <legend class="label">View</legend>
+                <div class="seg seg-block" role="group" aria-label="Chart view">
+                  <button type="button" data-view="timeline" aria-pressed="true">Timeline</button>
+                  <button type="button" data-view="stack" aria-pressed="false">Stacked</button>
+                  <button type="button" data-view="years" aria-pressed="false">Years</button>
+                </div>
+                <p class="body-small ctl-help" id="view-help"></p>
+              </fieldset>
+
+              <fieldset class="ctl">
+                <legend class="label">Series</legend>
+                <label class="check"><input type="checkbox" data-series="phone" checked /><span class="glyph-slot" data-glyph="phone"></span>iPhones</label>
+                <label class="check"><input type="checkbox" data-series="phoneHs" /><span class="glyph-slot" data-glyph="phoneHs"></span>iPhone hotspot</label>
+                <label class="check"><input type="checkbox" data-series="tablet" checked /><span class="glyph-slot" data-glyph="tablet"></span>iPads</label>
+                <label class="check"><input type="checkbox" data-series="tabletHs" /><span class="glyph-slot" data-glyph="tabletHs"></span>iPad hotspot</label>
+                <div class="quick" role="group" aria-label="Series presets">
+                  <button type="button" data-preset="phone">iPhones only</button>
+                  <button type="button" data-preset="tablet">iPads only</button>
+                  <button type="button" data-preset="hotspot">Hotspots</button>
+                  <button type="button" data-preset="all">All</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="ctl" id="ctl-range">
+                <legend class="label">Time</legend>
+                <div class="seg seg-block" role="group" aria-label="Time span">
+                  <button type="button" data-range="full" aria-pressed="true">Full timeline</button>
+                  <button type="button" data-range="years" aria-pressed="false">Pick years</button>
+                </div>
+                <div class="range-pick">
+                  <label class="label"
+                    >From
+                    <select id="range-from" disabled></select
+                  ></label>
+                  <label class="label"
+                    >To
+                    <select id="range-to" disabled></select
+                  ></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="ctl" id="ctl-years" hidden>
+                <legend class="label">Years to compare</legend>
+                <div class="chips" id="year-chips" role="group" aria-label="Years"></div>
+                <div class="quick">
+                  <button type="button" data-years="spread">Spread</button>
+                  <button type="button" data-years="recent">Last 3</button>
+                  <button type="button" data-years="all">All</button>
+                  <button type="button" data-years="none">Clear</button>
+                </div>
+              </fieldset>
+
+              <fieldset class="ctl">
+                <legend class="label">Anomalies</legend>
+                <label class="check"><input type="checkbox" data-exclude="bug" checked />Exclude iOS bug <span class="tick" data-period-span="bug"></span></label>
+                <label class="check"><input type="checkbox" data-exclude="covid" />Exclude COVID-19 <span class="tick" data-period-span="covid"></span></label>
+              </fieldset>
+
+              <fieldset class="ctl">
+                <legend class="label">Markers</legend>
+                <label class="check"><input type="checkbox" data-notes="periods" checked />Periods</label>
+                <label class="check"><input type="checkbox" data-notes="mine" checked />My notes</label>
+              </fieldset>
+            </form>
+
+            <div class="chart-area">
+              <div class="chart-well" id="chart-well"></div>
+              <div id="chart-table" hidden></div>
+              <p class="body-small proj-note" id="proj-note" hidden></p>
+              <ol class="notes-list body-small" id="notes-list" aria-label="Notes on the chart"></ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- Data boxes below the primary window -->
+        <section class="chapter" aria-labelledby="ch-devices">
+          <header>
+            <h2 class="chapter-title" id="ch-devices">Mobile device lifetime</h2>
+            <p class="body" id="txt-roster"></p>
+          </header>
+          <div class="panel">
+            <div class="panel-head">
+              <div>
+                <h3 class="panel-title">Device roster</h3>
+                <p class="body-small">When each device was in service and on which carrier. This is the key to every code on the page.</p>
+              </div>
+            </div>
+            <div id="roster"></div>
+          </div>
+        </section>
+
+        <section class="chapter" aria-labelledby="ch-years">
+          <header>
+            <h2 class="chapter-title" id="ch-years">Data use year-over-year</h2>
+            <p class="body" id="txt-years"></p>
+          </header>
+          <div class="grid">
+            <article class="panel box span-6" id="box-year"></article>
+            <article class="panel box span-6" id="box-type"></article>
+          </div>
+        </section>
+
+        <section class="chapter" aria-labelledby="ch-when">
+          <header>
+            <h2 class="chapter-title" id="ch-when">Activity across the year</h2>
+            <p class="body" id="txt-when"></p>
+          </header>
+          <div class="grid">
+            <article class="panel box span-6" id="box-season"></article>
+            <article class="panel box span-6" id="box-context"></article>
+          </div>
+        </section>
+
+        <section class="chapter" aria-labelledby="ch-where">
+          <header>
+            <h2 class="chapter-title" id="ch-where">Data consumption by device</h2>
+            <p class="body" id="txt-where"></p>
+          </header>
+          <div class="grid">
+            <article class="panel box span-6" id="box-device"></article>
+            <article class="panel box span-6" id="box-provider"></article>
+          </div>
+        </section>
+
+        <section class="chapter" aria-labelledby="ch-log">
+          <header>
+            <h2 class="chapter-title" id="ch-log">About the dashboard</h2>
+          </header>
+          <div class="panel notes-grid">
+            <div>
+              <h3 class="panel-title">How to read it</h3>
+              <ul class="body-small" id="method-list"></ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-foot body-small">
+        <p>Data capture and dashboard design by Jason Torres</p>
+        <p>Co-developed with <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer">Claude Code</a></p>
+        <p>Updated October 2026</p>
+      </footer>
+    </div>
+
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+  </body>
+</html>

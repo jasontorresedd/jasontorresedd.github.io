@@ -1,0 +1,322 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon-A1-c.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multimedia Production</title>
+    <meta name="description" content="About the design and development of an interactive dashboard using multimedia production data from my time as a director at The George Washington University." />
+    <link rel="stylesheet" href="/styling/style-db1.css" />
+    <script src="/styling/script-db1.js" defer></script>
+  </head>
+
+  <body>
+    <!-- ===== HERO ===== -->
+    <header class="hero" id="top">
+      <div class="wrapper">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">jasontorresedd.com</a>
+          <span aria-hidden="true">/</span>
+          <a href="../index.html#collections">collections</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">multimedia production</span>
+        </nav>
+
+        <h1>Multimedia Production</h1>
+        <p class="hero-tag">Dashboard</p>
+        <p class="hero__lede">This is an introduction to a dashboard developed with 4 years of data from leading multimedia production for more than 100 online courses at The George Washington University &lpar;GWU&rpar;. &lpar;To learn a bit about that work, please see my page on <a href="/sec-ep/gwu-learning-ops.html" target="_blank" rel="noopener noreferrer">learning and media operations</a>.&rpar; Rather than the data sit forever silent, the dashboard tells a data story of a large operational and cultural transformation to increase team collaboration, streamline production workflows, reduce costs, open time for broader work, and achieve time for team members to take leave and/or pursue professional development.</p>
+      </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="page-body">
+      <!-- ===== SELECTION BOXES ===== -->
+      <nav class="selector" aria-label="Explore this dashboard">
+        <div class="wrapper">
+          <ul class="selector__grid">
+            <li>
+              <a class="selector__box selector__box--dashboard" href="dashboard-media/db-medprod.html" target="_blank" rel="noopener noreferrer">Dashboard<span class="visually-hidden"> (opens in a new window)</span></a>
+            </li>
+            <li><a class="selector__box selector__box--story" href="#story">Story</a></li>
+            <li><a class="selector__box selector__box--development" href="#development">Development</a></li>
+            <li><a class="selector__box selector__box--style" href="#style">Style</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- ===== STORY ===== -->
+      <section class="db-section db-section--story" id="story">
+        <div class="wrapper">
+          <!-- <span class="heading-accent" aria-hidden="true"></span> -->
+          <h2>Story</h2>
+          <p class="db-section__lede">During the five years I was the Director of Strategic Digital Learning Initiatives at GWU, a big part of my job was overseeing a team of Multimedia Producers and influencing a team of Instructional Designers in the design and development of online courses from the central library. During my first year, we were all working from home during the COVID-19 pandemic. But upon finally going to campus in August 2021, I put in place a new data capture strategy for tracking performance, along with starting a workflow transformation. By the time I left GWU in summer 2025, I had led a significant reduction in <b class="marker-purple">time to deliver online courses</b> and <b class="marker-purple">overall cost to produce them.</b> Built from data collected from that time, this dashboard tells the story and provides the evidence for my effectiveness as an operations leader.</p>
+
+          <div class="panel-grid">
+            <article class="panel">
+              <h3 class="panel__title">Why it was built</h3>
+              <p><b>Reason 1:</b> To provide the evidence of an operational transformation that I helmed but that was delivered by teams of Multimedia Producers and Instructional Designers. The impact was real, with both time to deliver projects and costs being cut in half from the time I started to the time I left GWU.</p>
+              <p><b>Reason 2:</b> To demonstrate what I can achieve with Claude Code when taking a real dataset and turning it into a visual story. My process involves a lot more than uploading a spreadsheet, writing a few prompts, and then hoping the results are close to <em>good</em>.</p>
+            </article>
+            <article class="panel">
+              <h3 class="panel__title">The data source</h3>
+              <p>The data was collected by me from August 2021 to June 2025 primarily using dashboards I designed in <a href="https://monday.com/" target="_blank" rel="noopener noreferrer">Monday.com</a>. Team members would input values for different parts of their project and media production progress. Some they would also self-report during weekly check-ins. I captured the data in a single Microsoft Excel spreadsheet with each production term in a single tab. All input was manual over the years.</p>
+              <p>Since my departure from GWU in June 2025, the data has sat dormant.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== DEVELOPMENT ===== -->
+      <section class="db-section db-section--development" id="development">
+        <div class="wrapper">
+          <!-- <span class="heading-accent" aria-hidden="true"></span> -->
+          <h2>Development</h2>
+          <p class="db-section__lede">There were four phases to developing the dashboard. See below to learn about each phase. While some of these relied solely on my effort, others were done for or in partnership with Claude.</p>
+
+          <div class="panel-grid">
+            <article class="panel">
+              <span class="panel__step" aria-hidden="true">01</span>
+              <h3 class="panel__title">Data preparation</h3>
+              <p>The existing spreadsheet was formatted with colors, separated rows, formulas, and comments that would be problematic for Claude to read. If shared in its original format, it would likely cause more work to fix any output. Over a few hours, I filled gaps where I knew the correct data, input formulas to ensure cells were populated, and then went about removing any formatting to ensure a complete set of rows and columns. With a clean dataset that could be exported to a CSV file, I moved to the next step.</p>
+            </article>
+            <article class="panel">
+              <span class="panel__step" aria-hidden="true">02</span>
+              <h3 class="panel__title">Designing the style board</h3>
+              <p>For styling, I first thought about colors. I went into one of my libraries for inspiration, then worked with a color picker to select 6 colors for data and 1 color for the background. Afterwards, I thought about fonts, but decided to keep with the primary fonts for my website. Next, I used the Design feature in Claude to create a style board to guide how these and other design elements would work together to tell a data story. When done, I exported the style guide as Markdown to share with the instructions I would write for Claude.</p>
+            </article>
+            <article class="panel panel--wide">
+              <span class="panel__step" aria-hidden="true">03</span>
+              <h3 class="panel__title">Instructions development</h3>
+              <p>At this point I sat down and wrote out a full set of background, context, and instructions for Claude guiding how I wanted it to understand what I was providing and what I wanted to build. My instructions included six sections: 1&rpar; overview, 2&rpar; audience, 3&rpar; data sources, 4&rpar; presentation, 5&rpar; target output, and 6&rpar; technical specifications. Within this I provided details on how to interpret each column in the spreadsheet, data cards and functions I wanted in the dashboard, and background notes about time periods and workflows it would see in the data. These instructions were saved as Markdown.</p>
+            </article>
+            <article class="panel panel--wide">
+              <span class="panel__step" aria-hidden="true">04</span>
+              <h3 class="panel__title">Development procedure</h3>
+              <p>This phase was only begun once data preparation, the style board, and the instructions were settled. Of those, I iterated with Claude on the style board a bit more after it was drafted, and I walked away and returned to the instructions a few times as I did other work. But once those were done, I did the following:</p>
+              <ul class="panel__list">
+                <li><b>Step 1:</b> Created a project folder on my desktop and included the instructions and style guide in Markdown, a folder with fonts, and the full dataset in a CSV file. I also included blank HTML and JS files following the file names I outlined in the instructions, and a CSS file following the same file naming in the instructions, but including the basic layers I wanted the CSS built within.</li>
+                <li><b>Step 2:</b> Opened the folder in VS Code and launched the Claude Code plug-in.</li>
+                <li><b>Step 3:</b> Instructed Claude to read my instructions and the style guide in the project folder, then execute on those. I used Opus 5.5 and set effort to 'High'.</li>
+                <li><b>Step 4:</b> After about 10 minutes, Claude had drafted the HTML, CSS, and JS files I had asked for. I reviewed these before going forward to gain orientation and see how it drafted the dashboard against my instructions and style guide.</li>
+                <li><b>Step 5:</b> From here I went through a couple of hours iterating with Claude on all aspects of the dashboard. This included redesigning cards, adding cards, and dropping cards. While doing this, I would manually revise language in the HTML and JS files. Before finalizing I asked it to make a pass to identify any typos or coding errors that needed fixing.</li>
+                <li><b>Step 6:</b> I conversed with Claude on how this would be released on GitHub Pages and ensured that the CSV file would not be needed. I made adjustments to the HTML header to keep it in alignment with other website pages.</li>
+                <li><b>Step 7:</b> In the last step of development Claude produced a revised version of the style guide incorporating all design changes we made. I then archived the work and moved relevant project files into my GitHub repository.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== STYLE ===== -->
+      <section class="db-section db-section--style" id="style">
+        <div class="wrapper">
+          <!-- <span class="heading-accent" aria-hidden="true"></span> -->
+          <h2>Style</h2>
+          <p class="db-section__lede">The following are the basic elements of style that the dashboard incorporates. This style was first ideated by me, and was then formalized into a style guide with Claude Design.</p>
+
+          <div class="style-group">
+            <h3>Fonts</h3>
+            <p class="style-group__lede">The following font families guide the dashboard design: <b>Rubik</b> for display and headings, <b>Google Sans Flex</b> for reading, and <b>Roboto Mono</b> for data. Like the rest of the website, all fonts are loaded from the website and not loaded from a remote Google server.</p>
+            <ul class="specimen-grid">
+              <li class="specimen" style="--specimen-font: &quot;Rubik&quot;; --specimen-weight: 700">
+                <span class="specimen__sample" aria-hidden="true">Aa</span>
+                <span class="specimen__name">Rubik</span>
+                <span class="specimen__role">Display, headings, and key figures</span>
+                <span class="specimen__weights">
+                  <span style="font-weight: 600">600 SemiBold</span>
+                  <span style="font-weight: 700">700 Bold</span>
+                </span>
+                <ul class="specimen__uses">
+                  <li><span>Display title</span><span class="specimen__value">48px &middot; 700</span></li>
+                  <li><span>Key figures (KPI)</span><span class="specimen__value">40px &middot; 600</span></li>
+                  <li><span>H1 chapter titles</span><span class="specimen__value">32px &middot; 600</span></li>
+                  <li><span>H2 card titles</span><span class="specimen__value">24px &middot; 600</span></li>
+                </ul>
+              </li>
+              <li class="specimen" style="--specimen-font: &quot;Google Sans Flex&quot;; --specimen-weight: 400">
+                <span class="specimen__sample" aria-hidden="true">Aa</span>
+                <span class="specimen__name">Google Sans Flex</span>
+                <span class="specimen__role">Body text, subheads, and controls</span>
+                <span class="specimen__weights">
+                  <span style="font-weight: 400">400 Regular</span>
+                  <span style="font-weight: 600">600 SemiBold</span>
+                </span>
+                <ul class="specimen__uses">
+                  <li><span>Body</span><span class="specimen__value">16px &middot; 400</span></li>
+                  <li><span>H3 subheads</span><span class="specimen__value">20px &middot; 600</span></li>
+                  <li><span>Small text, controls</span><span class="specimen__value">14px &middot; 400/600</span></li>
+                </ul>
+              </li>
+              <li class="specimen" style="--specimen-font: &quot;Roboto Mono&quot;; --specimen-weight: 400">
+                <span class="specimen__sample" aria-hidden="true">01</span>
+                <span class="specimen__name">Roboto Mono</span>
+                <span class="specimen__role">Data labels, ticks, and table headers</span>
+                <span class="specimen__weights">
+                  <span style="font-weight: 400">400 Regular</span>
+                </span>
+                <ul class="specimen__uses">
+                  <li><span>Data, axis ticks</span><span class="specimen__value">12px &middot; 400</span></li>
+                  <li><span>Labels, table headers</span><span class="specimen__value">12px &middot; 400 caps</span></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <div class="style-group">
+            <h3>Colors</h3>
+            <p class="style-group__lede">This dashboard is designed for <b>dark mode only</b>. The background is a Black Pearl navy ground with a ten-step neutral ramp. Data is presented using 6 different colors. And a sequential azure ramp was created for communicating changes in costs.</p>
+            <h4 class="swatch-set__title">Neutrals</h4>
+            <ul class="swatch-grid">
+              <li class="swatch" style="--swatch: #060f26">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#060f26</span><span class="swatch__name">Black Pearl, page background</span><span class="swatch__token">--n-0</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #0f1a36">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#0f1a36</span><span class="swatch__name">Card surface</span><span class="swatch__token">--n-1</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #16234a">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#16234a</span><span class="swatch__name">Raised surface: tooltips, hover, selected</span><span class="swatch__token">--n-2</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #2a3a63">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#2a3a63</span><span class="swatch__name">Gridlines and dividers</span><span class="swatch__token">--n-3</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #3a4c7a">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#3a4c7a</span><span class="swatch__name">Card and tooltip borders</span><span class="swatch__token">--n-4</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #5a6a92">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#5a6a92</span><span class="swatch__name">De-emphasized data</span><span class="swatch__token">--n-5</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #7f8db0">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#7f8db0</span><span class="swatch__name">Axis lines, tick labels, disabled text</span><span class="swatch__token">--n-6</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #a9b3c9">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#a9b3c9</span><span class="swatch__name">Muted text: captions, labels</span><span class="swatch__token">--n-7</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #d4dae6">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#d4dae6</span><span class="swatch__name">Body text</span><span class="swatch__token">--n-8</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #ffffff">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#ffffff</span><span class="swatch__name">Headings, key figures, focus ring</span><span class="swatch__token">--n-9</span></span>
+              </li>
+            </ul>
+            <h4 class="swatch-set__title">Data</h4>
+            <ul class="swatch-grid">
+              <li class="swatch" style="--swatch: #00c1ff">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#00c1ff</span><span class="swatch__name">Bright Turquoise, video</span><span class="swatch__token">--data-bright-turquoise</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #ff0acc">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#ff0acc</span><span class="swatch__name">Purple Pizzazz, podcast</span><span class="swatch__token">--data-purple-pizzazz</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #09fe09">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#09fe09</span><span class="swatch__name">Bright Green, graphics</span><span class="swatch__token">--data-bright-green</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #ff9404">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#ff9404</span><span class="swatch__name">Pizazz, documents</span><span class="swatch__token">--data-pizazz</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #9d4dff">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#9d4dff</span><span class="swatch__name">Violet, animation</span><span class="swatch__token">--data-violet-card</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #ffcd38">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#ffcd38</span><span class="swatch__name">Sunglow, headline figures and trend line</span><span class="swatch__token">--data-sunglow</span></span>
+              </li>
+            </ul>
+            <h4 class="swatch-set__title">Cost ramp, low to high</h4>
+            <ul class="swatch-grid">
+              <li class="swatch" style="--swatch: #1e4e8c">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#1e4e8c</span><span class="swatch__name">Cost 1, lowest</span><span class="swatch__token">--cost-1</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #0a6bc9">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#0a6bc9</span><span class="swatch__name">Cost 2</span><span class="swatch__token">--cost-2</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #008fff">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#008fff</span><span class="swatch__name">Cost 3</span><span class="swatch__token">--cost-3</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #5cb4ff">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#5cb4ff</span><span class="swatch__name">Cost 4</span><span class="swatch__token">--cost-4</span></span>
+              </li>
+              <li class="swatch" style="--swatch: #a8d6ff">
+                <span class="swatch__chip"></span>
+                <span class="swatch__body"><span class="swatch__hex">#a8d6ff</span><span class="swatch__name">Cost 5, highest</span><span class="swatch__token">--cost-5</span></span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="style-group">
+            <h3>Functions</h3>
+            <p class="style-group__lede">The following are a few functions that you can operate within the dashboard.</p>
+            <dl class="function-list">
+              <div class="function-list__item">
+                <dt>Persistent chapter navigation</dt>
+                <dd>A top bar jumps between Overview, Production, Media, Phases, Time, People, Costs, and Appendix.</dd>
+              </div>
+              <div class="function-list__item">
+                <dt>Deep use of filters</dt>
+                <dd>Narrow every chart by Year, College, Media, and Cost.</dd>
+              </div>
+              <div class="function-list__item">
+                <dt>Tooltips galore</dt>
+                <dd>Hover a mark for exact values. Estimated costs are marked &ldquo;est.&rdquo;</dd>
+              </div>
+              <div class="function-list__item">
+                <dt>Small screen notice</dt>
+                <dd>Built for tablets and larger. Phones see a notice first, with an option to view anyway.</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="section section--band footer">
+      <h2 class="visually-hidden">Footer</h2>
+      <div class="wrapper footer__wrapper">
+        <div class="footer__credits">
+          <p>Designed and written by Jason Torres</p>
+          <p>
+            Co-developed with
+            <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer">Claude Code</a>
+          </p>
+          <p>Updated October 2026</p>
+        </div>
+        <p class="footer__gototop"><a href="#top">Return to Top</a></p>
+      </div>
+    </footer>
+
+    <!-- ============================================================
+       POP-OUT PDF VIEWER (native <dialog> + PDF.js)
+       Pages render as canvases in a scrollable stack — multi-page
+       scrolling works, and there is no download/print UI.
+       Closes on the ×, Esc, or clicking the dark backdrop.
+       ============================================================ -->
+    <dialog class="viewer" id="viewer">
+      <header class="viewer-titlebar">
+        <span class="viewer-caption" id="viewer-caption">Document</span>
+        <button class="viewer-close" type="button" id="viewer-close" aria-label="Close viewer">[ x ]</button>
+      </header>
+      <div class="viewer-pages" id="viewer-pages"></div>
+      <p class="viewer-hint">Scroll to read &middot; click outside or press Esc to close</p>
+    </dialog>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  </body>
+</html>

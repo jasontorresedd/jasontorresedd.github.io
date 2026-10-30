@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/img/favicon-A1-c.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Five years of online course media production at GWU" />
+    <title>Media Production Dashboard</title>
+    <link rel="stylesheet" href="/styling/style-db-medprod.css" />
+    <script src="/styling/script-db-medprod.js" defer></script>
+  </head>
+  <body id="top">
+    <!-- Phones are not supported (G6) -->
+    <div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+      <div class="gate__box">
+        <h2 id="gate-title">Best viewed on a tablet or larger</h2>
+        <p>This dashboard is designed for screens at least 768 pixels wide. Rotate your tablet or open it on a computer.</p>
+        <button class="control" type="button" id="gate-dismiss">View anyway</button>
+      </div>
+    </div>
+
+    <header class="topbar" id="topbar">
+      <nav class="topbar__row topbar__row--nav" aria-label="Chapters">
+        <a class="topbar__brand" href="#top">Multimedia production</a>
+        <ul class="topbar__links">
+          <li><a href="#overview">Overview</a></li>
+          <li><a href="#production">Production</a></li>
+          <li><a href="#media">Media</a></li>
+          <li><a href="#phases">Phases</a></li>
+          <li><a href="#schedule">Time</a></li>
+          <li><a href="#people">People</a></li>
+          <li><a href="#costs">Costs</a></li>
+          <li><a href="#appendix">Appendix</a></li>
+        </ul>
+      </nav>
+      <form class="topbar__row topbar__row--filters" id="filters" aria-label="Filter courses">
+        <label class="filter">
+          <span class="filter__label">Year</span>
+          <select class="select" name="year">
+            <option value="all">All years</option>
+          </select>
+        </label>
+        <label class="filter">
+          <span class="filter__label">College</span>
+          <select class="select" name="college">
+            <option value="all">All colleges</option>
+          </select>
+        </label>
+        <label class="filter">
+          <span class="filter__label">Media</span>
+          <select class="select" name="media">
+            <option value="all">Any media</option>
+            <option value="video">Produced video</option>
+            <option value="podcast">Produced podcasts</option>
+            <option value="both">Video and podcasts</option>
+            <option value="extra">Graphics, docs or animation</option>
+          </select>
+        </label>
+        <label class="filter">
+          <span class="filter__label">Cost</span>
+          <select class="select" name="cost">
+            <option value="all">Any cost</option>
+            <option value="lt1k">Under $1K</option>
+            <option value="1to5k">$1K–$5K</option>
+            <option value="gt5k">Over $5K</option>
+          </select>
+        </label>
+        <button class="control" type="reset">Reset</button>
+      </form>
+    </header>
+
+    <main class="container">
+      <!-- ===================== Hero ===================== -->
+      <section class="hero">
+        <p class="card__label">Learning &amp; Media Design Operations</p>
+        <h1 class="text-display">Faster, leaner online course development: 5 years of multimedia production</h1>
+        <p class="hero__lede">From <b>Fall 2020 to Spring 2025</b>, I led a central team of media producers (MPs) and provided guidance to a team of instructional designers (IDs) in the development multimedia for <strong data-stat="courses"></strong> online courses. Over those years, team member work per course fell from <strong class="text-callout" data-stat="hours0"></strong> to <strong class="text-callout" data-stat="hours1"></strong> hours (<strong class="text-callout" data-stat="hoursPct"></strong>) and cost per course fell from <strong class="text-callout" data-stat="cost0"></strong> to <strong class="text-callout" data-stat="cost1"></strong> (<strong class="text-callout" data-stat="costPct"></strong>). A design phase was established to steer effort in recording and post-production, recording moved into the studio, and producing a mix of videos and podcasts was embraced. Additionally, new vendors were selected for stock assets, new project management software was adapted, and later AI tools were piloted.</p>
+      </section>
+
+      <!-- ===================== 1. Story overview ===================== -->
+      <section class="chapter" id="overview" aria-labelledby="h-overview">
+        <h2 class="text-h1" id="h-overview">Overview</h2>
+        <h3 class="subhead" id="h-moments">Important story items</h3>
+        <p class="chapter__lede">Moments in the timeline that defined the workflows and products. These are referred to in the charts below.</p>
+        <ol class="grid events" aria-labelledby="h-moments">
+          <li class="card event span-3">
+            <span class="event__code">FA20 &ndash; SU21</span>
+            <span class="event__title">COVID-19 work from home</span>
+            <span class="text-small">Faculty recorded at home; MPs downloaded and edited remotely. No target dates.</span>
+          </li>
+          <li class="card event span-3">
+            <span class="event__code"><span class="key">A</span> FA21</span>
+            <span class="event__title">New workflow</span>
+            <span class="text-small">Integrated design and production phases, new data capture, and target dates.</span>
+          </li>
+          <li class="card event span-3">
+            <span class="event__code"><span class="key">B</span> SP22</span>
+            <span class="event__title">No more artificial media caps</span>
+            <span class="text-small">Faculty stopped hearing about the 3-hour (7-hour for Law) video limit.</span>
+          </li>
+          <li class="card event span-3">
+            <span class="event__code"><span class="key">C</span> FA24</span>
+            <span class="event__title">Department reorganization</span>
+            <span class="text-small">Staff depart; pilot AI use; 3% budget cut; layoff 6 months later.</span>
+          </li>
+        </ol>
+
+        <h3 class="subhead">Headline numbers</h3>
+        <p class="chapter__lede">Key takeaways comparing the first and last academic years leading this production process.</p>
+        <div class="grid" id="kpis"></div>
+      </section>
+
+      <!-- ===================== 2. Production ===================== -->
+      <section class="chapter" id="production" aria-labelledby="h-production">
+        <h2 class="text-h1" id="h-production">Production</h2>
+        <p class="chapter__lede">What was produced, how long it took, and what it cost. Switch the view by year, term or college.</p>
+
+        <div class="grid">
+          <article class="card span-12 chart-card" id="card-main">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Main view</p>
+                <h3 class="card__title"></h3>
+                <p class="card__desc text-small"></p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+          <aside class="card span-12 takeaway takeaway--wide" aria-live="polite">
+            <p class="card__label">What the data tells us</p>
+            <div id="takeaway-main"></div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ===================== 3. Media ===================== -->
+      <section class="chapter" id="media" aria-labelledby="h-media">
+        <h2 class="text-h1" id="h-media">What was produced</h2>
+        <p class="chapter__lede">After the COVID-19 pandemic, faculty reported that students asked for audio they could take with them. Becuase of this and the simple fact that podcasts took far less production time than video, the team leaned in tp podcast production.</p>
+
+        <div class="grid">
+          <article class="card span-8 chart-card" id="card-mix">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Media types</p>
+                <h3 class="card__title">The shift toward podcasts</h3>
+                <p class="card__desc text-small">Share of final media minutes delivered as video or podcast.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+          <aside class="card span-4 takeaway" aria-live="polite">
+            <p class="card__label">What the data tells us</p>
+            <div id="takeaway-mix"></div>
+          </aside>
+
+          <article class="card span-6 chart-card" id="card-types">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Media types</p>
+                <h3 class="card__title">Everything produced</h3>
+                <p class="card__desc text-small">Count of finished items by media type.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+
+          <article class="card span-6 chart-card" id="card-length">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Media types</p>
+                <h3 class="card__title">Average length of each piece</h3>
+                <p class="card__desc text-small">Final minutes divided by number of items.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== 4. Phases ===================== -->
+      <section class="chapter" id="phases" aria-labelledby="h-phases">
+        <h2 class="text-h1" id="h-phases">Phases of production</h2>
+        <p class="chapter__lede">The Fall 2021 workflow added a Phase 2 design step led by media producers and studio recording in Phase 3. More planning up front meant far fewer hours in post-production.</p>
+
+        <div class="grid">
+          <article class="card span-8 chart-card" id="card-phase">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Phases</p>
+                <h3 class="card__title">MP hours per course, by phase</h3>
+                <p class="card__desc text-small">Phase 2 design, Phase 3 studio recording, and Phase 3 post-production.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+          <aside class="card span-4 takeaway" aria-live="polite">
+            <p class="card__label">What the data tells us</p>
+            <div id="takeaway-phase"></div>
+          </aside>
+
+          <article class="card span-6 chart-card" id="card-location">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Phase 3</p>
+                <h3 class="card__title">Where recording happened</h3>
+                <p class="card__desc text-small">Courses by recording location.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+
+          <article class="card span-6 chart-card" id="card-scripts">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Phase 2 → Phase 3</p>
+                <h3 class="card__title">Scripts and production speed</h3>
+                <p class="card__desc text-small">Median MP work minutes per final video minute, by how complete the faculty scripts were.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== 5. Speed & schedule ===================== -->
+      <section class="chapter" id="schedule" aria-labelledby="h-schedule">
+        <h2 class="text-h1" id="h-schedule">Time for production</h2>
+        <p class="chapter__lede">Target dates started in Fall 2021. Production speed targets were 30 work minutes per 1 minute of finished video and 5 work minutes per 1 minute of finished podcast audio.</p>
+
+        <div class="grid">
+          <article class="card span-12 chart-card" id="card-deadline">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Deadlines</p>
+                <h3 class="card__title">Delivery against target dates</h3>
+                <p class="card__desc text-small">Each dot is a course. Below the line was early, above was late. The share delivered on or before the target is shown above each term.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+
+          <article class="card span-6 chart-card" id="card-speed">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Production speed</p>
+                <h3 class="card__title">Work per finished minute, every course</h3>
+                <p class="card__desc text-small">The median for each year is shown above it. Log scale.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+
+          <article class="card span-6 chart-card" id="card-hit">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Production speed</p>
+                <h3 class="card__title">How often speed targets were hit</h3>
+                <p class="card__desc text-small">Share of courses at or under production speed target: 30 minutes for 1 minute of video and 5 minutes for 1 minute of podcast audio.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== 6. People & colleges ===================== -->
+      <section class="chapter" id="people" aria-labelledby="h-people">
+        <h2 class="text-h1" id="h-people">People and colleges</h2>
+        <p class="chapter__lede">Who the work was for, who did it, and which media producers moved fastest.</p>
+
+        <div class="grid">
+          <article class="card span-6 chart-card" id="card-college">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Colleges and schools</p>
+                <h3 class="card__title">Work across colleges</h3>
+                <p class="card__desc text-small">Courses, hours of final media, media producer hours or total cost for each college or school.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+
+          <article class="card span-6 chart-card" id="card-heat">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Colleges and schools</p>
+                <h3 class="card__title">College by year</h3>
+                <p class="card__desc text-small">Total cost, or average cost per course, by college and academic year. <br />Brighter blue means more.</p>
+              </div>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+
+          <article class="card span-8 chart-card" id="card-mp">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Media producers</p>
+                <h3 class="card__title">Who was involved, and how much</h3>
+                <p class="card__desc text-small">Courses each media producer worked on in any role (project manager, recording, or production support), by academic year.</p>
+              </div>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+
+          <article class="card span-4 chart-card" id="card-mpspeed">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Media producers</p>
+                <h3 class="card__title">Fastest and slowest MP</h3>
+                <p class="card__desc text-small">Median work minutes per final video minute as lead producer (3+ courses).</p>
+              </div>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+            <div class="card__actions">
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== 7. Costs ===================== -->
+      <section class="chapter" id="costs" aria-labelledby="h-costs">
+        <h2 class="text-h1" id="h-costs">Costs</h2>
+        <p class="chapter__lede">Cost is media producer time multiplied by each producer's hourly rate in that year, plus a flat $100 per course for materials. Rates rose every year, so falling costs reflect fewer work hours.</p>
+
+        <div class="grid">
+          <article class="card span-8 chart-card" id="card-costphase">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Costs</p>
+                <h3 class="card__title">Cost of design and production</h3>
+                <p class="card__desc text-small"></p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+          <aside class="card span-4 takeaway" aria-live="polite">
+            <p class="card__label">What the data tells us</p>
+            <div id="takeaway-cost"></div>
+          </aside>
+
+          <article class="card span-12 chart-card" id="card-costdots">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Costs</p>
+                <h3 class="card__title">Cost of every course</h3>
+                <p class="card__desc text-small">Total time and materials cost per course. Log scale; median above each column; the yellow line traces the mean.</p>
+              </div>
+              <button class="control control--sm table-toggle" type="button" aria-pressed="false">View as table</button>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+
+          <article class="card span-12 chart-card" id="card-explorer">
+            <header class="card__head">
+              <div>
+                <p class="card__label">Project explorer</p>
+                <h3 class="card__title">Every course in the selection</h3>
+                <p class="card__desc text-small">
+                  Choose an order, or select a column heading to sort.<br />
+                  Use the filters at the top to isolate courses.
+                </p>
+              </div>
+            </header>
+            <div class="card__controls"></div>
+            <div class="legend"></div>
+            <div class="chart"></div>
+            <div class="table-wrap" hidden></div>
+            <p class="card__foot text-small"></p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===================== Appendix ===================== -->
+      <section class="chapter appendix" id="appendix" aria-labelledby="h-appendix">
+        <h2 class="text-h1" id="h-appendix">Appendix</h2>
+        <p class="chapter__lede">These notes give background for reading the dashboard. They will help you to understand what was happening during the five years, how the course development workflow ran, and how each number was calculated.</p>
+        <div class="grid">
+          <div class="span-6">
+            <h3>Context of the work</h3>
+            <ul>
+              <li><strong>Work-from-home period (July 2020 to August 2021).</strong> All course design and development, including media production, was remote. Faculty recorded in their homes and uploaded to cloud storage; MPs downloaded and edited at home. Nothing was done in person. A new data capture strategy and integrated course development workflow followed in Fall 2021.</li>
+              <li><strong>Design time was estimated.</strong> Phase 2 design ranged from a couple of hours to a couple of days. The workflow called for two design meetings, but sometimes only one was needed.</li>
+              <li><strong>The move to podcasts was intentional.</strong> Podcasts took less time to produce, and faculty reported that students asked for them after the COVID-19 pandemic.</li>
+              <li><strong>Targeted production speed</strong> was 30 minutes of MP work per 1 minute of final video, and 5 minutes of work per 1 minute of final podcast audio.</li>
+              <li><strong>Spring 2025 data is incomplete.</strong> I stopped collecting data with a few weeks left in the term because I was laid off.</li>
+            </ul>
+            <h3>Integrated course development workflow</h3>
+            <p>A shared workflow between instructional designers and multimedia producers. Go to <a href="https://jasontorresedd.com/sec-ep/gwu-learning-ops.html" target="_blank" rel="noopener noreferrer">integrated workflow</a> to learn more.</p>
+            <ol class="workflow">
+              <li><span class="event__code">Phase 1</span> Project Initiation: collection, analysis, and conceptualization</li>
+              <li><span class="event__code">Phase 2</span> Design: IDs lead course design; MPs lead multimedia design</li>
+              <li><span class="event__code">Phase 3a</span> Production: MPs record and produce</li>
+              <li><span class="event__code">Phase 3b</span> Development: IDs build the course in the LMS</li>
+              <li><span class="event__code">Phase 4</span> Evaluation</li>
+            </ol>
+          </div>
+          <div class="span-6">
+            <h3>How the numbers are calculated</h3>
+            <ul>
+              <li><strong>Source.</strong> A spreadsheet production tracker that includes: <span data-stat="rows"></span> projects, of which <span data-stat="canceled"></span> were canceled. Canceled projects are left out of every chart.</li>
+              <li><strong>Academic years</strong> run Fall to Summer, so 2021&ndash;22 is FA21, SP22 and SU22. Projects are placed by the term they started. Summer projects appear as a single SU term.</li>
+              <li><strong>MP hours</strong> add Phase 2 design hours (weeks &times; estimated hours per week), Phase 3 studio hours, and Phase 3 post&ndash;production work time. Design hours and studio time were not tracked before Fall 2021.</li>
+              <li><strong>Work per final minute</strong> divides MP post-production work time by final media minutes. Group values are pooled (total work &divide; total minutes). Per&ndash;course values use medians.</li>
+              <li><strong>Lead producer</strong> is the MP who recorded and produced the media. Before Fall 2021 that role wasn't logged, so the primary production MP is used instead.</li>
+              <li><strong>Costs</strong> follow the tracker's formula: design hours &times; project manager rate, studio hours &times; recording MP rate, and production hours (rounded up to the quarter hour) &times; the average rate of the production MPs, plus &dollar;100 materials. From Spring 2024 on, the tracker left production hours blank, and Spring 2025 has no rates. Those <span data-stat="estimated"></span> courses are rebuilt with the same formula using recorded work time and each MP's most recent rate. They're marked <q>est.</q> in tooltips and the project table. When an ID served as project manager, no rate exists, so that design time isn't costed.</li>
+              <li><strong>Dates.</strong> Before Fall 2021, end dates were mostly logged as the first of a month, so early durations are approximate. One Fall 2021 end date logged as 1/26/21 is read as 1/26/22, which matches its recorded 40 days past target.</li>
+              <li><strong>Videos</strong> are counted only when final minutes were recorded. One Spring 2022 course lists 7 videos with no minutes or work time.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <footer class="page-foot text-small">
+        <p>Data capture and dashboard design by Jason Torres</p>
+        <p>Co-developed with <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener noreferrer">Claude Code</a></p>
+        <p>Updated October 2026</p>
+      </footer>
+    </main>
+
+    <div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+    <script src="style/script-db-medprod.js"></script>
+  </body>
+</html>

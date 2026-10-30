@@ -1,0 +1,1201 @@
+@layer reset, global, base, layout, components, motion, utility;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer global {
+  /* Start — Fonts */
+  @font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("../fonts/bricolage-grotesque-v9-latin-200.woff2") format("woff2");
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("../fonts/bricolage-grotesque-v9-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("../fonts/bricolage-grotesque-v9-latin-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("../fonts/bricolage-grotesque-v9-latin-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("../fonts/bricolage-grotesque-v9-latin-800.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Parkinsans";
+    src: url("../fonts/parkinsans-v3-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Parkinsans";
+    src: url("../fonts/parkinsans-v3-latin-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Parkinsans";
+    src: url("../fonts/parkinsans-v3-latin-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Parkinsans";
+    src: url("../fonts/parkinsans-v3-latin-800.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Geist Mono";
+    src: url("../fonts/geist-mono-v6-latin-300.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Geist Mono";
+    src: url("../fonts/geist-mono-v6-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Geist Mono";
+    src: url("../fonts/geist-mono-v6-latin-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Geist Mono";
+    src: url("../fonts/geist-mono-v6-latin-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* End — Fonts */
+
+  /* Start — Specimen Fonts */
+  /* Dashboard fonts shown in the Style section. A browser only downloads a face once text uses it, so each page only loads the specimens it shows. */
+  @font-face {
+    font-family: "Rubik";
+    src: url("../fonts/rubik-v31-latin-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Rubik";
+    src: url("../fonts/rubik-v31-latin-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Google Sans Flex";
+    src: url("../fonts/google-sans-flex-v21-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Google Sans Flex";
+    src: url("../fonts/google-sans-flex-v21-latin-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Roboto Mono";
+    src: url("../fonts/roboto-mono-v31-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Nunito Sans";
+    src: url("../fonts/nunito-sans-v19-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Nunito Sans";
+    src: url("../fonts/nunito-sans-v19-latin-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Nunito Sans";
+    src: url("../fonts/nunito-sans-v19-latin-800.woff2") format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter Tight";
+    src: url("../fonts/inter-tight-v9-latin-regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Inter Tight";
+    src: url("../fonts/inter-tight-v9-latin-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* End — Specimen Fonts */
+
+  /* Start — Type Scale */
+  :root {
+    /* Font families. To try Parkinsans, point --font-heading and/or --font-body at var(--font-alt). */
+    --font-heading: "Bricolage Grotesque", "Helvetica Neue", sans-serif;
+    --font-body: "Bricolage Grotesque", "Helvetica Neue", sans-serif;
+    --font-alt: "Parkinsans", "Helvetica Neue", sans-serif;
+    --font-mono: "Geist Mono", ui-monospace, monospace;
+
+    /* Font weights */
+    --fw-light: 200;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-heavy: 800;
+
+    /* Font sizes */
+    --fs-nav: 0.875rem;
+    --fs-contact: 1.125rem;
+    --fs-tag: 1.5rem;
+    --fs-h1: 6rem;
+    --fs-h2: 4rem;
+    --fs-h3: 2rem;
+    --fs-h4: 1.5rem;
+    --fs-h5: 1.25rem;
+    --fs-p: 1rem;
+  }
+  /* End — Type Scale */
+
+  /* Start — Colors */
+  :root {
+    /* Palette */
+    --color-nebula-deep: #003111;
+    --color-nebula-dark: #0d7a4f;
+    --color-nebula: #15ad70;
+    --color-nebula-light: #b4edcf;
+    --color-aurora-deep: #195300;
+    --color-aurora-dark: #5a9e3a;
+    --color-aurora: #82d25d;
+    --color-aurora-light: #c5f0a9;
+    --color-tidal-deep: #00514d;
+    --color-tidal-dark: #3fa8a1;
+    --color-tidal: #68d0ca;
+    --color-tidal-light: #b3ebe4;
+    --color-orbit-deep: #00446a;
+    --color-orbit-dark: #4a9fd0;
+    --color-orbit: #73bde7;
+    --color-orbit-light: #c4e5f7;
+    --color-pulsar-deep: #0b1182;
+    --color-pulsar-dark: #4468d8;
+    --color-pulsar: #7193ed;
+    --color-pulsar-light: #c2cffa;
+    --color-quasar-deep: #4f1c8d;
+    --color-quasar-dark: #9b72e6;
+    --color-quasar: #bf9ff1;
+    --color-quasar-light: #e4d6fb;
+    --color-corona-deep: #8f3256;
+    --color-corona-dark: #f28bad;
+    --color-corona: #f9c3d6;
+    --color-corona-light: #fce4ee;
+    --color-dusk-deep: #7a5032;
+    --color-dusk-dark: #e0b090;
+    --color-dusk: #f5d4c0;
+    --color-dusk-light: #faf0e8;
+    --color-flare-deep: #390000;
+    --color-flare-dark: #c83d25;
+    --color-flare: #e15e42;
+    --color-flare-light: #f0a090;
+    --color-solstice-deep: #6d1500;
+    --color-solstice-dark: #d46a0a;
+    --color-solstice: #f78d2c;
+    --color-solstice-light: #fde4c0;
+    --color-supernova-deep: #734900;
+    --color-supernova-dark: #d4a000;
+    --color-supernova: #ffc700;
+    --color-supernova-light: #ffe480;
+    --color-void-0: #121213;
+    --color-void-10: #1f1f20;
+    --color-void-20: #2b2b2c;
+    --color-void-30: #383839;
+    --color-void-40: #575759;
+    --color-void-50: #838385;
+    --color-void-55: #959597;
+    --color-void-60: #b1b1b3;
+    --color-void-70: #d3d3d5;
+    --color-void-80: #e8e8ea;
+    --color-void-90: #f1f1f4;
+    --color-void-100: #ffffff;
+
+    /* Roles. Contrast noted vs page background #121213 */
+    --color-bg: var(--color-void-0); /* page background */
+    --color-grid-line: var(--color-void-10); /* background grid */
+    --color-surface: var(--color-void-0); /* panels; solid so text sits off the grid */
+    --color-border: var(--color-void-30); /* panel and swatch borders */
+    --color-rule: var(--color-void-40); /* hero divider */
+    --color-text-strong: var(--color-void-100); /* headings (18.7) */
+    --color-text: var(--color-void-80); /* body text (15.6) */
+    --color-text-soft: var(--color-void-70); /* hero description (13.5) */
+    --color-text-muted: var(--color-void-60); /* roles, tags, captions (9.4) */
+    --color-text-faint: var(--color-void-50); /* breadcrumb separators (5.0) */
+    --color-link-hover: #bf9ff1;
+    --color-footer-bg: #000000;
+  }
+  /* End — Colors */
+
+  /* Start — Main Rules */
+  :root {
+    /* Layout — matches main site measurements */
+    --max-width: 1440px;
+    --pad-x: 120px;
+    --pad-y: 60px;
+  }
+
+  @media (max-width: 1200px) {
+    :root {
+      --pad-x: 80px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    :root {
+      --pad-x: 48px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    :root {
+      --pad-x: 20px;
+      --pad-y: 40px;
+    }
+  }
+
+  .wrapper {
+    max-width: var(--max-width);
+    margin: auto;
+    padding-left: var(--pad-x);
+    padding-right: var(--pad-x);
+    box-sizing: border-box;
+  }
+  /* End — Main Rules */
+}
+
+@layer base {
+  /* Start — Base Elements */
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-size: var(--fs-p);
+    line-height: 1.65;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+  }
+
+  /* Grid background. Fixed, so the grid stays put while content scrolls over it. */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: linear-gradient(var(--color-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading);
+    color: var(--color-text-strong);
+  }
+
+  h1 {
+    font-weight: var(--fw-heavy);
+    font-size: var(--fs-h1);
+    line-height: 0.95;
+    letter-spacing: -0.035em;
+  }
+
+  h2 {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-h2);
+    line-height: 1;
+    letter-spacing: -0.025em;
+    padding-bottom: 20px;
+  }
+
+  h3 {
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-h3);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  h4 {
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-h4);
+    line-height: 1.25;
+  }
+
+  a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  a:hover,
+  a:focus-visible {
+    color: var(--color-link-hover);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-text-strong);
+    outline-offset: 3px;
+  }
+  /* End — Base Elements */
+
+  /* Start — Highlighting */
+  .highlight-yellow {
+    background-color: hsl(46, 100%, 65%);
+  }
+
+  .highlight-orange {
+    background-color: hsl(28, 100%, 72%);
+  }
+
+  .highlight-green {
+    background-color: hsl(162, 100%, 68%);
+  }
+
+  .highlight-pink {
+    background-color: hsl(307, 91%, 82%);
+  }
+
+  .highlight-purple {
+    background-color: hsl(263, 100%, 83%);
+  }
+
+  .highlight-blue {
+    background-color: hsl(205, 100%, 78%);
+  }
+  /* End — Highlighting */
+
+  /* Start — Marker highlight */
+  .marker-yellow {
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(to right, hsla(46, 100%, 65%, 0.1), hsla(46, 100%, 65%, 0.7) 4%, hsla(46, 100%, 65%, 0.3));
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .marker-orange {
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(to right, hsla(28, 100%, 72%, 0.1), hsla(28, 100%, 72%, 0.7) 4%, hsla(28, 100%, 72%, 0.3));
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .marker-green {
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(to right, hsla(162, 100%, 68%, 0.1), hsla(162, 100%, 68%, 0.7) 4%, hsla(162, 100%, 68%, 0.3));
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .marker-pink {
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(to right, hsla(307, 91%, 82%, 0.1), hsla(307, 91%, 82%, 0.7) 4%, hsla(307, 91%, 82%, 0.3));
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .marker-purple {
+    margin: 0 -0.4em;
+    padding: 0.1em 0.4em;
+    border-radius: 0.8em 0.3em;
+    background: transparent;
+    background-image: linear-gradient(to right, hsla(263, 100%, 83%, 0.1), hsla(263, 100%, 83%, 0.7) 4%, hsla(263, 100%, 83%, 0.3));
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  /* End — Marker highlight */
+
+  @media (max-width: 992px) {
+    h1 {
+      font-size: 4.5rem;
+    }
+    h2 {
+      font-size: 3rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 3rem;
+    }
+    h2 {
+      font-size: 2.5rem;
+    }
+    h3 {
+      font-size: 1.625rem;
+    }
+  }
+}
+
+@layer layout {
+  @media (max-width: 767px) {
+    .footer {
+      padding-block: 40px;
+    }
+
+    .footer__wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 24px;
+    }
+  }
+
+  /* Start — Hero */
+  /* No background band: the hero sits on the same grid as the page body. */
+  .hero {
+    padding-block-start: 60px;
+  }
+
+  /* Divider drawn inside .wrapper so it stops at the page margins */
+  .hero .wrapper::after {
+    content: "";
+    display: block;
+    height: 1px;
+    margin-top: 60px;
+    background: var(--color-rule);
+  }
+
+  @media (max-width: 767px) {
+    .hero {
+      padding-block-start: 40px;
+    }
+    .hero .wrapper::after {
+      margin-top: 40px;
+    }
+  }
+  /* End — Hero */
+
+  /* Start — Section Padding */
+  .selector {
+    padding-block: 48px 40px;
+  }
+
+  .db-section {
+    padding-block: 70px;
+    scroll-margin-top: 16px;
+  }
+  .db-section:last-child {
+    padding-block-end: 120px; /* Increased space between the final section and footer. */
+  }
+
+  @media (max-width: 767px) {
+    .selector {
+      padding-block: 32px 16px;
+    }
+    .db-section {
+      padding-block: 50px;
+    }
+    .db-section:last-child {
+      padding-block-end: 80px;
+    }
+  }
+  /* End — Section Padding */
+
+  /* Start — Footer */
+  .footer {
+    background: var(--color-footer-bg);
+    color: var(--color-text);
+    min-height: 150px;
+    padding-block: 30px;
+  }
+
+  .footer__wrapper {
+    display: flex;
+    align-items: flex-start; /* "Return to Top" lines up with line 1 */
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .footer__credits p,
+  .footer__gototop {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-weight: var(--fw-regular);
+    font-size: 0.8125rem;
+    line-height: 1.8;
+  }
+
+  .footer a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .footer a:hover,
+  .footer a:focus-visible {
+    color: var(--color-link-hover);
+  }
+  .footer a:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  /* End — Footer */
+}
+
+@layer components {
+  /* Start — Heading Accent */
+  /* Each section takes the color of its selection box via --key (set in "Section Keys"). */
+  .heading-accent {
+    display: block;
+    width: 64px;
+    height: 8px;
+    margin-bottom: 24px;
+    background: var(--key, var(--color-text-strong));
+  }
+  /* End — Heading Accent */
+
+  /* Start — Section Keys */
+  .db-section--story {
+    --key: var(--color-pulsar-dark);
+    --key-bright: var(--color-pulsar);
+  }
+  .db-section--development {
+    --key: var(--color-tidal-dark);
+    --key-bright: var(--color-tidal);
+  }
+  .db-section--style {
+    --key: var(--color-flare-dark);
+    --key-bright: var(--color-flare);
+  }
+  /* End — Section Keys */
+
+  /* Start — Breadcrumb */
+  .breadcrumb {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    margin-bottom: 56px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    color: var(--color-text-faint);
+  }
+  .breadcrumb a {
+    color: var(--color-text);
+    text-underline-offset: 4px;
+  }
+  .breadcrumb a:hover,
+  .breadcrumb a:focus-visible {
+    color: var(--color-link-hover);
+  }
+  .breadcrumb [aria-current] {
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 767px) {
+    .breadcrumb {
+      margin-bottom: 36px;
+    }
+  }
+  /* End — Breadcrumb */
+
+  /* Start — Hero Meta (tag + lede) */
+  .hero-tag {
+    font-family: var(--font-body);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-contact);
+    letter-spacing: 0.01em;
+    color: var(--color-text-muted);
+    margin-top: 20px;
+  }
+
+  .hero__lede {
+    max-width: 64rem;
+    margin-top: 28px;
+    padding-right: 8%;
+    font-family: var(--font-mono);
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-contact);
+    line-height: 1.65;
+    color: var(--color-text-soft);
+  }
+
+  @media (max-width: 767px) {
+    .hero__lede {
+      padding-right: 0;
+      font-size: 1rem;
+    }
+  }
+  /* End — Hero Meta */
+
+  /* Start — Selection Boxes */
+  .selector__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .selector__box {
+    /* Each box sets --box-stroke (static border), --box (hover fill), and --box-edge (hover border). */
+    display: flex;
+    align-items: flex-end;
+    min-height: clamp(260px, 28vw, 380px);
+    padding: 20px;
+    border: 4px solid var(--box-stroke);
+    border-radius: 0;
+    background-color: var(--color-void-10);
+    color: var(--color-void-100);
+    font-family: var(--font-mono);
+    font-weight: var(--fw-bold);
+    font-size: clamp(1.1875rem, 1.6vw + 0.25rem, 1.75rem);
+    line-height: 1;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    transition:
+      background-color 0.4s ease,
+      border-color 0.4s ease,
+      color 0.4s ease;
+  }
+
+  /* --box-stroke matches the top border of the cards in each box's section. */
+  .selector__box--dashboard {
+    --box-stroke: var(--color-supernova);
+    --box: var(--color-supernova);
+    --box-edge: var(--color-supernova);
+  }
+  .selector__box--story {
+    --box-stroke: var(--color-pulsar);
+    --box: var(--color-pulsar);
+    --box-edge: var(--color-pulsar);
+  }
+  .selector__box--development {
+    --box-stroke: var(--color-tidal);
+    --box: var(--color-tidal);
+    --box-edge: var(--color-tidal);
+  }
+  .selector__box--style {
+    --box-stroke: var(--color-flare);
+    --box: var(--color-flare);
+    --box-edge: var(--color-flare);
+  }
+
+  /* Hovered box fills with its color and the text turns black; the others stay dark.
+     Black on each fill: supernova 13.4, tidal 11.5, pulsar 7.1, flare 5.9 (all pass WCAG AA). */
+  .selector__box:is(:hover, :focus-visible) {
+    background-color: var(--box);
+    border-color: var(--box-edge);
+    color: #000000;
+  }
+
+  .selector__box:focus-visible {
+    outline-offset: 4px;
+  }
+
+  @media (max-width: 992px) {
+    .selector__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .selector__box {
+      min-height: 180px;
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .selector__grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .selector__box {
+      align-items: center;
+      min-height: 84px;
+      padding: 16px 20px;
+    }
+  }
+  /* End — Selection Boxes */
+
+  /* Start — Section Text */
+  .db-section__lede {
+    max-width: 68ch;
+    font-size: 1.125rem;
+    line-height: 1.65;
+  }
+
+  .db-section__lede + .db-section__lede {
+    margin-top: 16px;
+  }
+  /* End — Section Text */
+
+  /* Start — Panels */
+  .panel-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .panel {
+    min-width: 0;
+    padding: 28px 28px 32px;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-top: 6px solid var(--key, var(--color-border));
+  }
+
+  .panel__step {
+    display: block;
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-light);
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--key-bright, var(--color-text-strong));
+  }
+
+  .panel__title {
+    font-size: var(--fs-h4);
+    margin-bottom: 12px;
+  }
+
+  .panel p + p {
+    margin-top: 12px;
+  }
+
+  /* Spans every column of .panel-grid; text is capped at a readable line length. */
+  .panel--wide {
+    grid-column: 1 / -1;
+  }
+
+  .panel--wide p,
+  .panel__list {
+    max-width: 80ch;
+  }
+
+  .panel__list {
+    list-style: square;
+    margin-top: 16px;
+    padding-left: 1.25rem;
+  }
+
+  /* Light step text with a bold lead-in label (<b>Step 1:</b>). Bricolage ships 200 as its lightest face, so that is the weight used. */
+  .panel__list li {
+    font-weight: var(--fw-light);
+  }
+
+  /* Explicit weight: the default "bolder" on <b> would only lift a 200 parent to 400. */
+  .panel__list li b {
+    font-weight: var(--fw-bold);
+    color: var(--color-text-strong);
+  }
+
+  .panel__list li + li {
+    margin-top: 10px;
+  }
+
+  .panel__list li::marker {
+    color: var(--key-bright, var(--color-text-strong));
+  }
+
+  @media (max-width: 767px) {
+    .panel-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .panel {
+      padding: 22px 20px 26px;
+    }
+  }
+  /* End — Panels */
+
+  /* Start — Style Groups */
+  .style-group {
+    margin-top: 56px;
+  }
+
+  .style-group > h3 {
+    margin-bottom: 8px;
+  }
+
+  .style-group__lede {
+    max-width: 68ch;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 767px) {
+    .style-group {
+      margin-top: 40px;
+    }
+  }
+  /* End — Style Groups */
+
+  /* Start — Font Specimens */
+  .specimen-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+  }
+
+  .specimen {
+    /* Set per item: style="--specimen-font: 'Rubik'; --specimen-weight: 600" */
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-top: 6px solid var(--color-flare); /* matches the .panel top border width */
+  }
+
+  .specimen__sample {
+    font-family: var(--specimen-font), sans-serif;
+    font-weight: var(--specimen-weight, 400);
+    font-size: 4.5rem;
+    line-height: 1;
+    color: var(--color-text-strong);
+  }
+
+  .specimen__name {
+    margin-top: 24px;
+    font-family: var(--font-heading);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-h5);
+    color: var(--color-text-strong);
+  }
+
+  .specimen__role {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+  }
+
+  /* Each weight label is set in the specimen font at that weight (inline font-weight). */
+  .specimen__weights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 16px;
+    margin-top: 16px;
+    font-family: var(--specimen-font), sans-serif;
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  /* Where the font is used in the dashboard: role on the left, size and weight on the right. */
+  .specimen__uses {
+    list-style: none;
+    margin-top: 20px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .specimen__uses li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 8px;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .specimen__value {
+    font-family: var(--font-mono);
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+  /* End — Font Specimens */
+
+  /* Start — Color Swatches */
+  .swatch-set__title {
+    margin-top: 32px;
+    font-size: var(--fs-h5);
+  }
+
+  .swatch-set__title + .swatch-grid {
+    margin-top: 16px;
+  }
+
+  .swatch-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .swatch {
+    /* Set per item: style="--swatch: #060f26" (any CSS background, so gradients work too) */
+    background: var(--color-surface);
+    border: 2px solid var(--color-border);
+  }
+
+  .swatch__chip {
+    display: block;
+    height: 44px;
+    background: var(--swatch);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .swatch__body {
+    display: block;
+    padding: 12px 14px 16px;
+  }
+
+  .swatch__hex {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text-strong);
+    text-transform: uppercase;
+  }
+
+  .swatch__name {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--color-text-muted);
+  }
+
+  .swatch__token {
+    display: block;
+    margin-top: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-text-faint);
+    overflow-wrap: anywhere;
+  }
+
+  @media (max-width: 767px) {
+    .swatch-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+  }
+  /* End — Color Swatches */
+
+  /* Start — Function List */
+  .function-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 48px;
+    margin-top: 24px;
+    border-top: 2px solid var(--color-border);
+  }
+
+  .function-list__item {
+    padding-block: 20px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .function-list dt {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-semibold);
+    font-size: 1.125rem;
+    color: var(--color-text-strong);
+  }
+
+  .function-list dd {
+    margin-top: 4px;
+  }
+
+  @media (max-width: 767px) {
+    .function-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  /* End — Function List */
+
+  /* Start — PDF Viewer */
+  /* Kept for future use with script-db1.js. Not shown unless a .card link opens it. */
+  .viewer {
+    margin: auto;
+    width: min(94vw, 1100px);
+    height: 94vh;
+    display: none;
+    padding: 0;
+    border: 2px solid var(--color-border);
+    border-radius: 0;
+    overflow: hidden;
+    background: var(--color-void-0);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  }
+  .viewer[open] {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .viewer::backdrop {
+    background: rgba(0, 0, 0, 0.78);
+  }
+
+  .viewer-titlebar {
+    flex: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    background: var(--color-footer-bg);
+    color: var(--color-text);
+  }
+
+  .viewer-caption {
+    font-family: var(--font-heading);
+    font-weight: var(--fw-semibold);
+    font-size: 1.125rem;
+  }
+
+  .viewer-close {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-text);
+    white-space: nowrap;
+  }
+  .viewer-close:hover,
+  .viewer-close:focus-visible {
+    color: var(--color-link-hover);
+  }
+
+  .viewer-pages {
+    flex: 1;
+    min-height: 0; /* allow scrolling inside flex */
+    overflow-y: auto;
+    padding: 24px;
+    display: grid;
+    gap: 20px;
+    justify-items: center;
+    background-color: var(--color-void-0);
+  }
+
+  .viewer-pages canvas {
+    max-width: 100%;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  .viewer-status {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--color-text);
+    align-self: center;
+    padding: 24px 0;
+    text-align: center;
+  }
+
+  .viewer-hint {
+    flex: none;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    background: var(--color-footer-bg);
+    padding: 8px 16px;
+  }
+
+  @media (max-width: 767px) {
+    .viewer {
+      width: 100vw;
+      height: 100vh;
+    }
+    .viewer-pages {
+      padding: 12px;
+    }
+  }
+  /* End — PDF Viewer */
+}
+
+@layer motion {
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    .selector__box {
+      transition: none;
+    }
+  }
+}
+
+@layer utility {
+  .visually-hidden {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+
+    &.skip:focus {
+      left: 0;
+      width: auto;
+      height: auto;
+      background: var(--color-bg);
+      padding: 5px;
+      border: 1px solid var(--color-text-strong);
+      color: var(--color-text-strong);
+    }
+  }
+}
