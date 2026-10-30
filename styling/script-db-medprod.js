@@ -961,7 +961,7 @@ function buildMain() {
           1,
           sumBy(A, (a) => a.video + a.podcast + a.graphics + a.docs + a.anims),
         ),
-    )} of all items. Graphics, documents and animations were occasional extras.</p>`;
+    )} of all items. Graphics, documents and animations were occasional extras. <strong>Faculty were guided to focus on what was needed for effective instruction.</strong></p>`;
   } else if (s.measure === "produced") {
     series = [media()[0], media()[1]].map((md) => ({ ...md, values: A.map((a) => div(a[md.key === "video" ? "videoMin" : "podMin"] / 60, a)) }));
     valFmt = fmt.hours;
