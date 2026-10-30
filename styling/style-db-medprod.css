@@ -1110,6 +1110,10 @@
   }
 
   .page-foot {
+    display: flex;
+    align-items: flex-start; /* back link lines up with credit line 1 */
+    justify-content: space-between;
+    gap: var(--sp-4);
     margin: var(--sp-8) 0 var(--sp-7);
     padding-top: var(--sp-4);
     border-top: var(--border-width) solid var(--color-grid);

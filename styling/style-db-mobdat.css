@@ -187,6 +187,7 @@
     flex-wrap: wrap;
   }
   .brand { display: flex; align-items: center; gap: var(--space-2); font: 800 18px/24px var(--font-display); }
+  .brand a, .brand a:hover { color: var(--ink); text-decoration: none; }
   .brand .tick { color: var(--ink-muted); }
   .toggles { display: flex; align-items: center; gap: var(--space-4); flex-wrap: wrap; }
   .toggle-group { display: flex; align-items: center; gap: var(--space-2); }
@@ -564,7 +565,7 @@
   .notes-grid li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--ink-faint); }
   .notes-grid h3 { margin-bottom: var(--space-3); }
 
-  .site-foot { max-width: 1248px; margin-inline: auto; padding: 0 var(--space-6) var(--space-8); color: var(--ink-muted); }
+  .site-foot { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-6); max-width: 1248px; margin-inline: auto; padding: 0 var(--space-6) var(--space-8); color: var(--ink-muted); }
 
   /* ---------- Tablet (744px – 1199px): 6 columns ---------- */
   @media (max-width: 1199px) {
