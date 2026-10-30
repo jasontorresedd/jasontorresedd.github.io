@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 720" width="100%" height="100%">
+  <defs>
+    <!-- Device Outer Band (Matte Black) -->
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a3a3c"/>
+      <stop offset="100%" stop-color="#1c1c1e"/>
+    </linearGradient>
+
+    <!-- Screen Gradient (Dark Wallpaper) -->
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a192f"/>
+      <stop offset="100%" stop-color="#172a45"/>
+    </linearGradient>
+
+    <!-- Touch ID Ring -->
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Side Buttons -->
+  <!-- Mute Switch -->
+  <rect x="47" y="120" width="3" height="25" rx="1.5" fill="#222222"/>
+  <!-- Volume Up -->
+  <rect x="47" y="170" width="3" height="40" rx="1.5" fill="#222222"/>
+  <!-- Volume Down -->
+  <rect x="47" y="225" width="3" height="40" rx="1.5" fill="#222222"/>
+  
+  <!-- Right Side Button (Power) -->
+  <rect x="350" y="170" width="3" height="40" rx="1.5" fill="#222222"/>
+
+  <!-- Main Outer Body -->
+  <rect x="50" y="50" width="300" height="620" rx="42" ry="42" fill="url(#bodyGradient)"/>
+
+  <!-- Black Front Panel -->
+  <rect x="52" y="52" width="296" height="616" rx="40" ry="40" fill="#111111"/>
+
+  <!-- 16:9 Display Area (750x1334 scaled equivalent) -->
+  <rect x="65" y="120" width="270" height="480" fill="url(#screenGradient)"/>
+
+  <!-- Top Bezel Elements -->
+  <!-- Ambient Light Sensor -->
+  <circle cx="200" cy="70" r="3" fill="#050505"/>
+  
+  <!-- Earpiece (Widened for iPhone 7 Stereo Speaker) -->
+  <rect x="165" y="85" width="70" height="6" rx="3" fill="#1a1a1a"/>
+  
+  <!-- Front-Facing Camera -->
+  <circle cx="130" cy="88" r="6" fill="#050505"/>
+  <circle cx="130" cy="88" r="2.5" fill="#222222"/>
+
+  <!-- Bottom Bezel Elements (Solid-State Home Button) -->
+  <circle cx="200" cy="634" r="23" fill="#111111" stroke="url(#ringGradient)" stroke-width="2"/>
+  <circle cx="200" cy="634" r="20" fill="#0a0a0a"/>
+
+  <!-- On-Screen UI Elements (iOS 10 Lock Screen) -->
+  <!-- Time (Slightly thicker font weight for iOS 10) -->
+  <text x="200" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="64" font-weight="300" fill="#ffffff" text-anchor="middle">9:41</text>
+  <!-- Date -->
+  <text x="200" y="255" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#ffffff" text-anchor="middle">Tuesday, September 9</text>
+
+  <!-- Press home to unlock -->
+  <text x="200" y="565" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="16" font-weight="400" fill="#ffffff" text-anchor="middle" opacity="0.8">Press home to unlock</text>
+</svg>

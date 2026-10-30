@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 720" width="100%" height="100%">
+  <defs>
+    <!-- Device Outer Band (Flat Polished Silver Stainless Steel) -->
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f2f2f4"/>
+      <stop offset="25%" stop-color="#cfd0d4"/>
+      <stop offset="50%" stop-color="#9ea0a6"/>
+      <stop offset="75%" stop-color="#cfd0d4"/>
+      <stop offset="100%" stop-color="#f2f2f4"/>
+    </linearGradient>
+
+    <!-- Side Buttons Gradient (Polished Silver) -->
+    <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#c1c3c8"/>
+      <stop offset="100%" stop-color="#8a8c92"/>
+    </linearGradient>
+
+    <!-- Screen Gradient (iPhone 13 Pro Silver Abstract Wallpaper) -->
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c8daea"/>
+      <stop offset="35%" stop-color="#567999"/>
+      <stop offset="70%" stop-color="#182533"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Side Buttons (Flat Design) -->
+  <!-- Mute Switch -->
+  <rect x="47" y="140" width="3" height="20" rx="1" fill="url(#buttonGradient)"/>
+  <!-- Volume Up -->
+  <rect x="47" y="175" width="3" height="45" rx="1" fill="url(#buttonGradient)"/>
+  <!-- Volume Down -->
+  <rect x="47" y="235" width="3" height="45" rx="1" fill="url(#buttonGradient)"/>
+  
+  <!-- Right Side Button (Power) -->
+  <rect x="350" y="200" width="3" height="75" rx="1" fill="url(#buttonGradient)"/>
+
+  <!-- Main Outer Body (Silver Band with tighter corner radii for flat edges) -->
+  <rect x="50" y="50" width="300" height="620" rx="42" ry="42" fill="url(#bodyGradient)"/>
+
+  <!-- Antenna Bands (Light Gray inset into the steel frame) -->
+  <rect x="85" y="50" width="5" height="3" fill="#d1d1d6"/>
+  <rect x="310" y="50" width="5" height="3" fill="#d1d1d6"/>
+  <rect x="85" y="667" width="5" height="3" fill="#d1d1d6"/>
+  <rect x="310" y="667" width="5" height="3" fill="#d1d1d6"/>
+  <rect x="50" y="105" width="3" height="5" fill="#d1d1d6"/>
+  <rect x="347" y="105" width="3" height="5" fill="#d1d1d6"/>
+  <rect x="50" y="610" width="3" height="5" fill="#d1d1d6"/>
+  <rect x="347" y="610" width="3" height="5" fill="#d1d1d6"/>
+
+  <!-- Inner Black Bezel (Glass Edge) -->
+  <rect x="53" y="53" width="294" height="614" rx="39" ry="39" fill="#000000"/>
+
+  <!-- Active Display Area (Edge-to-Edge) -->
+  <rect x="58" y="58" width="284" height="604" rx="34" ry="34" fill="url(#screenGradient)"/>
+
+  <!-- The Narrower iPhone 13 Notch -->
+  <path d="M 135 58 
+           L 142 58 
+           C 148 58 152 64 152 70 
+           C 152 77 157 82 164 82 
+           L 236 82 
+           C 243 82 248 77 248 70 
+           C 248 64 252 58 258 58 
+           L 265 58 Z" 
+        fill="#000000"/>
+
+  <!-- Top Earpiece Speaker (Moved up to the very edge of the glass bezel) -->
+  <rect x="175" y="54" width="50" height="3" rx="1.5" fill="#151515"/>
+
+  <!-- Notch Sensors (Reorganized for 13 Pro) -->
+  <!-- Front Camera (Moved to the Left) -->
+  <circle cx="170" cy="70" r="5" fill="#050505"/>
+  <circle cx="170" cy="70" r="1.5" fill="#1c1c24"/>
+  <!-- IR Camera & Dot Projector (Right) -->
+  <circle cx="230" cy="70" r="3" fill="#050505"/>
+  <circle cx="218" cy="70" r="2.5" fill="#050505"/>
+
+  <!-- Status Bar UI -->
+  <!-- Time (Left - adjusted position for narrower notch) -->
+  <text x="96" y="75" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">9:41</text>
+  
+  <!-- Cellular Bars (Right) -->
+  <g transform="translate(268, 65)">
+    <rect x="0" y="6" width="2.5" height="3" rx="1" fill="#ffffff"/>
+    <rect x="4" y="4" width="2.5" height="5" rx="1" fill="#ffffff"/>
+    <rect x="8" y="2" width="2.5" height="7" rx="1" fill="#ffffff"/>
+    <rect x="12" y="0" width="2.5" height="9" rx="1" fill="#ffffff"/>
+  </g>
+
+  <!-- Wi-Fi Icon (Added for realism) -->
+  <g transform="translate(286, 64.5)">
+    <path d="M 0 5 Q 4.5 1 9 5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 2 7.5 Q 4.5 5 7 7.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="4.5" cy="10" r="1.2" fill="#ffffff"/>
+  </g>
+
+  <!-- Battery Icon (Right) -->
+  <g transform="translate(303, 64.5)">
+    <rect x="0" y="0" width="18" height="9" rx="2.5" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+    <rect x="2" y="2" width="11" height="5" rx="1" fill="#ffffff"/>
+    <path d="M 19 3 A 1.5 1.5 0 0 1 19 6" fill="#ffffff"/>
+  </g>
+
+  <!-- Lock Screen UI -->
+  <!-- Face ID Padlock -->
+  <rect x="193" y="103" width="14" height="10" rx="2" fill="#ffffff"/>
+  <path d="M 196 103 v -3.5 a 4 4 0 0 1 8 0 v 3.5" fill="none" stroke="#ffffff" stroke-width="2"/>
+
+  <!-- Clock -->
+  <text x="200" y="180" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="68" font-weight="200" fill="#ffffff" text-anchor="middle">9:41</text>
+  
+  <!-- Date -->
+  <text x="200" y="215" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#ffffff" text-anchor="middle">Tuesday, September 9</text>
+
+  <!-- Quick Action Buttons -->
+  <!-- Flashlight Button -->
+  <circle cx="105" cy="580" r="22" fill="#1c1c1c" opacity="0.6"/>
+  <g transform="translate(100, 568)">
+    <path d="M 1.5 4 L 3.5 0 h 3 L 8.5 4 Z" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+    <rect x="2.5" y="4" width="5" height="10" rx="1" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="5" y1="7" x2="5" y2="10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Camera Button -->
+  <circle cx="295" cy="580" r="22" fill="#1c1c1c" opacity="0.6"/>
+  <g transform="translate(287, 572)">
+    <rect x="0" y="2" width="16" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <circle cx="8" cy="7.5" r="3.5" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <path d="M 4 2 v -1.5 h 4 v 1.5" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  </g>
+
+  <!-- Swipe Up Indicator -->
+  <text x="200" y="630" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff" text-anchor="middle" opacity="0.8">Swipe up to open</text>
+  
+  <!-- Home Indicator Bar -->
+  <rect x="135" y="648" width="130" height="4.5" rx="2.25" fill="#ffffff"/>
+</svg>

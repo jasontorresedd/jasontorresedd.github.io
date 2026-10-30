@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 720" width="100%" height="100%">
+  <defs>
+    <!-- Device Outer Band (Space Gray) -->
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#555759"/>
+      <stop offset="100%" stop-color="#3b3d3f"/>
+    </linearGradient>
+
+    <!-- Screen Gradient (Wallpaper) -->
+    <linearGradient id="screenGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141e30"/>
+      <stop offset="100%" stop-color="#243b55"/>
+    </linearGradient>
+
+    <!-- Touch ID Ring -->
+    <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a3a3a"/>
+      <stop offset="100%" stop-color="#111111"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Left Side Buttons -->
+  <!-- Mute Switch -->
+  <rect x="47" y="120" width="3" height="25" rx="1.5" fill="#444"/>
+  <!-- Volume Up -->
+  <rect x="47" y="170" width="3" height="40" rx="1.5" fill="#444"/>
+  <!-- Volume Down -->
+  <rect x="47" y="225" width="3" height="40" rx="1.5" fill="#444"/>
+  
+  <!-- Right Side Button (Power) -->
+  <rect x="350" y="170" width="3" height="40" rx="1.5" fill="#444"/>
+
+  <!-- Main Outer Body -->
+  <rect x="50" y="50" width="300" height="620" rx="42" ry="42" fill="url(#bodyGradient)"/>
+
+  <!-- Black Front Panel -->
+  <rect x="52" y="52" width="296" height="616" rx="40" ry="40" fill="#1c1c1c"/>
+
+  <!-- 16:9 Display Area (750x1334 scaled equivalent) -->
+  <rect x="65" y="120" width="270" height="480" fill="url(#screenGradient)"/>
+
+  <!-- Top Bezel Elements -->
+  <!-- Ambient Light Sensor -->
+  <circle cx="200" cy="70" r="3" fill="#0f0f0f"/>
+  
+  <!-- Earpiece -->
+  <rect x="175" y="85" width="50" height="6" rx="3" fill="#2a2a2a"/>
+  
+  <!-- Front-Facing Camera -->
+  <circle cx="135" cy="88" r="5.5" fill="#050505"/>
+  <circle cx="135" cy="88" r="2" fill="#292929"/>
+
+  <!-- Bottom Bezel Elements (Touch ID Home Button) -->
+  <circle cx="200" cy="634" r="23" fill="#1c1c1c" stroke="url(#ringGradient)" stroke-width="2"/>
+  <circle cx="200" cy="634" r="20" fill="#141414"/>
+
+  <!-- On-Screen UI Elements (Lock Screen) -->
+  <!-- Time -->
+  <text x="200" y="220" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="64" font-weight="200" fill="#ffffff" text-anchor="middle">9:41</text>
+  <!-- Date -->
+  <text x="200" y="255" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#ffffff" text-anchor="middle">Tuesday, September 9</text>
+
+  <!-- Slide to Unlock -->
+  <g opacity="0.9">
+    <!-- Chevron -->
+    <path d="M125 545 L133 553 L125 561" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+    <!-- Text -->
+    <text x="210" y="559" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="300" fill="#ffffff" text-anchor="middle">slide to unlock</text>
+  </g>
+</svg>

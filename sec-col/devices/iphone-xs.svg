@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 720" width="100%" height="100%">
+  <defs>
+    <!-- Device Outer Band (Glossy Silver Stainless Steel) -->
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="20%" stop-color="#e1e1e6"/>
+      <stop offset="40%" stop-color="#9ea0a6"/>
+      <stop offset="60%" stop-color="#e1e1e6"/>
+      <stop offset="80%" stop-color="#8a8c92"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+
+    <!-- Side Buttons Gradient (Polished Silver) -->
+    <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#b5b7bd"/>
+      <stop offset="100%" stop-color="#7e8085"/>
+    </linearGradient>
+
+    <!-- Screen Gradient (Silver/Cool Blue iOS "Bubble" Wallpaper) -->
+    <radialGradient id="screenGradient" cx="80%" cy="75%" r="75%">
+      <stop offset="0%" stop-color="#a0c4ff"/>
+      <stop offset="35%" stop-color="#3b4260"/>
+      <stop offset="65%" stop-color="#14151a"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Left Side Buttons -->
+  <!-- Mute Switch -->
+  <rect x="47" y="115" width="3" height="20" rx="1.5" fill="url(#buttonGradient)"/>
+  <!-- Volume Up -->
+  <rect x="47" y="145" width="3" height="40" rx="1.5" fill="url(#buttonGradient)"/>
+  <!-- Volume Down -->
+  <rect x="47" y="195" width="3" height="40" rx="1.5" fill="url(#buttonGradient)"/>
+  
+  <!-- Right Side Button (Elongated Power Button) -->
+  <rect x="350" y="160" width="3" height="75" rx="1.5" fill="url(#buttonGradient)"/>
+
+  <!-- Main Outer Body (Silver Band) -->
+  <rect x="50" y="50" width="300" height="620" rx="42" ry="42" fill="url(#bodyGradient)"/>
+
+  <!-- Inner Black Bezel (Glass Edge) -->
+  <rect x="52" y="52" width="296" height="616" rx="40" ry="40" fill="#000000"/>
+
+  <!-- Active Display Area (Edge-to-Edge) -->
+  <rect x="57" y="57" width="286" height="606" rx="35" ry="35" fill="url(#screenGradient)"/>
+
+  <!-- The Notch -->
+  <path d="M 115 57 
+           L 122 57 
+           C 130 57 135 64 135 72 
+           C 135 80 141 85 149 85 
+           L 251 85 
+           C 259 85 265 80 265 72 
+           C 265 64 270 57 278 57 
+           L 285 57 Z" 
+        fill="#000000"/>
+
+  <!-- Notch Sensors & Earpiece -->
+  <!-- IR Camera (Face ID) -->
+  <circle cx="155" cy="71" r="3" fill="#050505"/>
+  <circle cx="168" cy="71" r="2.5" fill="#050505"/>
+  <!-- Earpiece -->
+  <rect x="180" y="69" width="40" height="4" rx="2" fill="#151515"/>
+  <!-- Front Camera -->
+  <circle cx="235" cy="71" r="4.5" fill="#050505"/>
+  <circle cx="235" cy="71" r="1.5" fill="#1c1c24"/>
+
+  <!-- Status Bar UI -->
+  <!-- Time (Left) -->
+  <text x="85" y="74" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="middle">9:41</text>
+  
+  <!-- Cellular Bars (Right) -->
+  <g transform="translate(285, 65)">
+    <rect x="0" y="6" width="2.5" height="3" rx="1" fill="#ffffff"/>
+    <rect x="4" y="4" width="2.5" height="5" rx="1" fill="#ffffff"/>
+    <rect x="8" y="2" width="2.5" height="7" rx="1" fill="#ffffff"/>
+    <rect x="12" y="0" width="2.5" height="9" rx="1" fill="#ffffff"/>
+  </g>
+
+  <!-- Battery Icon (Right) -->
+  <g transform="translate(310, 64.5)">
+    <rect x="0" y="0" width="16" height="8" rx="2" fill="none" stroke="#ffffff" stroke-width="1"/>
+    <rect x="2" y="2" width="10" height="4" rx="1" fill="#ffffff"/>
+    <path d="M 17 2.5 A 1.5 1.5 0 0 1 17 5.5" fill="#ffffff"/>
+  </g>
+
+  <!-- Lock Screen UI -->
+  <!-- Face ID Padlock -->
+  <rect x="193" y="103" width="14" height="10" rx="2" fill="#ffffff"/>
+  <path d="M 196 103 v -3.5 a 4 4 0 0 1 8 0 v 3.5" fill="none" stroke="#ffffff" stroke-width="2"/>
+
+  <!-- Clock -->
+  <text x="200" y="180" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="64" font-weight="200" fill="#ffffff" text-anchor="middle">9:41</text>
+  
+  <!-- Date -->
+  <text x="200" y="215" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" font-weight="400" fill="#ffffff" text-anchor="middle">Tuesday, September 9</text>
+
+  <!-- Quick Action Buttons -->
+  <!-- Flashlight Button -->
+  <circle cx="105" cy="580" r="22" fill="#1c1c1c" opacity="0.6"/>
+  <g transform="translate(100, 568)">
+    <path d="M 1.5 4 L 3.5 0 h 3 L 8.5 4 Z" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+    <rect x="2.5" y="4" width="5" height="10" rx="1" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="5" y1="7" x2="5" y2="10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Camera Button -->
+  <circle cx="295" cy="580" r="22" fill="#1c1c1c" opacity="0.6"/>
+  <g transform="translate(287, 572)">
+    <rect x="0" y="2" width="16" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <circle cx="8" cy="7.5" r="3.5" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <path d="M 4 2 v -1.5 h 4 v 1.5" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  </g>
+
+  <!-- Swipe Up Indicator -->
+  <text x="200" y="630" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff" text-anchor="middle" opacity="0.8">Swipe up to open</text>
+  
+  <!-- Home Indicator Bar -->
+  <rect x="135" y="648" width="130" height="4.5" rx="2.25" fill="#ffffff"/>
+</svg>

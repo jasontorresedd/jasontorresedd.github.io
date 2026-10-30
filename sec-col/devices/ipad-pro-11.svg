@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- Device Outer Band (Space Black/Dark Gray Aluminum) -->
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a4a4c"/>
+      <stop offset="20%" stop-color="#2c2c2e"/>
+      <stop offset="80%" stop-color="#2c2c2e"/>
+      <stop offset="100%" stop-color="#1a1a1c"/>
+    </linearGradient>
+
+    <!-- Side Buttons Gradient -->
+    <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5a5a5c"/>
+      <stop offset="100%" stop-color="#2c2c2e"/>
+    </linearGradient>
+
+    <!-- Screen Gradient (Silver Titanium iOS 18 Abstract Glow) -->
+    <radialGradient id="screenGradient" cx="85%" cy="25%" r="85%">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="25%" stop-color="#738294"/>
+      <stop offset="60%" stop-color="#161a21"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Left Side Button (Power/Top Button in Portrait, Left in Landscape) -->
+  <rect x="47" y="85" width="3" height="45" rx="1.5" fill="url(#buttonGradient)"/>
+
+  <!-- Top Side Buttons (Volume) -->
+  <rect x="90" y="47" width="45" height="3" rx="1.5" fill="url(#buttonGradient)"/>
+  <rect x="145" y="47" width="45" height="3" rx="1.5" fill="url(#buttonGradient)"/>
+
+  <!-- Main Outer Body (Space Black flat edges) -->
+  <rect x="50" y="50" width="700" height="500" rx="42" ry="42" fill="url(#bodyGradient)"/>
+
+  <!-- Antenna Bands -->
+  <rect x="100" y="50" width="4" height="3" fill="#1c1c1e"/>
+  <rect x="696" y="50" width="4" height="3" fill="#1c1c1e"/>
+  <rect x="100" y="547" width="4" height="3" fill="#1c1c1e"/>
+  <rect x="696" y="547" width="4" height="3" fill="#1c1c1e"/>
+  <rect x="50" y="110" width="3" height="4" fill="#1c1c1e"/>
+  <rect x="747" y="110" width="3" height="4" fill="#1c1c1e"/>
+
+  <!-- Apple Pencil Magnetic Connector (Top Edge Center) -->
+  <rect x="360" y="49" width="80" height="2" rx="1" fill="#1c1c1e"/>
+
+  <!-- Inner Black Bezel (Uniform display border) -->
+  <rect x="53" y="53" width="694" height="494" rx="39" ry="39" fill="#000000"/>
+
+  <!-- Active Display Area (11-inch aspect ratio) -->
+  <rect x="75" y="75" width="650" height="450" rx="24" ry="24" fill="url(#screenGradient)"/>
+
+  <!-- Landscape Camera Array & Face ID Sensors (Top Bezel) -->
+  <!-- IR Sensor -->
+  <circle cx="385" cy="64" r="3.5" fill="#050505"/>
+  <circle cx="385" cy="64" r="1.5" fill="#151515"/>
+  <!-- Front Facing Camera -->
+  <circle cx="400" cy="64" r="5" fill="#080808"/>
+  <circle cx="400" cy="64" r="2" fill="#1c1c24"/>
+  <!-- Ambient Light Sensor -->
+  <circle cx="412" cy="64" r="2.5" fill="#050505"/>
+  <!-- Microphone -->
+  <circle cx="422" cy="64" r="1.5" fill="#1c1c1e"/>
+
+  <!-- Status Bar UI (iPadOS) -->
+  <!-- Date (Top Left) -->
+  <text x="105" y="98" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="500" fill="#ffffff" text-opacity="0.8" text-anchor="start">Sun Oct 25</text>
+  <!-- Time (Top Left) -->
+  <text x="180" y="98" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-opacity="0.8" text-anchor="start">10:22 PM</text>
+
+  <!-- Wi-Fi Icon (Top Right) -->
+  <g transform="translate(650, 87)" opacity="0.8">
+    <path d="M 0 5 Q 5.5 0.5 11 5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 2.5 8 Q 5.5 5.5 8.5 8" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="5.5" cy="11" r="1.5" fill="#ffffff"/>
+  </g>
+
+  <!-- Battery Icon (Top Right) -->
+  <g transform="translate(670, 86)" opacity="0.8">
+    <rect x="0" y="0" width="22" height="11" rx="3" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+    <rect x="2" y="2" width="14" height="7" rx="1.5" fill="#ffffff"/>
+    <path d="M 23 3.5 A 1.5 1.5 0 0 1 23 7.5" fill="#ffffff"/>
+  </g>
+
+  <!-- iPadOS Lock Screen UI -->
+  <!-- Tiny Top Padlock -->
+  <g transform="translate(393, 115)" opacity="0.9">
+    <path d="M 3 5 v -2.5 a 4 4 0 0 1 8 0 v 2.5" fill="none" stroke="#ffffff" stroke-width="2"/>
+    <rect x="0" y="5" width="14" height="9" rx="2" fill="#ffffff"/>
+  </g>
+
+  <!-- Large Lock Screen Date -->
+  <text x="400" y="175" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="24" font-weight="600" fill="#ffffff" text-anchor="middle">Sunday, October 25</text>
+
+  <!-- Bold Lock Screen Time (iOS 18 Heavily Weighted Clock Font) -->
+  <text x="400" y="325" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="140" font-weight="800" letter-spacing="-4" fill="#ffffff" text-anchor="middle">10:22</text>
+
+  <!-- Swipe Up Indicator -->
+  <text x="400" y="490" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="400" fill="#ffffff" text-anchor="middle" opacity="0.8">Swipe up to open</text>
+  
+  <!-- Home Indicator Bar -->
+  <rect x="300" y="510" width="200" height="5" rx="2.5" fill="#ffffff"/>
+</svg>

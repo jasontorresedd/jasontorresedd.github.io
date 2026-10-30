@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 720" width="100%" height="100%">
+  <defs>
+    <!-- Device Outer Band (Matte White Titanium) -->
+    <linearGradient id="bodyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f4f4f4"/>
+      <stop offset="25%" stop-color="#d8d8dc"/>
+      <stop offset="50%" stop-color="#b8b8bc"/>
+      <stop offset="75%" stop-color="#d8d8dc"/>
+      <stop offset="100%" stop-color="#f4f4f4"/>
+    </linearGradient>
+
+    <!-- Side Buttons Gradient (Titanium) -->
+    <linearGradient id="buttonGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#c8c8cc"/>
+      <stop offset="100%" stop-color="#9a9a9e"/>
+    </linearGradient>
+
+    <!-- Screen Gradient (Silver Titanium iOS 18 Abstract Glow) -->
+    <radialGradient id="screenGradient" cx="85%" cy="20%" r="90%">
+      <stop offset="0%" stop-color="#e2e8f0"/>
+      <stop offset="25%" stop-color="#738294"/>
+      <stop offset="60%" stop-color="#161a21"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Left Side Buttons -->
+  <!-- Action Button (Replaces Mute Switch) -->
+  <rect x="47" y="130" width="3" height="18" rx="1.5" fill="url(#buttonGradient)"/>
+  <!-- Volume Up -->
+  <rect x="47" y="165" width="3" height="45" rx="1" fill="url(#buttonGradient)"/>
+  <!-- Volume Down -->
+  <rect x="47" y="225" width="3" height="45" rx="1" fill="url(#buttonGradient)"/>
+  
+  <!-- Right Side Buttons -->
+  <!-- Power Button -->
+  <rect x="350" y="175" width="3" height="70" rx="1" fill="url(#buttonGradient)"/>
+  <!-- Camera Control Button (Flush/Capacitive, Lower Right) -->
+  <rect x="349.5" y="340" width="1.5" height="35" rx="0.5" fill="#a0a0a0"/>
+
+  <!-- Main Outer Body (Titanium Band, slightly taller to represent Max aspect ratio) -->
+  <rect x="50" y="40" width="300" height="640" rx="46" ry="46" fill="url(#bodyGradient)"/>
+
+  <!-- Antenna Bands (Light Gray inset into the titanium frame) -->
+  <rect x="85" y="40" width="5" height="3" fill="#cfcfd4"/>
+  <rect x="310" y="40" width="5" height="3" fill="#cfcfd4"/>
+  <rect x="85" y="677" width="5" height="3" fill="#cfcfd4"/>
+  <rect x="310" y="677" width="5" height="3" fill="#cfcfd4"/>
+  <rect x="50" y="105" width="3" height="5" fill="#cfcfd4"/>
+  <rect x="347" y="105" width="3" height="5" fill="#cfcfd4"/>
+  <rect x="50" y="620" width="3" height="5" fill="#cfcfd4"/>
+  <rect x="347" y="620" width="3" height="5" fill="#cfcfd4"/>
+
+  <!-- Inner Black Bezel (Ultra-thin glass edge) -->
+  <rect x="51.5" y="41.5" width="297" height="637" rx="44.5" ry="44.5" fill="#000000"/>
+
+  <!-- Active Display Area (Ultra-thin iPhone 16 Pro Max borders) -->
+  <rect x="54" y="44" width="292" height="632" rx="42" ry="42" fill="url(#screenGradient)"/>
+
+  <!-- Dynamic Island -->
+  <rect x="142" y="54" width="116" height="24" rx="12" fill="#000000"/>
+  <!-- Dynamic Island Internal Sensors -->
+  <!-- IR Camera (Hidden on the left) -->
+  <circle cx="155" cy="66" r="3" fill="#050505"/>
+  <!-- Front Facing Camera (Right side of the island) -->
+  <circle cx="244" cy="66" r="4.5" fill="#080808"/>
+  <circle cx="244" cy="66" r="1.5" fill="#1c1c24"/>
+
+  <!-- Status Bar UI -->
+  <!-- Time (Left - aligned with Dynamic Island) -->
+  <text x="96" y="72" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">9:41</text>
+  
+  <!-- Cellular Bars (Right) -->
+  <g transform="translate(272, 61)">
+    <rect x="0" y="6" width="2.5" height="3" rx="1" fill="#ffffff"/>
+    <rect x="4" y="4" width="2.5" height="5" rx="1" fill="#ffffff"/>
+    <rect x="8" y="2" width="2.5" height="7" rx="1" fill="#ffffff"/>
+    <rect x="12" y="0" width="2.5" height="9" rx="1" fill="#ffffff"/>
+  </g>
+
+  <!-- Wi-Fi Icon -->
+  <g transform="translate(290, 60.5)">
+    <path d="M 0 5 Q 4.5 1 9 5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M 2 7.5 Q 4.5 5 7 7.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+    <circle cx="4.5" cy="10" r="1.2" fill="#ffffff"/>
+  </g>
+
+  <!-- Battery Icon (Solid interior for modern iOS percentage look) -->
+  <g transform="translate(307, 60.5)">
+    <rect x="0" y="0" width="18" height="9" rx="2.5" fill="none" stroke="#ffffff" stroke-width="1.2"/>
+    <rect x="1.5" y="1.5" width="12" height="6" rx="1.5" fill="#ffffff"/>
+    <path d="M 19 3 A 1.5 1.5 0 0 1 19 6" fill="#ffffff"/>
+  </g>
+
+  <!-- iOS 18 Lock Screen UI -->
+  <!-- Tiny Top Padlock -->
+  <g transform="translate(195, 110)">
+    <path d="M 2 4 v -1.5 a 3 3 0 0 1 6 0 v 1.5" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <rect x="0" y="4" width="10" height="7" rx="1.5" fill="#ffffff"/>
+  </g>
+
+  <!-- Date -->
+  <text x="200" y="145" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle">Tuesday, September 9</text>
+
+  <!-- Clock (Bold iOS 16+ Style) -->
+  <text x="200" y="235" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="84" font-weight="800" letter-spacing="-2" fill="#ffffff" text-anchor="middle">9:41</text>
+
+  <!-- Quick Action Buttons -->
+  <!-- Flashlight Button -->
+  <circle cx="100" cy="610" r="22" fill="#1c1c1c" opacity="0.6"/>
+  <g transform="translate(95, 598)">
+    <path d="M 1.5 4 L 3.5 0 h 3 L 8.5 4 Z" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linejoin="round"/>
+    <rect x="2.5" y="4" width="5" height="10" rx="1" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <line x1="5" y1="7" x2="5" y2="10" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Camera Button -->
+  <circle cx="300" cy="610" r="22" fill="#1c1c1c" opacity="0.6"/>
+  <g transform="translate(292, 602)">
+    <rect x="0" y="2" width="16" height="11" rx="2" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <circle cx="8" cy="7.5" r="3.5" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+    <path d="M 4 2 v -1.5 h 4 v 1.5" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  </g>
+  
+  <!-- Home Indicator Bar -->
+  <rect x="135" y="662" width="130" height="4.5" rx="2.25" fill="#ffffff"/>
+</svg>
