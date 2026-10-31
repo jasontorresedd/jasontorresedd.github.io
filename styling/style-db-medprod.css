@@ -489,6 +489,10 @@
   .takeaway p {
     margin: 0;
   }
+  /* Break between consecutive paragraphs (not after the big figure) */
+  .takeaway > div > p:not(.big) + p {
+    margin-top: var(--sp-4);
+  }
   .takeaway .big {
     font: var(--fw-semibold) var(--fs-h2) / var(--lh-h2) var(--font-display);
     color: var(--color-callout);
@@ -505,7 +509,7 @@
     display: grid;
     grid-template-columns: minmax(10rem, max-content) 1fr;
     column-gap: var(--sp-6);
-    row-gap: var(--sp-2);
+    row-gap: 0;
     align-items: baseline;
   }
   .takeaway--wide .big {
