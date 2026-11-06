@@ -1323,9 +1323,9 @@
     padding: 8px 20px;
     font-variant: small-caps;
     letter-spacing: 1px;
-    background: var(--color-primary);
+    background: var(--color-primary-mid-alt);
     color: var(--c-white);
-    text-decoration: none; /* flat box, not underlined text */
+    text-decoration: none; /* flat box, no underlined text */
     transition: background-color 0.25s ease;
   }
 
