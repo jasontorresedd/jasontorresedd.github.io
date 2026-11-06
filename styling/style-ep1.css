@@ -83,6 +83,7 @@
     --color-bg-light: #f2f7ff;
     --color-bg-dark: #0e1b3d; /* hero background */
     --color-primary: #1e5fe0; /* primary accent */
+    --color-primary-mid-alt: #174ab0; /* heading accent top */
     --color-accent: #5faef5; /* secondary accent */
     --color-accent-hover: #ff6b4a; /* hover accent */
     --color-bg-section: #fcfcfa; /* body background */
@@ -596,7 +597,7 @@
     width: 100px;
     height: 10px;
     margin-bottom: 16px;
-    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    background: linear-gradient(180deg, var(--color-primary-mid-alt) 0%, var(--color-accent) 100%);
   }
   /* End — Heading Accent */
 
