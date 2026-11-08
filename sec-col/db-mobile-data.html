@@ -11,17 +11,22 @@
   </head>
 
   <body>
-    <!-- ===== HERO ===== -->
-    <header class="hero" id="top">
+    <!-- ===== STICKY BREADCRUMB BAR ===== -->
+    <div class="crumbbar" id="top">
       <div class="wrapper">
         <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="../index.html">jasontorresedd.com</a>
+          <a href="/index.html">jasontorresedd.com</a>
           <span aria-hidden="true">/</span>
-          <a href="../index.html#collections">collections</a>
+          <a href="/index.html#collections">collections</a>
           <span aria-hidden="true">/</span>
           <span aria-current="page">mobile data</span>
         </nav>
+      </div>
+    </div>
 
+    <!-- ===== HERO ===== -->
+    <header class="hero hero--after-crumbbar">
+      <div class="wrapper">
         <h1>Mobile Data</h1>
         <p class="hero-tag">Dashboard</p>
         <p class="hero__lede">This is an introduction to a dashboard developed as a side project and just for fun. Inspired by a training I designed for a client, I began wanting to experiment with designing and developing my own dashboard with Claude. Recalling a dataset I have created over 10 years of tracking my own mobile data use across carriers and devices, I decided to turn this data into an interactive dashboard. This was my first attempt planning, designing, and developing a dashboard with Claude.</p>

@@ -100,7 +100,6 @@
   :root {
     --c-white: #ffffff;
     --color-main-bg: var(--c-white);
-
     --color-primary: #1e5fe0; /* Original: primary color */
     --color-primary-alt: #0e1b3d; /* Alternative: primary color (see `ep1.css` hero) */
     --color-primary-mid-alt: #174ab0; /* Alternative: darker primary for hero buttons + contact line */
@@ -174,10 +173,23 @@
   html {
     scroll-behavior: smooth;
     overflow-x: clip;
+    background-color: var(--color-primary-alt); /* Overscroll (rubber-band) at the top matches nav */
+  }
+
+  html.is-near-bottom {
+    background-color: var(--color-primary);
+  }
+
+  @supports (font: -apple-system-body) {
+    html,
+    html.is-near-bottom {
+      background-color: var(--color-primary-alt);
+      background-image: linear-gradient(to bottom, var(--color-primary) 50%, var(--color-primary-alt) 50%);
+    }
   }
 
   body {
-    background-color: var(--color-main-bg);
+    background-image: linear-gradient(var(--color-main-bg), var(--color-main-bg));
     font-family: var(--font-body);
     font-weight: var(--fw-regular);
     font-size: var(--fs-p);

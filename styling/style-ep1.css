@@ -69,7 +69,7 @@
     --fs-nav: 0.875rem;
     --fs-contact: 1.125rem;
     --fs-tag: 1.5rem;
-    --fs-h1: 3rem;
+    --fs-h1: 4rem;
     --fs-h2: 2rem;
     --fs-h3: 1.5rem;
     --fs-h4: 1.25rem;
@@ -138,6 +138,12 @@
   /* Start — Base Elements */
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
+    background-color: var(--color-bg-dark); /* Overscroll (rubber-band) at the top matches hero */
+  }
+
+  html.is-near-bottom {
+    background-color: var(--color-primary);
   }
 
   body {
@@ -145,7 +151,8 @@
     font-size: 1rem;
     line-height: 1.6;
     color: var(--color-body-text);
-    background: var(--color-bg-section);
+    background-image: linear-gradient(var(--color-bg-section), var(--color-bg-section));
+    overflow-x: clip;
   }
 
   h1,
@@ -515,6 +522,25 @@
   }
   /* End — Hero */
 
+  /* Start — Sticky breadcrumb bar
+     Slim height on load and when pinned, never visibly shrinks. */
+  .crumbbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--color-bg-dark);
+    padding-block: 14px;
+  }
+  .hero--after-crumbbar {
+    padding-top: 72px;
+  }
+
+  /* Keeps anchor targets from landing under the pinned bar */
+  [id] {
+    scroll-margin-top: 60px;
+  }
+  /* End — Sticky breadcrumb bar */
+
   /* Start — Page Body */
   .page-body {
     background-color: var(--color-bg-section);
@@ -621,6 +647,9 @@
   }
   .breadcrumb [aria-current] {
     color: var(--color-accent);
+  }
+  .crumbbar .breadcrumb {
+    margin-bottom: 0;
   }
   /* End — Breadcrumb */
 

@@ -1,3 +1,16 @@
+// Start — Overscroll color (top = hero navy, bottom = footer azure) //
+/* Browsers paint the rubber-band area with the <html> background color, which can only be one color.
+   Swap it once the reader is past the halfway point, so each end shows its matching color (see style-ep1.css). */
+const root = document.documentElement;
+const setOverscrollColor = () => {
+  const max = root.scrollHeight - window.innerHeight;
+  root.classList.toggle("is-near-bottom", max > 0 && window.scrollY > max / 2);
+};
+window.addEventListener("scroll", setOverscrollColor, { passive: true });
+window.addEventListener("resize", setOverscrollColor);
+setOverscrollColor();
+// End — Overscroll color //
+
 // Start — Footer, smooth "Return to Top" //
 const toTop = document.querySelector(".footer__gototop a");
 

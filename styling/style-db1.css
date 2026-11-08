@@ -330,6 +330,7 @@
   html {
     scroll-behavior: smooth;
     color-scheme: dark;
+    background-color: var(--color-footer-bg); /* Canvas: overscroll (rubber-band) top and bottom shows #000000 */
   }
 
   body {
@@ -337,18 +338,13 @@
     font-size: var(--fs-p);
     line-height: 1.65;
     color: var(--color-text);
-    background-color: var(--color-bg);
-  }
-
-  /* Grid background. Fixed, so the grid stays put while content scrolls over it. */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    pointer-events: none;
-    background-image: linear-gradient(var(--color-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
-    background-size: 44px 44px;
+    background-color: var(--color-footer-bg);
+    background-image: linear-gradient(var(--color-grid-line) 1px, transparent 1px), linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px), linear-gradient(var(--color-bg), var(--color-bg)); /* page color, under the grid */
+    background-size:
+      44px 44px,
+      44px 44px,
+      auto;
+    background-attachment: fixed;
   }
 
   h1,
@@ -404,74 +400,74 @@
   /* End — Base Elements */
 
   /* Start — Highlighting */
-  .highlight-yellow {
-    background-color: hsl(46, 100%, 65%);
+  .highlight-yellow-dark {
+    background-color: hsl(46, 100%, 25%);
   }
 
-  .highlight-orange {
-    background-color: hsl(28, 100%, 72%);
+  .highlight-orange-dark {
+    background-color: hsl(28, 100%, 33%);
   }
 
-  .highlight-green {
-    background-color: hsl(162, 100%, 68%);
+  .highlight-green-dark {
+    background-color: hsl(162, 100%, 23%);
   }
 
-  .highlight-pink {
-    background-color: hsl(307, 91%, 82%);
+  .highlight-pink-dark {
+    background-color: hsl(307, 85%, 40%);
   }
 
-  .highlight-purple {
-    background-color: hsl(263, 100%, 83%);
+  .highlight-purple-dark {
+    background-color: hsl(263, 86%, 42%);
   }
 
-  .highlight-blue {
-    background-color: hsl(205, 100%, 78%);
+  .highlight-blue-dark {
+    background-color: hsl(205, 100%, 36%);
   }
   /* End — Highlighting */
 
   /* Start — Marker highlight */
-  .marker-yellow {
+  .marker-yellow-dark {
     margin: 0 -0.4em;
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(to right, hsla(46, 100%, 65%, 0.1), hsla(46, 100%, 65%, 0.7) 4%, hsla(46, 100%, 65%, 0.3));
+    background-image: linear-gradient(to right, hsla(46, 100%, 32%, 0.1), hsla(46, 100%, 32%, 0.7) 4%, hsla(46, 100%, 32%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
-  .marker-orange {
+  .marker-orange-dark {
     margin: 0 -0.4em;
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(to right, hsla(28, 100%, 72%, 0.1), hsla(28, 100%, 72%, 0.7) 4%, hsla(28, 100%, 72%, 0.3));
+    background-image: linear-gradient(to right, hsla(28, 100%, 40%, 0.1), hsla(28, 100%, 40%, 0.7) 4%, hsla(28, 100%, 40%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
-  .marker-green {
+  .marker-green-dark {
     margin: 0 -0.4em;
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(to right, hsla(162, 100%, 68%, 0.1), hsla(162, 100%, 68%, 0.7) 4%, hsla(162, 100%, 68%, 0.3));
+    background-image: linear-gradient(to right, hsla(162, 100%, 28%, 0.1), hsla(162, 100%, 28%, 0.7) 4%, hsla(162, 100%, 28%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
-  .marker-pink {
+  .marker-pink-dark {
     margin: 0 -0.4em;
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(to right, hsla(307, 91%, 82%, 0.1), hsla(307, 91%, 82%, 0.7) 4%, hsla(307, 91%, 82%, 0.3));
+    background-image: linear-gradient(to right, hsla(307, 85%, 50%, 0.1), hsla(307, 85%, 50%, 0.7) 4%, hsla(307, 85%, 50%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
-  .marker-purple {
+  .marker-purple-dark {
     margin: 0 -0.4em;
     padding: 0.1em 0.4em;
     border-radius: 0.8em 0.3em;
     background: transparent;
-    background-image: linear-gradient(to right, hsla(263, 100%, 83%, 0.1), hsla(263, 100%, 83%, 0.7) 4%, hsla(263, 100%, 83%, 0.3));
+    background-image: linear-gradient(to right, hsla(263, 90%, 60%, 0.1), hsla(263, 90%, 60%, 0.7) 4%, hsla(263, 90%, 60%, 0.3));
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
   }
@@ -537,6 +533,31 @@
   }
   /* End — Hero */
 
+  /* Start — Sticky breadcrumb bar
+     Slim height on load and when pinned, never visibly shrinks. */
+  .crumbbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--color-footer-bg);
+    padding-block: 14px;
+  }
+  .hero--after-crumbbar {
+    padding-top: 72px;
+  }
+
+  @media (max-width: 767px) {
+    .hero--after-crumbbar {
+      padding-block-start: 48px; /* same, for the 40px mobile top padding */
+    }
+  }
+
+  /* Keeps anchor targets from landing under the pinned bar */
+  [id] {
+    scroll-margin-top: 60px;
+  }
+  /* End — Sticky breadcrumb bar */
+
   /* Start — Section Padding */
   .selector {
     padding-block: 48px 40px;
@@ -544,7 +565,7 @@
 
   .db-section {
     padding-block: 70px;
-    scroll-margin-top: 16px;
+    scroll-margin-top: 60px;
   }
   .db-section:last-child {
     padding-block-end: 120px; /* Increased space between the final section and footer. */
@@ -606,7 +627,6 @@
 
 @layer components {
   /* Start — Heading Accent */
-  /* Each section takes the color of its selection box via --key (set in "Section Keys"). */
   .heading-accent {
     display: block;
     width: 64px;
@@ -658,6 +678,9 @@
       margin-bottom: 36px;
     }
   }
+  .crumbbar .breadcrumb {
+    margin-bottom: 0;
+  }
   /* End — Breadcrumb */
 
   /* Start — Hero Meta (tag + lede) */
@@ -698,7 +721,6 @@
   }
 
   .selector__box {
-    /* Each box sets --box-stroke (static border), --box (hover fill), and --box-edge (hover border). */
     display: flex;
     align-items: flex-end;
     min-height: clamp(260px, 28vw, 380px);
@@ -719,7 +741,6 @@
       color 0.4s ease;
   }
 
-  /* --box-stroke matches the top border of the cards in each box's section. */
   .selector__box--dashboard {
     --box-stroke: var(--color-supernova);
     --box: var(--color-supernova);
@@ -741,8 +762,6 @@
     --box-edge: var(--color-flare);
   }
 
-  /* Hovered box fills with its color and the text turns black; the others stay dark.
-     Black on each fill: supernova 13.4, tidal 11.5, pulsar 7.1, flare 5.9 (all pass WCAG AA). */
   .selector__box:is(:hover, :focus-visible) {
     background-color: var(--box);
     border-color: var(--box-edge);
@@ -839,12 +858,10 @@
     padding-left: 1.25rem;
   }
 
-  /* Light step text with a bold lead-in label (<b>Step 1:</b>). Bricolage ships 200 as its lightest face, so that is the weight used. */
   .panel__list li {
     font-weight: var(--fw-light);
   }
 
-  /* Explicit weight: the default "bolder" on <b> would only lift a 200 parent to 400. */
   .panel__list li b {
     font-weight: var(--fw-bold);
     color: var(--color-text-strong);
@@ -942,7 +959,6 @@
     color: var(--color-text);
   }
 
-  /* Where the font is used in the dashboard: role on the left, size and weight on the right. */
   .specimen__uses {
     list-style: none;
     margin-top: 20px;
@@ -985,7 +1001,6 @@
   }
 
   .swatch {
-    /* Set per item: style="--swatch: #060f26" (any CSS background, so gradients work too) */
     background: var(--color-surface);
     border: 2px solid var(--color-border);
   }
@@ -1067,7 +1082,6 @@
   /* End — Function List */
 
   /* Start — PDF Viewer */
-  /* Kept for future use with script-db1.js. Not shown unless a .card link opens it. */
   .viewer {
     margin: auto;
     width: min(94vw, 1100px);

@@ -1,3 +1,15 @@
+// Start — Overscroll color (top = nav navy, bottom = footer azure) //
+/* Browsers paint the rubber-band area with the <html> background color, which can only be one color.
+   Swap it once the reader is past the halfway point, so each end shows its matching color (see style-index.css). */
+const root = document.documentElement;
+const setOverscrollColor = () => {
+  const max = root.scrollHeight - window.innerHeight;
+  root.classList.toggle("is-near-bottom", max > 0 && window.scrollY > max / 2);
+};
+window.addEventListener("scroll", setOverscrollColor, { passive: true });
+window.addEventListener("resize", setOverscrollColor);
+setOverscrollColor();
+// End — Overscroll color //
 // Start – Navigation //
 const burger = document.getElementById("burger");
 const menu = document.getElementById("nav-menu");
