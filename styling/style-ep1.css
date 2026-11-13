@@ -197,6 +197,20 @@
     padding-left: 50px;
     margin-bottom: 20px;
   }
+
+  /* Add space between list items */
+  .list__indent > li + li {
+    margin-top: 10px;
+  }
+
+  .list__indent > li::marker {
+    color: var(--color-body-text);
+    font-weight: var(--fw-bold);
+  }
+
+  ol.list__indent > li::marker {
+    font-weight: var(--fw-bold);
+  }
   /* End — Paragraph Text */
 
   /* Start — Tables in main */
@@ -565,7 +579,8 @@
 
   /* Start — Section Padding */
   #overview,
-  #artifacts {
+  #artifacts,
+  #claude-partnering {
     padding-block-start: 50px;
     padding-block-end: 50px;
   }
@@ -576,6 +591,9 @@
   #impact {
     padding-block-start: 50px;
     padding-block-end: 100px; /* Increased space between the final section and footer. */
+  }
+  .page-body section > .wrapper > :last-child {
+    margin-bottom: 0;
   }
   /* End — Section Padding */
 
@@ -787,7 +805,7 @@
     gap: 28px;
     background: var(--color-card);
     border: 1px solid var(--color-hairline);
-    border-top: 6px solid var(--key, var(--color-accent));
+    border-top: 5px solid var(--key, var(--color-primary-mid-alt));
     border-radius: 15px;
     padding: 24px 28px;
     box-shadow: 0 2px 10px rgba(14, 27, 61, 0.05);
